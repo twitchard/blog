@@ -27,6 +27,10 @@ h2 {
   font-size: 2rem;
 }
 
+madness marquee {
+  color: #ddd
+}
+
 article .header {
   font-size: 1.4rem;
   font-style: italic;
