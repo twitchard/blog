@@ -1,0 +1,27 @@
+BLOG_DEST_DIR="$HOME/twitchard.github.io"
+function update {
+    build && sync && deploy
+}
+function build {
+    ./result/bin/site build
+}
+function full_build {
+    nix-build && build
+}
+function sync {
+    rsync -r "./_site/" "${BLOG_DEST_DIR}/"
+}
+function deploy {
+    (
+        cd "${BLOG_DEST_DIR}" && git reset && git add . && git commit -m "Blog update $(date -I)" && git push
+    )
+}
+case $1 in
+    update) build && sync && deploy;;
+    build) build;;
+    sync) sync;;
+    deploy) deploy;;
+
+    full-build) full_build;;
+esac
+    

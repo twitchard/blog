@@ -11,18 +11,6 @@ header {
   border-bottom: 0.2rem solid #000;
 }
 
-nav {
-  text-align: right;
-}
-
-nav a {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: black;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
 footer {
   margin-top: 3rem;
   padding: 1.2rem 0;
@@ -111,7 +99,7 @@ article .header {
 
 @media (min-width: 640px) {
   body {
-    width: 60rem;
+    width: 90%;
     margin: 0 auto;
     padding: 0;
   }
