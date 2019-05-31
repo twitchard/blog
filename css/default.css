@@ -37,6 +37,11 @@ article .header {
   color: #555;
 }
 
+.poetry p {
+  margin: 0;
+  font-family: sans;
+}
+
 .logo a {
   font-weight: bold;
   color: #000;
