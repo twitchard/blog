@@ -13,7 +13,7 @@ function sync {
 }
 function deploy {
     (
-        cd "${BLOG_DEST_DIR}" && git reset && git add . && git commit -m "Blog update $(date -I)" && git push
+        cd "${BLOG_DEST_DIR}" && git reset && git add . && git commit -m "Blog update $(date)" && git push
     )
 }
 case $1 in
