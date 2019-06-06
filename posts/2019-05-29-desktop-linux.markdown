@@ -1,5 +1,6 @@
 ---
 title: Desktop Linux, a hill I will die on
+class: prose
 ---
 
 When I was a Junior in high-school, I ordered a free "Kubuntu" CD to be shipped to me from the Internet, and when it arrived I accidentally wiped the family (Windows) computer, and replaced it with Linux. This seemed like a disaster at the time. My family wasn't exactly pleased. Data was lost. But Linux stayed, and in retrospect, this is probably the best thing that's happened to my professional life.

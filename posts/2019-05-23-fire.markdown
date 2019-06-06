@@ -1,6 +1,6 @@
 ---
 title: Building a Playground for Ideas
-class: poetry
+class: prose
 ---
 
 ## Is mediocrity enough?
