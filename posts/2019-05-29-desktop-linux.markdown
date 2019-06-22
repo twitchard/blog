@@ -1,8 +1,17 @@
 ---
-title: Desktop Linux, a hill I will die on
+title: Desktop Linux, The Hill I Thought I Would Die On
 class: prose
 ---
 
+**Update:** I wrote this post on May 29. I titled it "A Hill I Will Die On" On June 14, two things happened:
+
+1. I accepted an (incredible) job before asking whether I would be permitted to use Desktop Linux. I have no explanation for this, other than, maybe Linux isn't as important to my identity as I'd like to believe. Or maybe I'm a sellout.
+
+2. My apartment was burgled, a laptop was stolen, and I was very grateful that it was a Mac with encryption and security software running on it, and not my Linux laptop.
+
+This second item has... very much changed my perspective on the value proposition of Desktop Linux vs Mac.
+
+**Original Text:**
 When I was a Junior in high-school, I ordered a free "Kubuntu" CD to be shipped to me from the Internet, and when it arrived I accidentally wiped the family (Windows) computer, and replaced it with Linux. This seemed like a disaster at the time. My family wasn't exactly pleased. Data was lost. But Linux stayed, and in retrospect, this is probably the best thing that's happened to my professional life.
 
 I stopped playing video games -- that's wasn't really possible on Linux. And the time that I would have spent playing Starcraft or whatever, I spent learning about software and Linux systems.
