@@ -48,7 +48,7 @@ The worst thing about Jenkins is that it works. It can meet your needs. With a l
 ### High indirection between you and the execution of your code.
 
 For me, the bulk of the actual work of a CI pipeline takes the form of shell commands. are typically executed inside shell commands. In Jenkins pipeline, there is a 'sh' "step" that executes the shell. For example
-```
+```groovy
   sh 'npm install'
   sh 'make'
 ```
@@ -81,7 +81,7 @@ TL;DR, the feedback loop sucks. You'll never be able to effectively test any of 
 ### Low level of discoverability
 
 A lot of functionality that Jenkins has in the web UI -- especially the functionality that comes through plugins -- is also possible to define in pipelines, but the means for doing this is not well-documented. For example, there's this [plugin](https://github.com/jenkinsci/throttle-concurrent-builds-plugin) that permits you to "throttle" a job so that multiple jobs don't fire at once. that you can see inside the UI. After probably half a day of Googling, trial and error, and thanks to a stroke of luck, I figured out that I could accomplish what I wanted by putting the following in my Jenkinsfile:
-```
+```groovy
 properties([[
         $class: 'ThrottleJobProperty',
         maxConcurrentTotal: 5,
@@ -102,6 +102,33 @@ Really, this experience sucks. I don't really do any sort of other engineering l
 
 Blue Ocean looks more modern than the classic Jenkins UI -- I'll give it that. Unfortunately, it's missing functionality, so you'll have to use and become familiar with the classic Jenkins UI anyway. It's also just not a pleasant UI to use! I'm not much of a design person or a front-end developer, so I can't articulate precisely what it is that makes the interface unpleasant, but it always seems to take several clicks in places I don't expect in order to do what I'm trying to do -- usually, I just want to run the build, or see the output of the build.
 
-I'm running out of steam. There are more complaints that are worth writing down. I will update this post in-place
+### Docker
 
-... to be continued
+It is possible to have your builds run inside docker containers. Jenkins 2 does let the job author specify a docker image, or dockerfile -- even kubernetes configurations for autoscaling! So, in principle, the problem of letting job authors own their job's environment is solved.
+
+The only problem is that this problem is solved by incorporating the idea of a "Jenkins worker" INTO the idea of a Docker container. These two ideas don't always play well together. For example, one thing I kind of expected/hoped for was that, defining a Jenkinsfile to use a Dockerfile, and then giving it a build step like
+```groovy
+  sh 'make test'
+```
+
+would be approximately the same thing as
+```bash
+docker build . -t foo
+docker run foo make test
+```
+
+But it different in one very significant way. With `docker run`, your cwd is whatever the Dockerfile defined. In a Jenkins job, the cwd is the Jenkins workspace -- which is bind mounted in from the host node. Basically, Jenkins tries to *turn your docker container* into a regular old Jenkins worker. This makes a degree of sense, but has a number of inconveniences.
+
+1. You probably can't be root inside your docker container. If your build produces any sort of persistent artifact in the workspace, that artifact will be owned by root and will end up on the filesystem of the host. Jenkins on the host doesn't run as root, so it doesn't have permissions to wipe the workspace when it needs to, and you'll get janky permissions errors.
+
+So what we ended up doing is creating a user inside the dockerfile with the same UID as the user that Jenkins runs as. Passed through via a build arg. This is not something I'd really mind doing once -- but you have to do this trick for *every single job* that is defined. So it's not just something we could solve for everybody on the CI team. Every application developer who wanted to define their own job ran up against this problem. And it's a confusing problem -- it took me days to really make sense of what Jenkins was trying to do. We documented it internally about as well as we could, but still we ended up guiding probably at least a dozen application developers through this particular confusion.
+
+2. You're probably going to have to define a docker image *just* for the build.
+
+One of the mostly-false promises of Docker, as it was sold to me by the true believers who introduced me to it, was that, if you do it right, you can run the same docker image, and therefore have basically the same environment in production, in CI, and on your local development machine. I've never actually see this happen, but I can tell you right now -- you're going to have to define a special docker image just for Jenkins, because of how strangely it interacts with the world of containers.
+
+Lest this turn into a rant against Docker -- a tool I am also seriously disappointed with, I'll end here. Long story short, we used Jenkins 2. It kind of solved our problems. So now our problems are kind of solved, which is the worst kind of solved.
+
+### Postlude
+
+It's a month after I started writing this post. Now I work at a different, bigger company. I no longer work on CI. What's more, one of the principles I had never even thought to question at my old company -- "everybody should be writing and maintaining their own CI jobs" -- is just not at play here. There's a team that seems almost completely to own CI and all CI jobs. I'm in week 4, and I know Jenkins is there, somewhere, lurking behind the scenes. But I have never interacted with it, and it seems like there are a lot of smart people working so that I never, ever need to. What a strange new world this is.
