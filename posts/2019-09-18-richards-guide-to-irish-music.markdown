@@ -25,7 +25,7 @@ prominent quarter tone the musicians choose to play. The track repeats the tune 
 
 2. **"Green Brooms / The Humours of Kill Clougher" by Danu.** I had listened to this track kind of passively for years, and
 enjoyed the catchy, upbeat tune and "brooms, green brooms" chorus. Then one day, I actually paid attention to the words and...
-it changed everything. I crack up every. single. time. 
+it changed everything. I crack up every. single. time.
 
 3. **"Raggle Taggle Gypsy / Tabhair Dom Do Lamh" by Planxty.** Planxty really excites the mandolinist in me, because in their
 style the mandolins/bouzoukis aren't confined to plainly strumming the rhythm, or doubling the melody, but they've got this
@@ -33,7 +33,7 @@ whole counterpoint thing going on, against the melody (voice in the first sectio
 
 4. **"Uncle Rat" by Altan.** This track is a good illustration of the simplicity and subtlety of well-performed Irish music.
 The lyrics are a nursery rhyme set to a simple-tune. If some singer-songwriter type took his acoustic guitar out at open mic
-night and began to sing this, it wouldn't be long before I'd start looking for something sharp to poke my eardrums out. But 
+night and began to sing this, it wouldn't be long before I'd start looking for something sharp to poke my eardrums out. But
 Altan manages to keep it interesting. This track also illustrates how, in constrast to e.g. bluegrass where the chord
 progression is more or less set and the melody is up to interpretation, in Irish music, the melody (sans ornamentation) is set
 and the chord progression can be played around with.
@@ -59,9 +59,9 @@ I'm not sure if it's completely traditional -- they play around with melodies, a
 It's extremely high energy and enjoy listening to it.
 
 10. **"Rambling Irishman" by De Dannan.** For me, this track is all about Alec Finn on the Bouzouki. It's fascinating. I've
-listened on repeat dozens of times and I just cannot wrap my head around it. 
+listened on repeat dozens of times and I just cannot wrap my head around it.
 
-11. **"Sweet Viledee" by Dervish." Dervish is the number one group I want to see in concert. The mandola counterpoint is a
+11. **"Sweet Viledee" by Dervish.** Dervish is the number one group I want to see in concert. The mandola counterpoint is a
 little more polished than you find in Planxty's songs, and Cathy Jordan has a very pleasant voice. I enjoy the story in this
 track a lot.
 

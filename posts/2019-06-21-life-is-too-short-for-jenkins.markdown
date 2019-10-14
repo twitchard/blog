@@ -53,21 +53,24 @@ For me, the bulk of the actual work of a CI pipeline takes the form of shell com
   sh 'make'
 ```
 
-So instead of writing Bash directly, you're writing Bash inside Groovy.
+So instead of writing Bash directly, you're writing Bash inside Groovy. But:
+
   * Your editor won't syntax highlight the Bash inside Groovy.
   * You can't run "shellcheck" (or any sort of Linter) on the Bash inside the groovy.
   * You can't very easily execute your shell commands to test them.
 
 There are two ways to try and address this:
+
   1. Write your shell in a separate Bash file that you execute from Groovy, avoid putting it inline in your pipeline.
-  2. Try to avoid writing shell at all -- instead, implement everything as Groovy methods. 
+  2. Try to avoid writing shell at all -- instead, implement everything as Groovy methods.
 
 I think #1 is actually the better approach. We started out there. The trouble was, we started wanting to abstract our pipeline steps and turn them into "shared libraries" and so we gravitated toward #2, so that we could share steps easily across pipelines.
 
 The trouble is: Groovy is a much, much worse language for executing commands than Bash. Bash is interpreted, has a REPL that is great for experimentation, does require a ton of imports, and has lightweight syntax. Groovy has none of these things. The way that developers test their Groovy steps is by triggering a job on the remote Jenkins server to run them. The feedback loop is 2 orders of magnitude slower than it is for just executing Bash locally.
 
-Are there ways to execute the Groovy steps locally? The way you're supposed to do it is with [JenkinsPipelineUnit](https://github.com/jenkinsci/JenkinsPipelineUnit) which is a very good idea -- it lets you write unit tests against your Jenkins Pipeline, and gives you an interface for mocking various Jenkins things. But there are two problems
-  1. As noted in the README, Groovy doesn't run the same way on Jenkins as it does in your unit test, because the groovy DSL is "serialized" by Jenkins before running. 
+Are there ways to execute the Groovy steps locally? The way you're supposed to do it is with [JenkinsPipelineUnit](https://github.com/jenkinsci/JenkinsPipelineUnit) which is a very good idea -- it lets you write unit tests against your Jenkins Pipeline, and gives you an interface for mocking various Jenkins things. But there are two problems:
+
+  1. As noted in the README, Groovy doesn't run the same way on Jenkins as it does in your unit test, because the groovy DSL is "serialized" by Jenkins before running.
   2. "Declarative" pipelines [are not supported](https://github.com/jenkinsci/JenkinsPipelineUnit/issues/10) -- a huge problem for us, since that's how we've implemented all our stuff, since it seemed to be the newest and most modern thing to be doing.
 
 So basically, that's a huge bust. Especially since we were not a Java shop. My team was barely able to kind of piece this together because it's our job to work on the CI system, but there is absolutely no way that any of the PHP/Javascript/Golang/Python application developers who need to write pipelines will be able to download Gradle, figure out they need to run gradle init, install the pipeline unit testing library, figure out the proper way to initialize the "PipelineTestHelper".
