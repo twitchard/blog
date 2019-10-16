@@ -77,3 +77,11 @@ This sentiment exists. I witnessed it play out among industry leaders in my Twit
 ### TL;DR
 
 Software developers are domain experts. We know what we're doing. We have rich internal narratives, and nuanced mental models of what it is we're about, and we can learn to get better through the simple but difficult act of telling our stories, articulating our ideas and listening to each other, like philosophers or historians do. Empirical researchers have a different perspective and can say interesting things about our field, but it is important to consider these arguments on their (necessarily limited) merits, not idealizing them as an absolute authority. Down that road lies pettiness and lazy thinking.
+
+### Postscript
+
+Definitely read [Hillel Wayne's thoughtful response](https://lobste.rs/s/1qyaoo/software_development_false_promise#c_gemxnm) to this, on lobste.rs.
+
+He corrected me on a few points, notably
+
+> But as it stands, the "professional software team" end of the spectrum is largely unexplored by controlled experiments
