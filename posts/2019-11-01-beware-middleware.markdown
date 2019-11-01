@@ -39,10 +39,10 @@ If your middlewares represent simple, independent operations, I still think midd
 For example, these qualify as simple operations:
 
   1. Rate limit all requests to 100 per-minute per-ip.
-  2. return 401 if requests lacks a valid authorization header
+  2. return 401 if a request lacks a valid authorization header
   3. log 10% of all incoming requests
 
-Written as middlewares in Express, this looks something like (code is illustrative only, please don't try and run it)
+Written as middlewares in Express, this looks something like the following (code is illustrative only, please don't try and run it)
 
 ```javascript
 const rateLimitingMiddleware = async (req, res) => {

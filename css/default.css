@@ -37,6 +37,13 @@ footer {
   color: #555;
 }
 
+footer div.leftfootleftfootleftfoot {
+  float: left;
+}
+footer div.rightfeetatthemorningfeetatnight {
+  float: right;
+}
+
 h1 {
   font-size: 2.4rem;
   font-family: "Finger Paint";
