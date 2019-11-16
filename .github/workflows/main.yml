@@ -20,7 +20,7 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: nix-build
     - name: build site
-      run: ls ./result && ls ./result/bin/site && strace ./result/bin/site build
+      run:  ls -al ./result/bin/site && chmod +x result/bin/site && result/bin/site build
     - name: clone github pages repo
       run: git clone "https://github.com/twitchard/twitchard.github.io"
     - name: rsync blog to github pages repo
