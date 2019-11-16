@@ -25,6 +25,7 @@ jobs:
         PUBLISH_BRANCH: master
         EXTERNAL_REPOSITORY: twitchard/twitchard.github.io
         PUBLISH_DIR: _site
+      if: github.ref == 'refs/heads/master'
 
 
 
