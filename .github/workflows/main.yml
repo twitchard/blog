@@ -13,8 +13,6 @@ jobs:
       with:
         path: ./result
         key: build-${{ hashFiles('**/*.hs') }}-${{ hashFiles('**/*.nix') }}-${{ hashFiles('**/*.cabal')}}
-    - name: inspect result
-      run: cd result && ls && cd bin && ls
     - name: install nix
       if: steps.cache.outputs.cache-hit != 'true'
       uses: cachix/install-nix-action@v3
@@ -22,7 +20,7 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: nix-build
     - name: build site
-      run: strace ./result/bin/site build
+      run: ls ./result && ls ./result/bin/site && strace ./result/bin/site build
     - name: clone github pages repo
       run: git clone "https://github.com/twitchard/twitchard.github.io"
     - name: rsync blog to github pages repo
