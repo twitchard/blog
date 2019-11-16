@@ -24,7 +24,7 @@ jobs:
     - name: publish with peaceiris/actions-gh-pages
       uses: peaceiris/actions-gh-pages@v2.5.1
       env:
-        ACTION_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: master
         EXTERNAL_REPOSITORY: twitchard/twitchard.github.io
 
