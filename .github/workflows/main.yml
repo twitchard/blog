@@ -7,22 +7,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Restore hakyll binary from the cache
-      id: cache
-      uses: actions/cache@v1
-      with:
-        path: ./result
-        key: build-${{ hashFiles('**/*.hs') }}-${{ hashFiles('**/*.nix') }}-${{ hashFiles('**/*.cabal')}}
     - name: install nix
       if: steps.cache.outputs.cache-hit != 'true'
       uses: cachix/install-nix-action@v3
+    - name: use cachix
+      uses: cachix/cachix-action@v2
+      with:
+        name: twitchard
+        signingKey: ${{ secrets.CACHIX_SIGNING_KEY }}
+        authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
     - name: build hakyll binary
       if: steps.cache.outputs.cache-hit != 'true'
-      run: nix-build
+      run: nix-build | cachix push twitchard
     - name: build site
-      run:  ls -al ./result/bin/site && chmod +x result/bin/site && result/bin/site build
-    - name: clone github pages repo
-      run: git clone "https://github.com/twitchard/twitchard.github.io"
-    - name: rsync blog to github pages repo
-      run: rsync -r "./_site/" "./twitchard.github.io/"
-    - run: ls ./twitchard.github.io
+      run:  result/bin/site build
+    - name: publish with peaceiris/actions-gh-pages
+      uses: peaceiris/actions-gh-pages@v2.5.1
+      env:
+        ACTION_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        PUBLISH_BRANCH: master
+        EXTERNAL_REPOSITORY: twitchard/twitchard.github.io
+
+
+
