@@ -14,7 +14,7 @@ jobs:
         path: ./result
         key: build-${{ hashFiles('**/*.hs') }}-${{ hashFiles('**/*.nix') }}-${{ hashFiles('**/*.cabal')}}
     - name: inspect result
-      run: cd result && tree
+      run: cd result && ls && cd bin && ls
     - name: install nix
       if: steps.cache.outputs.cache-hit != 'true'
       uses: cachix/install-nix-action@v3
