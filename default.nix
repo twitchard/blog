@@ -16,9 +16,7 @@ let
         hydraPlatforms = stdenv.lib.platforms.none;
       };
 
-  haskellPackages = if compiler == "default"
-                       then pkgs.haskellPackages
-                       else pkgs.haskell.packages.${compiler};
+  haskellPackages = pkgs.haskellPackages;
 
   variant = if doBenchmark then pkgs.haskell.lib.doBenchmark else pkgs.lib.id;
 
