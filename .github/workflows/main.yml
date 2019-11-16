@@ -1,0 +1,16 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: cachix/install-nix-action@v3
+    - run: nix-build
+    - run: ./result/bin/site build
+    - run: ls
+    - run: git clone https://github.com/twitchard/twitchard.github.io
+    - run: rsync -r "./_site/" "./twitchard.github.io/
+    - run: ls ./twitchard.github.io
