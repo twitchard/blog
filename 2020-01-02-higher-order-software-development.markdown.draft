@@ -1,0 +1,65 @@
+---
+title: "Higher-Order Software Development"
+class: prose
+---
+I sit down to change some software. But as I start to type, I think to myself "but wait, wouldn't this be easier with a test?". So I open a file for my test, but as I start to type I think to myself "but wait, wouldn't this be easier if I had a test helper?". So I prepare to write my test helper, but as I start to type I think "but wait, wouldn't it be easier if default test helpers were automatically derived from the class definitions?". So I get down to work on that, but before long I run into some trouble, and I find myself thinking "but wait, wouldn't this be easier if I made a small change to this metaprogramming library I'm trying to use?". So I navigate to the relevant class of the metaprogramming library, but just as I start to type I think "but wait, wouldn't this be easier with a test?".
+
+This story could make a mediocre [Laura Numeroff](https://lauranumeroff.com/books/) book, but moreover it describes a fundamental tradeoff in software. At every moment, we can choose to build X, or something that makes building X easier, or something that makes building something that makes building X easier easier, ad infinitum.
+
+Developers face this individually in their day-to-day choices and also more broadly as teams and organizations choosing longer-term projects. This question felt most keen when I worked on a developer productivity team. One of our goals was to improve "the build", for instance, but at what level? Do we work at the "second order", and optimize the build of the most popular project? Do we work at a "third order" and migrate projects to a fancy build systems like Bazel that purportedly makes builds easier to optimize? Do we work at a "fourth order" and develop a system that allows projects which behave in some standard way to get builds, deploys, logging and such, for free?
+
+There's no magic formula. Ultimately, it falls to intuition. Once all the information is in, your gut will have to make the final call whether you will have more impact in any given circumstance by working at a "higher" order or not. That's kind of a lame answer, though. Why even bother reading my blog post if I'm just going to say "go with your gut"? You can get the same advice from a fortune cookie.
+
+For a more interesting answer, ask a higher-order question. How can a software developer build a better intuition for when to work at a higher order? "Experience" and "listening to colleagues" are the easy, fortune cookie answers. But I believe you can also train your intuition through indulging thought experiments. A good thought experiment turns an idea from a word or phrase like "higher-order programming" into something that you can play with and manipulate. In this post, I'm going to try and express the idea of "higher-order software development" as a mathematical model, which is a popular form of thought experiment. The goal isn't to produce some sort of formula that I can plug in some data and get "the answer" -- that is foolishness. The goal is simply to explore the idea of "higher-order" programming with the toolbox of mathematics, which permits a visual, more "tactile" type of understanding, beyond mere verbal understanding.
+
+So, let's say I ship a feature in Q1. Customers love features. Let's say that each feature produces one "unit of value" each quarter.
+
+Period|Features|Value
+------|--------|-----
+Q1    |1       |0
+Q2    |1       |1
+Q3    |1       |2
+Q4    |1       |3
+
+Then the total value I delivered in the year is 4, the sum of the "Features" column.
+
+Now, let's consider if, instead of shipping a feature in Q1 I shipped a *tool* that makes building features easier. Further, let's say that each tool causes one additional feature to be shipped per quarter. Then:
+
+Period|Tools   |Features|
+------|--------|--------|
+Q1    |1       |0       |
+Q2    |1       |1       |
+Q3    |1       |2       |
+Q4    |1       |3       |
+
+The total value for the year delivered here is 6.
+
+Now let's extend the time frame to two years and explore 2nd order tools and 3rd order tools
+
+Period|2nd order tools|Tools          |Features
+------|---------------|---------------|--------
+Q1    |1              |0              |0       
+Q2    |1              |1              |0       
+Q3    |1              |2              |1       
+Q4    |1              |3              |3       
+Q1    |1              |4              |6       
+Q2    |1              |5              |10      
+Q3    |1              |6              |15      
+Q4    |1              |7              |21      
+
+Period|3rd order tools|2nd order tools|Tools   |Features
+------|---------------|---------------|--------|--------
+Q1    |1              |0              |0       |0       
+Q2    |1              |1              |0       |0       
+Q3    |1              |2              |1       |0       
+Q4    |1              |3              |3       |1       
+Q1    |1              |4              |6       |4       
+Q2    |1              |5              |10      |10       
+Q3    |1              |6              |15      |20       
+Q4    |1              |7              |21      |35       
+
+In this model, a second order order tool delivers 4 value the first year, but 56 value over two years. A third order tool delivers just 1 unit of value the first year, but 70 units of value over two years.
+
+This isn't groundbreaking. Over a long time horizon, long-term investments pay off better than short-term investments. We didn't need charts to tell us that.
+
+Do you recognize these numbers though? It's Pascal's triangle!
