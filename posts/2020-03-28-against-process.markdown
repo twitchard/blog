@@ -1,6 +1,7 @@
 ---
 title: "Against Process"
 class: prose
+description: Richard's Software Blog
 ---
 
 I have a very low preference for "process", as it is called. Traditions like "prioritizing the backlog", "estimating story points", "ending the sprint", "prioritizing the roadmap" and such -- I am happy to fully commit to these team traditions when they are in place -- but I've always been quite skeptical that any of these traditions actually make a software team more effective. I think it is very important for teammates to talk to each other and to other teams about the work they are planning and doing, but in almost every case I prefer this to be organic and freeform. My favorite sort of team meeting has an agenda anybody can add items to, and a note-taker transforms the agenda into meeting minutes as each item is discussed.

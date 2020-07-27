@@ -1,6 +1,7 @@
 ---
 title: Building a Playground for Ideas
 class: prose
+description: Richard's Software Blog
 ---
 
 ## Is mediocrity enough?

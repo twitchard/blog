@@ -1,6 +1,7 @@
 ---
 title: "Beware Middleware"
 class: prose
+description: Richard's Software Blog
 ---
 
 *"Give a small boy a hammer, and he will find that everything he encounters needs pounding." - Abraham Kaplan*

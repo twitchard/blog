@@ -1,6 +1,7 @@
 ---
 title: Monads and Mom
 class: prose
+description: The Oedipus Rex of Monad Tutorials
 ---
 
 Mom would be ashamed of you if you wrote a function like

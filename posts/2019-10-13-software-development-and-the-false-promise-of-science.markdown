@@ -1,6 +1,7 @@
 ---
 title: Software Development and the False Promise of Science
 class: prose
+description: Richard's Software Blog
 ---
 You are, I will assume, the typical software developer. In arguments about anything from "will single payer healthcare be good for the economy?" to "can Myers-Briggs personality tests be a meaningful basis for business decisions" -- your habitual response is to cite a peer-reviewed, scientific study to bolster your argument.
 

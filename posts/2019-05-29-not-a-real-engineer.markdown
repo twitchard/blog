@@ -1,6 +1,7 @@
 ---
 title: Not a real engineer
 class: poetry
+description: Richard's Software Blog
 ---
 You are not a real engineer.
 

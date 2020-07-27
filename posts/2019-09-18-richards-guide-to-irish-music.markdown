@@ -1,6 +1,7 @@
 ---
 title: Richard's Guide to Irish Traditional Music
 class: prose
+description: Richard's Software Blog
 ---
 
 My favorite genre of music is Irish Traditional Music, though I keep this fact relatively private.
