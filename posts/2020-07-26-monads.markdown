@@ -1,0 +1,353 @@
+---
+title: Monads and Mom
+class: prose
+---
+
+Mom would be ashamed of you if you wrote a function like
+
+```javascript
+const nameOfLandlordsDog = person => {
+  const landlord = person.landlord
+  if (!landlord) return null
+  const dog = landlord.dog
+  if (!dog) return null
+  return dog.name
+}
+```
+
+For one thing, it's Javascript. The neighbors might begin to talk if they found out about your double life as a Javascript enthusiast. What's more, there's too much *plumbing* in this function, too much `if (blah) return null`. Wouldn't it be much better if you wrote something like
+
+```javascript
+const nameOfLandlordsDog = person => person?.landlord?.dog?.name
+```
+
+The `?.` optional chaining operator is still technically "plumbing". But the business logic here is much more apparent; moreover, this is significantly less Javascript, maybe even little enough to quell the growing rumors of your Javascriptian proclivities.
+
+You don't really want to write this, either:
+
+```javascript
+const bookMeeting = (participants, room, details, callback) => {
+  return room.calendar.addMeeting(details, (err) => {
+    if (err) return callback(err)
+    return async.map(participants, (participant, callback) => {
+      participant.calendar.addMeeting(room, details, callback)
+    }, (err) => {
+      if (err) return callback(err)
+      return async.map(participants, (participant, callback) => {
+        sendEmail(participant.email, meetingEmail(details), callback)
+      }, callback)
+    })
+  })
+}
+```
+
+This, too, is rife with plumbing. A `callback` parameter in every function call? An `if (err) return callback(err)` in every corner? Revolting! Do you kiss your mother with that Javascript?
+
+It would be far more pleasant if you wrote:
+
+```javascript
+const bookMeeting = async (participants, room, details) => {
+  await room.calendar.addMeeting(details)
+  await Promise.all(participants.map(participant =>
+    participant.calendar.addMeeting(details)
+  ))
+  await Promise.all(participants.map(participant =>
+    sendEmail(participant.email, meetingEmail(details))
+  ))
+}
+```
+
+Again, "await" is plumbing, but much more succinct plumbing. Mom will forgive you, this once.
+
+She is, however, a real stickler for transactionality. I wouldn't be surprised if she asked you for a version of `bookMeeting` that rolls back if an operation is not successful.
+
+Here what you **don't** want to write:
+
+```javascript
+const bookMeeting = async (participants, room, details) => {
+  await room.calendar.addMeeting(details)
+  try {
+    for (let i = 0; i < participants.length; i++) {
+      try {
+        await participants[i].calendar.addMeeting(details)
+      } catch (e) {
+        for (let j = 0; j < i; j++) {
+          await participants[i].calendar.removeMeeting(details)
+        }
+        throw e
+      }
+    }
+
+    for (let i = 0; i < participants.length; i++) {
+      try {
+        await sendEmail(participants[i].email, meetingEmail(details))
+      } catch (e) {
+        for (let j = 0; j < i; j++) {
+          await sendEmail(participants[i].email, cancelMeetingEmail(details))
+        }
+        throw e
+      }
+    }
+  } catch (e) {
+    await room.calendar.removeMeeting(details)
+    throw e
+  }
+}
+```
+
+It's a monstrosity! It is littered with `try` and `catch`. That `for` loop is obscene! Show that to Mom, and she'll have a lawyer over by lunch time to draw up her will, just so she can write you out of it.
+
+You're better off with something like:
+
+```javascript
+const bookMeeting = (transaction, participants, room, details) => {
+  room.calendar.addMeeting(transaction, details)
+  participants.map(participant =>
+    participant.calendar.addMeeting(transaction, details)
+  )
+  participants.map(participant =>
+    sendEmail(transaction, participant.email, meetingEmail(details)
+  )
+  return transaction
+}
+// And then the caller can do e.g.
+
+const tx = newTransaction()
+bookMeeting(tx, participants, room, details)
+await tx.run()
+```
+
+You have to implement the right `newTransaction` and the right `.run`, and lug this magical "transaction" object around, and implement `addMeeting` and `runMeeting` to interact with the transaction correctly, but in the end it's worth it, the plumbing is much reduced. Explicit praise might be too much to hope for, but perhaps a half-smile, laced with a the merest hint of approval?
+
+If we're really going to lock in that half-smile, though, we're going to have to do more.
+
+We addressed one type of plumbing with `?.`, another type of plumbing with `async/await`, and another type of plumbing with a handcrafted `transaction` object. What if there were some single abstraction that captured this idea of "plumbing" more generally? Wouldn't it be incredible?
+
+Good news! It is incredible -- and the antecedent of "it", as you may have guessed, is "Monads."
+
+What are monads, exactly? Don't worry about that, for now. That's kind of like asking "what is TCP, exactly?" You can use TCP to reliably send messages over a network, and that's really all you need to know to get started. Sure, one fine morning you'll wake up to servers crashing down around your ears for reasons involving something called `TIME_WAIT`, and on that day you'll begin to tackle the remainder of what there is to know about TCP, but the inevitability of that day shouldn't prevent you from living a happy, carefree life in the meanwhile. Similarly, all you need to know about monads to get started -- as far as I am concerned, anyway -- is that you can use them to define the "plumbing" inside your code separately from defining those sequences of operations that your "plumbing" connects. Where "plumbing" can be anything from "short-circuit when an operation returns a null", or "short-circuit when an operation return an error", or "short-circuit when an operation returns an error and roll back all the previous operations", or even "when an operation returns multiple results, feed each of those results separately into the next operation"
+
+So let's recap all the examples in this blog post, but do it in Haskell, which has good support for monads. Don't worry if you're not familiar with Haskell -- the point isn't that you will follow and understand every statement, but that you can see the "before" and "after" of Monads removing the "plumbing" from the implementations.
+
+Here is `nameOfLandlordsDog` again, without monads, but in Haskell:
+
+```haskell
+nameOfLandlordsDog :: Person -> Maybe String
+nameOfLandlordsDog person = 
+  case landlordOf person of
+    Nothing -> Nothing
+    Just landlord -> case dogOf landlord of
+      Nothing -> Nothing
+      Just dog -> case nameOf dog of
+        Nothing -> Nothing
+        Just name -> Just name
+```
+
+Even more plumbing-ridden than `if (!blah) return null`, right? Luckily, because `Maybe` is a monad, you can instead write:
+```haskell
+nameOfLandlordsDog person = nameOf =<< dogOf =<< landlordOf person
+```
+
+Where `=<<` is like Javascript's `?.`. It is the (reverse) monadic "bind" operator that combines operations together, according to the particular "plumbing" of the monad they are in. For the `Maybe` monad, the plumbing behavior is "short circuit on Nothing".
+
+
+Using `=<<` (or its twin `>>=`) is a good way to succinctly string together simple sequences of operations that return `Maybe` or other monads. But Haskell has a special notation called "do notation" that is often more readable when you have to combine the results of operations in a more complicated way than simple sequencing. So here is `nameOfLandlordsDog` with do notation:
+
+```haskell
+nameOfLandlordsDog :: Person -> Maybe String
+nameOfLandlordsDog person = do
+  landlord <- landlordOf person
+  dog <- dogOf landlord
+  nameOf dog
+``` 
+
+This isn't as succinct as the `=<<` version, but it is still pretty cool. The equivalent in Javascript would be if there were this magical "plumbing" keyword that let you write e.g.:
+
+```javascript
+const nameOfLandlordsDog = (person) => {
+  plumbing (shortcircuit_nulls) {
+    const landlord = person.landlord
+    const dog = landlord.dog
+    return dog.name
+  }
+}
+```
+and then you can just write your code so you just don't have to worry about short-circuiting on nulls.
+
+So now let's move on to the next example: `bookMeeting`. Here it is in Haskell, written with callbacks (or in ["continuation-passing style"](https://en.wikipedia.org/wiki/Continuation-passing_style), which is the fancy way to say "callbacks"). You wouldn't write Haskell with callbacks in typical circumstances, but for the sake of the example here it is ([full example](https://repl.it/@twitchard/MomAndMonads#bookMeetingCallbacks.hs)):
+
+```haskell
+bookMeeting :: [Person] -> Room -> Details -> (Either String () -> IO r) -> IO r
+bookMeeting participants room details callback = 
+  addMeeting details (calendarOf room) $ \result -> case result of
+    Left err -> callback (Left err)
+    Right () -> forEach participants 
+      (\p -> addMeeting details (calendarOf p)) $ \results ->
+        case results of
+          Left err -> callback (Left err)
+          Right _ -> forEach participants (\p ->
+            sendEmail details (emailOf p)) callback
+```
+
+Again, the plumbing here is out of control. Mom is irate! If you're going to write code like this, why don't you just do in it Javascript, or dance on her grave?
+
+Luckily for us, Haskell has a monad that captures "callbacks that short-circuit on error". This monad is called `ExceptT Error (ContT r IO)`, and the reason it has such a confusing name is because it's actually a combination of three monads: `Except String`, which is the monad that captures short-circuiting on errors (specifically, errors of type String), `Cont`, which is the monad that captures sequential execution of functions that accept callbacks, and `IO`, which is the monad that lets you do IO -- access the network and the operating system and stuff.
+
+So first, with a bit of boilerplate, we can wrap the callbacky `addMeeting` and `sendEmail` operations in this monad:
+
+```haskell
+addMeeting :: Details -> Calendar -> ExceptT String (ContT r IO) ()
+addMeeting details calendar =
+  ExceptT . ContT . Callbacks.addMeeting details $ calendar
+
+sendEmail :: Details -> Email -> ExceptT String (ContT r IO) ()
+sendEmail details email =
+  ExceptT . ContT . Callbacks.sendEmail details $ email
+```
+
+then we can implement `bookMeeting` again, plumbing-free:
+
+```haskell
+bookMeeting :: [Person] -> Room -> Details -> ExceptT String (Cont r) ()
+bookMeeting participants room details = do
+  addMeeting_ details (calendarOf room)
+  for_ participants ((addMeeting_ details) . calendarOf)
+  for_ participants ((sendEmail_ details) . emailOf)
+```
+
+Much better! Mom won't dismember you for this. She might not even disown you.
+
+But now for the coup de gras! Let's do `bookMeeting` with rollbacks. There isn't a standard monad for "rollback" behavior as far as I am aware, so we're going to have to build it up ourselves, out of smaller monads.
+
+But what does `Rollbackable` mean? It means when a failure occurs, you short-circuit and reverse all the operations leading up to the failure. Let's break this down into two parts:
+
+1. "when a failure occurs you short-circuit" should sound familiar. This is our friend the `Except` monad.
+2. "reverse all the operations" probably doesn't sound familiar. But the right monad for the job here is the `Writer` monad, which you can think of as capturing the idea of "emitting" while your sequence of operations executes. The classic example of something to "emit" with the Writer monad is log statements, but in this case, what we'll be emitting is "undo instructions". That is, as each operation executes, if it is successful, it should "emit" its inverse, so to speak, and then if any operation fails, we should take that list of emitted inverse operations and run that (in reverse). (For this example, we'll ignore failures of the inverses, but in a real application you'd likely want to attempt to report corruption if the rollback failed)
+
+So we can define `Rollbackable` by combining "Except" and "Writer", like this:
+
+```haskell
+type InverseOperation = ExceptT String IO ()
+type Rollbackable =
+  ExceptT String 
+    ( WriterT [InverseOperation]
+      IO
+    )
+```
+
+Let's break this apart from the inside. `IO` is the monad in haskell that is allowed to do IO -- i.e. it can write to databases, send http requests, access the filesystem, etc. So we wrap that in `WriterT [InverseOperation]`. This adds the ability to "emit" things of type `InverseOperation`. Then we wrap all this `ExceptT String`, which adds the ability to error to short-circuit execution (and trigger the rollback).
+
+The definition of `InverseOperation` is `ExceptT String IO ()` -- our rollbacks can fail, too. And when an attempt to roll back fails, we should short-circuit.
+
+So now we need to define versions of `addMeeting` and `sendEmail` that produce values in this monad. Assume that we have non-rollbackable operations defined like:
+
+```haskell
+addMeeting_ :: Details -> Calendar -> IO (Either String ())
+addMeeting_ details (Calendar c) = do
+  putStrLn $ "Adding meeting to calendar " <> c
+  return (Right ())
+  
+sendEmail_ :: Details -> Email -> IO (Either String ())
+sendEmail_ details (Email e) = do
+  putStrLn $ "Queueing email to email address " <> e
+  if (e == "pope")
+    then putStrLn "failed" >> return (Left "failed")
+    else return (Right ())
+```
+
+And then we also define their inverses:
+
+```haskell
+removeMeeting_ :: Details -> Calendar -> IO (Either String ())
+removeMeeting_ details (Calendar c) = do
+  putStrLn $ "Removing meeting from calendar " <> c
+  return (Right ())
+
+sendCancelEmail_ :: Details -> Email -> IO (Either String ())
+sendCancelEmail_ details (Email e) = do
+  putStrLn $ "Queueing cancel email to email address " <> e
+  return (Right ())
+```
+
+These are dummy implementations that don't do anything fancy except log -- in a real application they would obviously actually mutate calendars, or send emails. We've hardcoded `sendEmail_` to fail when you try and email `"pope"`, though. The pontiff is busy enough, and that will make it easy to test the rollback behavior.
+
+What we want is a `makeRollbackable` helper function that we can use to combine non-rollbackable operations with their inverses to create rollbackable operations. For example:
+
+```haskell
+addMeeting details cal =
+  makeRollbackable (addMeeting_ details cal) (removeMeeting_ details cal)
+sendEmail details email =
+  makeRollbackable (sendEmail_ details email) (sendCancelEmail_ details email)
+```
+
+An appropriate `makeRollbackable` can be defined like this:
+
+```haskell
+makeRollbackable
+  :: IO (Either String a)
+  -> IO (Either String ())
+  -> Rollbackable a
+makeRollbackable doIt undoIt = do
+  -- `liftIO` makes "doIt" return a `Rollbackable (Either String a)`
+  -- instead of an `IO (Either String a)`
+  result <- liftIO doIt
+  case result of
+    -- If `doIt` fails, then we use 
+    -- `throwError` from `Except` to short-circuit.
+    Left err -> throwError err
+    Right result -> do
+      -- If `doIt` succeeds, then we use `tell` from the
+      -- `Writer` monad to "emit" its inverse, `undoIt`.
+      lift . tell $ [ExceptT undoIt]
+      return result
+```
+
+Now you've got Mom's attention! It's about time you started to make something of your life. There's one thing that doesn't quite satisfy her, though: this will allow us to construct `Rollbackable` sequences of operations -- but if all we ever do is construct them, that's pretty useless. We'll eventually want to run them. How does that work?
+
+Ideally, like this:
+```haskell
+main = do
+  let richard = Person "richard"
+  let the_pope = Person "pope"
+  let captain_crunch = Person "crunch"
+  let details = Details
+  let room = Room "recording studio"
+  runRollbackable $ bookMeeting [richard, the_pope, captain_crunch] room details
+```
+
+This depends upon implementing a `runRollbackable` function, capable of taking a `Rollbackable` value and unrolling it into the correct sequence of `IO` actions. That looks like this:
+
+```haskell
+runRollbackable
+  :: Rollbackable a
+  -> IO (Either Error a)
+runRollbackable action = do
+  (result, undos) <- runWriterT . runExceptT $ action
+  case result of
+    Left err -> do
+      traverse_ runExceptT (reverse undos)
+      return $ Left err
+    Right x -> return $ Right x
+```
+
+Here, we do `runWriterT . runExceptT` which is the standard way of "running" a `Writer` monad inside an `Except` monad. This won't actually *perform* the rollback itself, but it will give us `result` -- a success or failure --  and `undos`, which will be the "emitted" inverses of the operations that were successful. After that, it's a straightforward matter of checking to see if `result` is a failure, running the sequence of `undos`, and passing `result` back to the caller.
+
+At last, we're ready to implement rollbackable `bookMeeting`:
+
+```haskell
+bookMeeting :: [Person] -> Room -> Details -> Rollbackable ()
+bookMeeting participants room details = do
+  addMeeting details (calendarOf room)
+  for_ participants ((addMeeting details) . calendarOf)
+  for_ participants ((sendEmail details) . emailOf)
+```
+
+Notably, except for the type definition, this looks *identical* to the version of "callback" version of `bookMeeting` we wrote earlier because the sequence of actions is the same. Only the plumbing is different.
+
+Mom seems vaguely pleased about this, but she's still not satisfied. There's an important, unresolved question here. And it's a big one: when are you going to give her grandchildren?
+
+But Mom doesn't need to be the center of your newfound passion for monads. Monads let you take the idea of "plumbing" and reify it! The plumbing of your operations is no longer latent patterns smattered around the codebase (perhaps inconsistently). It is a datatype that you can manipulate, and build up from smaller pieces. Monads are not the only way to do this, of course -- the first half of this post was about various strategies of extracting "plumbing" non-monadically in Javascript; and it is often a useful thing to do, I think, monads or no -- but monads impose a certain discipline and consistency to the practice. 
+
+I should say, the ability to reify "plumbing" is not the be all and end all of monads -- the monad abstraction is very general and has other interpretations and uses -- but I hope these examples have given you a flavor of how monads are commonly used and why programmers get excited about them.
+
+Disclaimers: "Mom" does not resemble any real mom I know, except from stereotypes and TV. Also, please take the tongue-in-cheek remarks about "Javascriptian proclivities" in the spirit of silliness in which they were intended.
