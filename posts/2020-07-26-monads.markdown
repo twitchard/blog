@@ -73,7 +73,7 @@ const bookMeeting = async (participants, room, details) => {
         await participants[i].calendar.addMeeting(details)
       } catch (e) {
         for (let j = 0; j < i; j++) {
-          await participants[i].calendar.removeMeeting(details)
+          await participants[j].calendar.removeMeeting(details)
         }
         throw e
       }
@@ -84,7 +84,10 @@ const bookMeeting = async (participants, room, details) => {
         await sendEmail(participants[i].email, meetingEmail(details))
       } catch (e) {
         for (let j = 0; j < i; j++) {
-          await sendEmail(participants[i].email, cancelMeetingEmail(details))
+          await sendEmail(participants[j].email, cancelMeetingEmail(details))
+        }
+        for (let j = 0; j < participants.length; j++) {
+          await participants[j].calendar.removeMeeting(details)
         }
         throw e
       }
