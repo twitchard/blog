@@ -26,8 +26,17 @@ main = hakyll $ do
         route $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
+            >>= saveSnapshot "content"
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
+
+    create ["atom.xml"] $ do
+        route idRoute
+        compile $ do
+            posts <- fmap (take 10) . recentFirst =<<
+                loadAllSnapshots "posts/*" "content"
+            renderAtom feedConfiguration feedCtx posts
+
 
     create ["archive.html"] $ do
         route idRoute
@@ -80,3 +89,15 @@ postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
+
+feedCtx :: Context String
+feedCtx = defaultContext
+
+feedConfiguration :: FeedConfiguration
+feedConfiguration = FeedConfiguration
+    { feedTitle = "Richard's Software Blog"
+    , feedDescription = "Richar's Software Blog"
+    , feedAuthorName = "Richard Marmorstein"
+    , feedAuthorEmail = "nobody@example.com"
+    , feedRoot = "https://twitchard.github.io"
+    }
