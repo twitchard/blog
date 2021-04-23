@@ -2,6 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
+import           Data.Maybe (catMaybes)
 
 
 --------------------------------------------------------------------------------
@@ -48,7 +49,8 @@ main = hakyll $ do
     match "index.html" $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
+            allPosts <- recentFirst =<< loadAll "posts/*"
+            posts <- nonDrafts allPosts
             let indexCtx =
                     listField "posts" postCtx (return posts) `mappend`
                     constField "title" "Home"                `mappend`
@@ -65,6 +67,15 @@ main = hakyll $ do
 
 
 --------------------------------------------------------------------------------
+
+nonDrafts :: [Item String] -> Compiler [Item String]
+nonDrafts items = fmap catMaybes (sequence (map nonDraft items))
+
+nonDraft :: Item String -> Compiler (Maybe (Item String))
+nonDraft item = do
+  draftField <- getMetadataField (itemIdentifier item) "draft"
+  return (if draftField == (Just "true") then Nothing else Just item)
+
 postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`

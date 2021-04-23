@@ -214,14 +214,14 @@ then we can implement `bookMeeting` again, plumbing-free:
 ```haskell
 bookMeeting :: [Person] -> Room -> Details -> ExceptT String (Cont r) ()
 bookMeeting participants room details = do
-  addMeeting_ details (calendarOf room)
-  for_ participants ((addMeeting_ details) . calendarOf)
-  for_ participants ((sendEmail_ details) . emailOf)
+  addMeeting details (calendarOf room)
+  for_ participants ((addMeeting details) . calendarOf)
+  for_ participants ((sendEmail details) . emailOf)
 ```
 
 Much better! Mom won't dismember you for this. She might not even disown you.
 
-But now for the coup de grâce! Let's do `bookMeeting` with rollbacks. There isn't a standard monad for "rollback" behavior as far as I am aware, so we're going to have to build it up ourselves, out of smaller monads.
+Now for the pièce de résistance! Let's do `bookMeeting` with rollbacks. There isn't a standard monad for "rollback" behavior as far as I am aware, so we're going to have to build it up ourselves, out of smaller monads.
 
 But what does `Rollbackable` mean? It means when a failure occurs, you short-circuit and reverse all the operations leading up to the failure. Let's break this down into two parts:
 

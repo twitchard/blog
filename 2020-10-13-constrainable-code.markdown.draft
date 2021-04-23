@@ -1,0 +1,399 @@
+---
+title: Constrainable Code
+class: prose
+description: "Extensible: old hat. Constrainable: where it's at."
+---
+
+I have two dogs. Mozzarella and Gouda. Sometimes, I add behavior to them. I teach them new tricks. Lately, it's "dance". Other times, though, I try and add constraints to their behavior. Please, Gouda, do not eat shoes. Please, Gouda, urinate only outside the house. Please, Mozzarella, do not run out of the house to loudly express your opinions to the delivery woman.
+
+Software is the same. Shipping software features sometimes means adding behaviors. But commonly it also involves adding **constraints** to behavior. 
+
+Consider these features:
+
+ * Adding "highlight text" to a text editor
+ * Adding "undo" feature to a text editor
+ * Adding "submit feedback" to some web app
+ * Adding "star ratings" to some web app
+ * Adding "activity history"
+ * Adding "dark mode"
+ * Adding the GDPR "right to be forgotten"
+
+Of these examples, "highlight text", "submit feedback", and "star ratings" involve mostly adding new behavior. The others involve largely *constraining* behavior: 
+
+To add "undo", you must forbid any action in the editor from being defined without also defining how to reverse it. This is a constraint.
+
+To add "activity history", you must forbid any action in the app from being defined without triggering creation of the appropriate history entry. This is a constraint.
+
+To add dark mode, you must forbid views from expressing their stylings in terms of specific colors like "red" but require them to extract colors like "primary" or "alert" from a theme. This is a constraint.
+
+To respect the GDPR "right to be forgotten", you must forbid all parts of your application from writing user data (or at least those data that meet certain legal criteria) to anywhere without a proper index that will allow it to be found and purged by your deletion process. This is a constraint.
+
+This all goes to illustrate: **adding** a feature does not only mean **adding** behavior. My experience has been, when I am working in sophisticated, mature applications, I spend more time constraining than adding.
+
+But nobody talks about this. It’s *adding behavior* that gets all the attention. Want to add behavior to your rails app? Just `rails generate` a new model and view. There is no `rails constrain`. 
+
+I've read lots of blog posts from companies that do fancy things with microservices. Lots of them seem to be proud of their "self-serve" infrastructure. A team wants to add behavior? Easy, they spin up a new microservice themselves. The platform team doesn't even need to be involved. But can an arbitrary team come along, self-serve, and spin up a new **constraint** across all microservices? If so, that's a blog post I've yet to read.
+
+Developers sing the praises of extensible code. What about constrainable code?
+
+## Types contrain values, not behaviors
+
+I associate "constraint" with type systems. Type systems are tools to constrain the *values* inside your program. I don't care too much about constaining *values* as as end it itself -- sure, it's nice to know when I used an int when I meant to use an array -- but the real pay dirt is constraining *behaviors*. The million-dollar question: can you design your program so that its behaviors (at least, those you want to constrain) exist as values? If not, your type system won't be much more than a proofreading step that catches silly mistakes. But if you can, your types can be a language that expresses and enforces the logical or "business" constraints that define many of your app's more interesting features.
+
+There's a word I really like: "reification". To reify something is to make it "a thing". It's to take an idea that is abstract or implicit, and give it an explicit, concrete, representation.
+
+Example time.
+
+## Example: Activity History
+
+Suppose we have a Typescript/express.js web app that
+* Lets users rate products: `POST /products/:product_id/rating`
+* Lets users share products to their "feed" (wall? timeline? pinterest board?): `POST /products/:product_id/share`
+* Spams the user with personalized ads: `GET /ads`
+
+And we want to add an "activity history" feature.
+
+```javascript
+  app.post('/products/:product_id/rating', (req, res) => {
+    if (!req.session) return unauthorized(res)
+    if (!req.body.stars) return badRequest(res)
+    postRating(req.session.userId, req.params.product_id, req.body.stars)
+    return res.send()
+  })
+
+  app.post('/products/:product_id/share', (req, res) => {
+    if (!req.session) return unauthorized(res)
+    shareProduct(req.session.userId, req.params.product_id)
+    return res.send()
+  })
+
+  app.get('/ads', (req, res) => {
+    if (!req.session) return unauthorized(res)
+    const ads = getPersonalizedAds(req.session.userId)
+    return res.send(ads.toJson())
+  })
+```
+
+
+## Example "Undo"
+
+I wrote a silly text "editor" in Typescript/React that supports only two features: *strikethrough* and *commenting*. Good for revisions, maybe.
+
+Above, I claimed that implementing "undo" means a constraint which "forbids any action in the editor from being defined without also defining how to reverse it."
+
+Here's me adding "undo" *without* making that constraint explicit. The idea is fairly simple: right before you make any change, immediately push a function that reverses that change to a stack. Then, when the user clicks the undo button, pop the stack and call the result.
+
+```diff
+export const Editor: React.FC<{sourceText: string}> = ({sourceText}) => {
+  const [contents, setContents] = useState([{text: sourceText} as TextItem]);
+  const comments = useComments();
+  const [selection, ref] = useSelectable<HTMLDivElement>();
++ const [undos, setUndos] = useState([] as Array<() => void>);
+
+  const handleStrikethrough = () => {
++    const copy = copyAt(selection.start, selection.end, contents);
++    const undo = (contents, comments) => { 
++      setContents(restoreCopy(copy, contents));
++    }
++    setUndos([undo, ...undos]);
+    setContents(strikethroughAt(selection.start, selection.end, contents));
+  };
+
+  const handleAddComment = () => {
+    const draftId = comments.createDraft();
++    const copy = copyAt(selection.start, selection.end, contents);
++    const undo = () => { 
++      comments.delete(draftId)   
++      setContents(restoreCopy(copy, contents));
++    }
++    setUndos([undo, ...undos]);
+    setContents(commentAt(draftId, selection.start, selection.end, contents));
+  };
+
++  const handleUndo = () => {
++    const [undo, ...rest] = undos;
++    setContents(undo(contents));
++    setUndos(rest);
++  };
+
+  return (
+    <div>
+      <button onClick={handleStrikethrough}>strikethrough</button>
+      <button disabled={!selection} onClick={handleAddComment}>
+        add comment
+      </button>
++      <button disabled={undos.length === 0} onClick={handleUndo}>
++        undo
++      </button>
+  ...
+```
+
+This gets the job done. After this, "undo" is implemented. The constraint "no action is defined without defining how it can be reversed" is satisfied... *today* -- but what about tomorrow? Suppose, tomorrow, your colleague implements *delete comment* as follows.
+
+```diff
+  const handleAddComment = () => {
+    ...
+  }
+
++  const handleDeleteComment = () => {
++    const {selectedId} = comments
++    const commentArea = getCommentReference(selectedId, contents)
++    comments.deleteComment(selectedId)
++    setContents(commentAt(null, commentArea.start, commentArea.end, contents))
++  }
+...
+    <div>
+      {comments.selected}
++      <button onClick={handleDeleteComment}>Delete comment</button>
+    </div>
+```
+
+Whoops! Your colleague forgot to handle "undo". In order to support "undo", they should also write something like
+
+```diff
+  const handleDeleteComment = () => {
+    const {selectedId} = comments
+    const commentArea = getCommentReference(selectedId, contents)
++    const text = comments.selected
++    const copy = copyAt(commentArea.start, commentArea.end, contents);
++    const undo = () => { 
++      comments.create(selectedId, text)
++      setContents(restoreCopy(copy, contents));
++    }
+    comments.deleteComment(selectedId)
+    setContents(commentAt(null, commentArea.start, commentArea.end, contents))
+  }
+```
+
+But there is nothing forcing them to do this. No test will fail if they don't. No type error will trigger. In this implementation, the "undo" feature itself is entirely implicit, and the only force that preserves it is *convention*. You can probably trust convention in small, unsophisticated apps like this toy example, but I'm sure you can imagine a more complicated editor, where there are dozens of handlers, and each handler has several responsibilities -- telemetry, debugging, collaborative editing, censoring profanity, etc. In the toy example, it's admittedly hard to miss the fact that each handler pushes an "undo" to the stack, but in a mature app, things like this can be subtle details in seas of logic. Wouldn't it be better if we made the "all actions must define how to undo themselves" constraint **explicit** in some way? But how?
+
+The first step is to reify "action". This is quite common in React apps and is a good idea for several reasons besides my motivation here: this is one of the central ideas of the very popular Redux library.
+
+```typescript
+type Action = {
+  type: 'strikethrough';
+  start: number;
+  end: number;
+} | {
+  type: 'comment';
+  start: number;
+  end: number;
+  commentId: string
+}
+```
+
+Each place that previously performed these actions will now instead just *produce* these reified Actions, and the logic for actually executing these actions will live in one central function. (In Redux apps, that central place is the *reducer*. In this example, we'll call it "handleAction").
+
+```diff
++ const assertNever = (x: never): never => {
++   throw new Error('Unexpected object: ' + x)
++ }
+export const Editor: React.FC<{sourceText: string}> = ({sourceText}) => {
+  const [contents, setContents] = useState([{text: sourceText} as TextItem]);
+  const comments = useComments();
+  const [selection, ref] = useSelectable<HTMLDivElement>();
+
++ const handleAction = (action) => {
++   if (action.type === 'strikethrough') {
++     return setContents(strikethroughAt(selection.start, selection.end, contents));
++   }
++   if (action.type === 'comment') {
++     return setContents(strikethroughAt(selection.start, selection.end, contents));
++   }
++   assertNever(action.type)
++ }
+
+  const handleStrikethrough = () => {
+-    setContents(strikethroughAt(selection.start, selection.end, contents));
+    update({type: 'strikethrough', start: selection.start, end: selection.end})
+  };
+
+  const handleAddComment = () => {
+    const draftId = comments.createDraft();
+    setContents(commentAt(draftId, selection.start, selection.end, contents));
+  };
+
+  return (
+    <div>
+      <button onClick={handleStrikethrough}>strikethrough</button>
+      <button disabled={!selection} onClick={handleAddComment}>
+        add comment
+      </button>
+  ...
+```
+
+
+## Example: "Dark Mode"
+suppose you're adding "dark mode" to an application. You start out with code that looks like this...
+
+```javascript
+const TermsAndConditionModal = (onAccept, onDeny) => 
+  <Modal bg="lightgray">
+    <TermsAndConditions/>
+    <BoldText color="black">Do you accept the terms and conditions?</Text>
+    <Button bg="red" onClick={onDeny}>No, I renounce them!</Button>
+    <Button bg="blue" onClick={onAccept}>Wholeheartedly</Button>
+  </Modal>
+```
+The sensible way to implement dark mode here is to reify the idea of a color palette or "theme". Here is a way to implement dark mode
+*without* reifying theme:
+```javascript
+const TermsAndConditionModal = (onAccept, onDeny, isDarkMode) => 
+  <Modal bg={isDarkMode ? "darkgray" : "lightgray"}>
+    <TermsAndConditions/>
+    <BoldText color={isDarkMode ? "white": "black"}>Do you accept the terms and conditions?</Text>
+    <Button bg="red" onClick={onDeny}>No, I renounce them!</Button>
+    <Button bg={isDarkMode ? "blue" : "white"} onClick={onAccept}>Wholeheartedly</Button>
+  </Modal>
+
+const App = () => 
+  <ThemeSwitcher>{(isDarkMode) =>
+    <TermsAndConditionsModal isDarkMode={isDarkMode} .../>
+  }</ThemeSwitcher>
+
+```
+
+In that code, the idea of a "dark mode theme" exists only implicitly, scattered amid a bunch of ternary expressions. Here's a different way:
+```javascript
+// Better
+const TermsAndConditionModal = (onAccept, onDeny, theme) => 
+  <Modal bg={'accentBackground'}>
+    <TermsAndConditions/>
+    <BoldText color={isDarkMode ? "white": "black"}>Do you accept the terms and conditions?</Text>
+    <Button bg="red" onClick={onDeny}>No, I renounce them!</Button>
+    <Button bg={isDarkMode ? "blue" : "white"} onClick={onAccept}>Wholeheartedly</Button>
+  </Modal>
+
+```
+
+Here, "theme" exists explicitly as an object that you can manipulate. That's an excellent start. But it is only a start. We've implemented dark mode in a single view. We could repeat this across all the other existing views, and hope, since new views born most often to Mr. Copy and Mrs. Paste, that dark mode would survive by convention. But can we enforce this with a bit more strength?
+
+One approach: change the types of our components like `Modal`, `Button` and `BoldText` so that they don't accept colors, but a theme and instructions for extracting a color from the theme.
+
+```javascript
+const TermsAndConditionModal = (onAccept, onDeny, theme) => 
+  <Modal theme={theme} bg={theme => theme.accentBackground}>
+    <TermsAndConditions/>
+    <BoldText theme={theme} color={theme => theme.textColor}>Do you accept the terms and conditions?</BoldText>
+    <Button theme={theme} bg={theme => theme.alert}>No, I renounce them!</Button>
+    <Button theme={theme} bg={theme => theme.primary}>Wholeheartedly</Button>
+  </Modal>
+```
+
+Not perfect. This `theme={theme}` is a bummer, but you can imagine cleaning it up with React Context or something. A bigger problem: the constraint is straightforward to bypass with constant functions: `<Button theme={{}} bg={() => "red"}>`. Can we prevent this? Somewhat. Instead of representing a theme like this:
+
+```typescript
+//theme.ts
+type Theme = {
+  accentBackground: string,
+  textColor: string,
+  alert: string,
+  primary: string,
+}
+
+export const lightMode: Theme = {
+  accentBackground: 'gray',
+  textColor: 'black',
+  alert: 'red',
+  primary: 'blue'
+}
+```
+
+we can do this:
+
+```
+// theme.ts
+class Color_ {
+  readonly color: string
+  constructor (color: string) {
+    this.color = color
+  }
+}
+
+export type Color = InstanceType<typeof Color_>
+
+export type Theme = {
+  accentBackground: Color,
+  textColor: Color,
+  alert: Color,
+  primary: Color,
+}
+
+export const lightTheme: Theme = {
+  accentBackground: new Color_("gray"),
+  textColor: new Color_("black"),
+  alert: new Color_("red"),
+  primary: new Color_("blue"),
+}
+```
+
+Passing a constant function a la `<Button bg={() => new Color_('red')}>`, is now impossible, because the `Color_` constructor is not exported. A truly determined scofflaw might try `<Button theme={{...theme, alert: red}} color={theme => theme.alert}>`, or `<Button theme={lightTheme}, color={theme => darkTheme.alert}/>. This can be discouraged somewhat by hiding the constructors for `Theme`, just as with `Color`.
+
+Is this bulletproof? No. This won't stop bullets like `ts-ignore` or `any`, or defining a completely different `<Button>`. So no matter how we design our types, philosophically we're still only enforcing the "all views must be themeable" constraint by convention. But we're enforcing it with *very strong* conventions, like "don't needlessly bypass the type system" and "don't reinvent the component library". Thwarting the constraint is no longer the path of least resistance.
+
+Let's have another example.
+
+## Example: Activity History
+
+Let's start out with a web app. In this web app, we
+
+1. Let users rate products.
+2. Let users share products to their "feed" (wall? timeline? pinterest board?)
+3. Spam logged-in users with personalized ads.
+
+```javascript
+  app.post('/products/:product_id/rating', (req, res) => {
+    if (!req.session) return unauthorized(res)
+    if (!req.body.stars) return badRequest(res)
+    postRating(req.session.userId, req.params.product_id, req.body.stars)
+    return res.send()
+  })
+
+  app.post('/products/:product_id/share', (req, res) => {
+    if (!req.session) return unauthorized(res)
+    shareProduct(req.session.userId, req.params.product_id)
+    return res.send()
+  })
+
+  app.get('/ads', (req, res) => {
+    if (!req.session) return unauthorized(res)
+    const ads = getPersonalizedAds(req.session.userId)
+    return res.send(ads.toJson())
+  })
+```
+
+Now suppose we want to add an "activity history" view. Here's one try:
+
+```javascript
+  app.get('/activities', (req, res) => {
+    if (!req.session) return unauthorized(res)
+    const activities = getLoggedActivities(req.session.userId)
+    res.send(activities.toJson())
+  })
+  app.post('/products/:product_id/rating', (req, res) => {
+    if (!req.session) return unauthorized(res)
+    if (!req.body.stars) return badRequest(res)
+    postRating(req.session.userId, req.params.product_id, req.body.stars)
+    logActivity(req.session.userId, Date.now(), 'postRating')
+    return res.send()
+  })
+
+  app.post('/products/:product_id/share', (req, res) => {
+    if (!req.session) return unauthorized(res)
+    shareProduct(req.session.userId, req.params.product_id)
+    logActivity(req.session.userId, Date.now(), 'shareProduct')
+    return res.send()
+  })
+
+  app.get('/ads', (req, res) => {
+    if (!req.session) return unauthorized(res)
+    const ads = getPersonalizedAds(req.session.userId)
+    // Don't log activity, displaying ads to a user is not activity from them.
+    return res.send(ads.toJson())
+  })
+```
+
+This implements the "activity log" for `postRating` and `shareProduct` activities. But what if suppose somebody comes along and adds a new "submitFeedback" activity. Hopefully they see `logActivity` being in the other routes and remember to call `logActivity` themselves -- but this is enforced, again, only by hope and convention.
+
+One way to try 
+
