@@ -2,7 +2,7 @@
 title: Please, Systematically Enforce Your Constraints
 class: prose
 description: "There are two types of features: behavior-adding features and behavior-constraining features."
-draft: "true"
+draft: "false"
 ---
 
 ## The Two Types of Features
