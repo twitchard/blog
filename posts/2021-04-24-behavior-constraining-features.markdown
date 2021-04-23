@@ -31,7 +31,7 @@ To add dark mode, you must forbid all components in your app from expressing the
 
 To respect the GDPR "right to be forgotten", you must forbid all parts of your application from writing certain data anywhere it is not indexed in such a way that it can be found and purged by your deletion process. This is a constraint.
 
-Now, I’m not a software thought leader. I have no authority to tell you how to write software. But if I were, I would give you this sound bite: make your application’s constraints explicit. Systematically enforce them.
+Now, I’m not a software thought leader. I have no authority to tell you how to write software. But if I were, I would give you this sound bite: **make your application’s constraints explicit. Systematically enforce them.**
 
 If you merely add internationalization to all text presently rendered by your app, but provide no guarantee that future text will be internationalized, you have not really successfully implemented "internationalization" -- you have implemented "internationalized things once."
 
@@ -39,19 +39,23 @@ If you merely go through all the actions in your app today, add logic to each ac
 
 For a while, maybe developers will remember to add internationalization when they add new text, to add an activity log when they add a new user action, to consider GDPR when they put PII in a new place, to add a dark theme when they write a new component. But that while will end. Sooner or later, somebody will miss it here, and somebody will copy and paste the omission there, and all this will go unnoticed until months later, when context is long gone, and now somebody has to investigate, rediscover how everything works, and make a correction. Not great.
 
-So build your system to enforce these things. When you add a component that’s missing a dark theme, or add a new data field without considering the GDPR implications, or add uninternationalized text -- something should stop you. A test should fail, a type error should trigger, a linter rule should fire, a runtime check should throw, a cron job should spam your email. Ideally, whatever that something is, it should act soon after the offending code is written with clear instructions about how to appropriately satisfy the violated constraint with an optional escape hatch, so that you can temporarily postpone the fix until you are finished with your current task.
+So build your system to enforce these things. When you add a component that’s missing a dark theme, or add a new data field without considering the GDPR implications, or add uninternationalized text -- something should stop you. A test should fail, a type error should trigger, a linter rule should fire, a runtime check should throw, a cron job should spam your email. Ideally, whatever that something is, it should act 
+
+  * soon after the offending code is written
+  * with clear instructions about how to appropriately satisfy the violated constraint
+  * with an optional escape hatch, so that you can temporarily postpone the fix until you are finished with your current task.
 
 ## Enforcing Constraints
 
-Building a system like this takes deliberate, conscious effort. This is not the default. Today’s software tools and techniques are designed mostly around behavior-adding features, not constraintful features. Adding a new behavior to your Rails app? Just "rails generate" a new model or view. There is no "rails constrain". Or take the whole "microservices" trend. Adding a new behavior? Spin up a new microservice! Adding a new constraint across all behavior? Well… that’s possible. But it’s not the happy path.
+Building a system like this takes deliberate, conscious effort. This is not the default. Today’s software tools and techniques are designed mostly around behavior-adding features, not constraintful features. Adding a new behavior to your Rails app? Just "rails generate" a new model or view. There is no "rails constrain". Or take the whole "microservices" trend. Adding a new behavior? Spin up a new microservice! Adding a new constraint across all behavior? Well...that’s possible. But it’s not the happy path.
 
 Even with the tools I mentioned above: tests, types, linters, crons -- using them to express application-level constraints is somewhat atypical. Most developers use these tools mainly for other things.
 
 ### Tests
 
-The two orthodox types of software tests are integration tests and unit tests. These sorts of tests are mostly for checking that the piece of code that you just wrote does what you think it does and for preventing yourself, later, from accidentally causing it to do something else.
+The two orthodox types of software tests are integration tests and unit tests. These tests are mostly used for checking that the piece of code that you just wrote does what you think it does and preventing yourself from later causing it to do something else by accident.
 
-It’s possible to write a completely different type of test. Say, a test that asserts that every type of component in your app supports dark mode. Or a test that iterates through the schema of every data field your app writes to any database, and asserts that it has an appropriate GDPR annotation. These tests are neither unit tests nor integration tests. I don’t even know what the standard name is for this sort of test. A codebase I have worked in called them "wholesome" tests. But whatever their name is, this technique is not as common as perhaps it should be. There aren’t a million blog posts written about this sort of test.
+But another sort of test is possible. Consider a test that asserts that every type of component in your app supports dark mode, or a test that iterates through the schema of every data field your app writes to any database, and asserts that it has an appropriate GDPR annotation. These tests aren't "unit" or "integration". I'm not sure what they are. Are they "system tests"? Whatever their name is, this technique is not as common as perhaps it should be. There aren’t a million blog posts written about this sort of test.
 
 ### Type Systems
 
