@@ -1,4 +1,5 @@
 name: CI
+environment: build
 
 on: [push]
 
