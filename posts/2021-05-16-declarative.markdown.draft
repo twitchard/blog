@@ -1,0 +1,25 @@
+The purpose of a web application is to help users accomplish their goals.
+
+Look at the source code of a modern web app, though, and you'll read nary a thing about users or goals. You'll read plenty about DOM elements, event handlers, props, state, components, routes, transitions, contexts, hydrators, selectors, hooks, observers, lifecycles, reducers, controllers, endpoints, requests, and so forth -- but none of these are tools for describing users or goals. They are tools for describing *web machines*.
+
+And they're great tools! We're on web 3.0 or something now. Our libraries are so high level and declarative these days. But make no mistake, the declarations we make with them are about *machines*. If we do our jobs well, the machines we declare might just happen to enable our users to accomplish their goals. But we are never explicit about what those goals are. We are explicit about the *machines*, not the interactions they enable. Those remain implicit.
+
+What if we reversed this? What if *machinery* were the thing that remained implicit, and the ways for users to interact with our app were the things that we wrote down explicitly?
+
+
+
+
+What exactly do I mean? Should I be able to write down "users will be able to register, book, and search for lodging by date, price, and amenities," wave a magic wand, and presto! AirBnb appears in a puff of smoke?
+
+Not quite. Somebody would have to implement that magic wand. And a magic wand capable of turning natural
+
+It can't be that simple.
+
+
+It can't be that simple, of course. Somebody has to implement that magic wand; that magic wand will not be able to understand natural language; and we will want to be able to express many more opinions about what the AirBnb search experience needs to be like beyond "users will be able to search for bookings...".
+
+
+
+Of course, it can't be quite that simple. In reality, somebody has to implement that magic wand; in reality, that magic wand won't be able to understand natural language; and in reality, we will have a lot more opinions on what the AirBnb search experience needs to be like than "users will be able search for bookings...".
+
+Build a language for describing the interactions we want our
