@@ -1,35 +1,29 @@
 ---
-title: Make your (typed) Javascript write itself
+title: Discriminated Unions and Exhaustiveness Checking
 class: prose
 description: "Use discriminated unions and exhaustiveness checking to level up your Javascript"
 draft: "false"
 ---
 
-I love Javascript. And Javascript loves me.
+I extensively use a feature in Flow and Typescript called "discriminated unions with exhaustiveness checking".
 
-Our love is an old one. My friends often ask me, Richard, after all these years, how do you and Javascript keep things fresh? And the answer is, lately, static types systems. Mostly Flow, but some Typescript, too.
-
-There's really two approaches to types in Javascript:
-
-You can take the cautious approach: you can write whatever Javascript you would write anyway, and sprinkle some types on top. Perfectly valid. You'll catch some bugs. You'll get better IDE support. Your next refactor probably will be a little easier. You'll inject some new life into your relationship with Javascript.
-
-Or, you can be bold and daring. You can let the types completely change how you write Javascript. You can begin writing Javascript that would be enormously silly in a world without a type checker. It will be like a whole new programming language. You'll fall in love all over again.
-
-Or something like that. Melodrama aside, I want to write about one technique in particular. I extensively use a feature in Flow and Typescript called "discriminated unions with exhaustiveness checking". You might even say that I organize my code around this feature. The resulting code can look odd if you aren't familiar with this style of programming. You probably won't be, if you come to typed Javascript from a dynamically typed language, since discriminated unions make less sense in that context. You are likely not familiar even if you come from a statically typed language like Java, C#, or Go. They don't support discriminated unions.
+The resulting code can look odd if you aren't familiar with this style of programming. You probably won't be, if you come to typed Javascript from a dynamically typed language, since discriminated unions make less sense in that context. You are likely not familiar even if you come from a statically typed language like Java, C#, or Go. They don't support discriminated unions.
 
 I learned about discriminated unions from hipster programming languages, like Purescript, Elm, and Haskell. Other hipster languages have them too -- Scala, Rust, F#, and Ocaml, but I haven't written those very much. They are also called "tagged unions" or "sum types" or "algebraic data types". All these phrases refer to essentially the same idea.
 
-The Typescript docs and the Flow docs both describe their support for discriminated unions, and exhaustively checking them, but it's mentioned deep in the annals of the docs, as if it's some obscure, advanced feature.
+The [Typescript docs](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#discriminated-unions) and the [Flow](https://flow.org/blog/2015/07/03/Disjoint-Unions/) docs both describe their support for discriminated unions, and exhaustively checking them, but it's mentioned deep in the annals of the docs, as if it's some obscure, advanced feature.
+
+I really wish it were more front and center. This feature is very useful, and I wish it were appreciated more broadly!
 
 ## What is "discriminated unions with exhaustiveness checking"?
 
-High-level, it is a way for you to ask your type checker "make sure I have explicitly handled all the cases". There's two parts to this:
+High-level, it is a way for you to ask your type checker "make sure I have explicitly handled all the cases"
   * "make sure I have explicitly handled" = "exhaustiveness checking"
   * "all the cases" = "discriminated union"
 
 ## Exhaustiveness checking
 
-Some hipster languages do exhaustiveness checking for you by default. In Flow/Typescript, though, you have to ask the type checker for it explicitly, and the way you do that is a little peculiar. You have to implement a function (I call it `exhaustive`) that has an impossible input type. Then, you call this function from places in your code that should be impossible to reach. The type checker will do a flow analysis. It will succeed if it can confirm the impossible function will never be called - otherwise it will report a type error.
+While some hipster languages do exhaustiveness checking for you by default, in Flow/Typescript, though, you sometimes have to ask the type checker explicitly for an exhaustiveness check, and the way you do that is a little peculiar. You have to implement a function (I call it `exhaustive`) that has an impossible input type. Then, you call this function from places in your code that should be impossible to reach. The type checker will do a flow analysis. It will succeed if it can confirm the impossible function will never be called - otherwise it will report a type error.
 
 Here's an example in Flow:
 
@@ -69,6 +63,7 @@ This code will fail the type checker, because we forgot the `Map<string, JSON>` 
 > Cannot call `exhaustive` with `json` bound to `x` because `Map` is incompatible with string literal 'impossible'.
 
 But if we fix it
+
 ```diff
        return '"<blah blah blah>"';
      }
@@ -107,7 +102,7 @@ type TaggedJSON =
   | {tag: 'boolean', value: boolean}
   | {tag: 'number', value: number}
   | {tag: 'string', value: string}
-  | {tag: 'object', value: Map<string, JSON>}
+  | {tag: 'object', value: Map<string, TaggedJSON>}
 ```
 
 The `tag` property here is called the "tag" or "discriminant" or the "sentinel". The name of the property doesn't have to be `tag`, it can be anything. A popular choice is `kind`. My primary codebase these days uses `shape`. The important thing is that the tag be present and unique for every branch of the union.
@@ -145,7 +140,7 @@ Now, we can distinguish our array case if we want to
    | {tag: 'boolean', value: boolean}
    | {tag: 'number', value: number}
    | {tag: 'string', value: string}
-   | {tag: 'object', value: Map<string, JSON>}
+   | {tag: 'object', value: Map<string, TaggedJSON>}
 +  | {tag: 'array', value: Array<TaggedJSON>}
 ```
 
@@ -164,37 +159,71 @@ And then we handle it
    return exhaustive(json.tag);
 ```
 
-## Why?
+Discriminated unions are, in a way, the *transpose* of interfaces. With interfaces - you add a new *operation* to your interface and you get a type error in all the *data types* of that interface that haven't implemented that operation yet. With discriminated unions, you add a new *data type* to your interface, and you get a type error in all the *operations* that haven't added support for that data type yet.
 
-First, calling `exhaustive` feels kind of nifty when you're just writing the function for the first time. Gives you a little endorphin rush. It's like writing "QED" at the end of a proof. It might help you catch silly mistakes.
-
-Where it really shines, though, is when you're adding a case to data type that's used in many functions scattered throughout your codebase. Imagine we had all these functions
+Here's what `prettyPrint` would look like if we encoded the problem with interfaces instead of discriminated unions
 
 ```flow
-const parseConfig = (json: TaggedJSON): Config => {
-  ...
-  return exhaustive(json.tag)
-};
+type JSONInterface = interface {
+    prettyPrint: () => string
+}
 
-const toYaml = (json: TaggedJSON): string => {
-  ...
-  return exhaustive(json.tag)
-};
+class JSONBool implements JSONInterface {
+  value: boolean
+  prettyPrint = () => {
+      if (this.value === true) {
+          return '#t'
+      }
+      return '#f'
+  }
+}
 
-const validateAgainstJSONSchema = (json: TaggedJSON, schema: JSONSchema) => {
-  ...
-  return exhaustive(json.tag)
-};
+class JSONNumber implements JSONInterface {
+  value: number
+  prettyPrint = () => {
+      return (Math.round(this.value * 1000) / 1000).toString()
+  }
+}
+
+class JSONString implements JSONInterface {
+  value: string
+  prettyPrint = () => {
+      if (this.value.length > 25) {
+          return `${this.value}`
+      }
+      return this.value
+  }
+}
+
+class JSONObject implements JSONInterface {
+  value: Map<String, JSON>
+  prettyPrint = () => {
+      return '[Object object]'
+  }
+}
+
+class JSONArray implements JSONInterface {
+    value: Array<JSONInterface>
+    prettyPrint = () => {
+       return `[${this.value.map(j => j.prettyPrint()).join(', ')}]`
+    }
+}
 ```
 
+(See it in [Try Flow](https://flow.org/try/#0PQKgBAAgZgNg9gdzCYAoVAXAngBwKZgBSAygPIByAkgHYZ4BOUAhgMYEC8YAlrQ822ADeqMKLA56eDNgAK9HhgBcYABQBKMOwB8YAM4Z51AOaoAvuhYwmu3UTLkAQnDgxuAWxww8bvLVskKGjpGVgJhUQA3JhgAVzxlACNnLyZqEXFJaSw5BU1VDW0hdLFuKFUMAAsuXQA6KNiOdk4DOI1wko7MmPpqMAByAGIMPuKxcw6wLp7+gagR0XNzVEtrf3tyGLcEhndPb18MNcDeEIF2+rjlak3t+nSJKVlDDDz1TR12kqnelQBZJkqNXocBi1AAJipKtU6tE4sgwABGAAMKI0wERKKRahqGDgxAMPCM6nSiwsVhsdgo+MMRl2Xh8fkpVBO-DC6Qu8T0BOM90yT1ynDehU+Yi4ZUhVVqHJqXmMlTAOgATABWNqjCbfMAAAwAJIIoVLYXhTFr1WBxp0pN1egaYQ0SWYyasmaQEgArPAsF5cDz0g5HZnBVlFSJG5T-HAAHmphIANEytLzHtlnq8Ch8zZq+gBtV0er1gODuz0YAC683NjuW5IDAEF6PQmFg6ftGQFA3xQiGxBzlPXG1hI+2gp22ImSsB0Q8sjlaGn3t3RJOvlbplrs3rbdK3EwcCo3Qu3TVp-zaOpsW64DwVH14301KZS6aJ+jFkA))
 
-## What is programming like this good for?
+On paper, anything that you can express with a discriminated union, you can express with a group of classes that implement an interface.
 
-I think this style of programming is *very* good in situations where you're manipulating some tree-like data structure. If you're manipulating JSON, the DOM, a programming language, where each "node" of the tree can be any of several different types, discriminated unions are a good choice. ([Not everybody agrees](https://buttondown.email/nelhage/archive/tagged-unions-are-overrated/))
+In practice, though, in most domains it is more natural to use discriminated unions. Interfaces are best when the *operations you are going to perform* are the known quantity, and the *shapes of the data you will operate upon* are the things you are going to discover, or leave open for extension. Discriminated unions work best when the *shapes of the data* are known, and the operations you will perform are the things you are going to discover and extend as you write the program.
 
-I also think it's good for representing state machines. Compare
+Most programs have known inputs and known outputs, and their job is to transform inputs into outputs. Especially programs like web applications, or compilers.
+
+In any case, I think discriminated unions are *particularly* useful when you're manipulating tree-like data structures -- like the DOM, JSON or an AST. They're also good for representing state machines.
+
+I also think they're also good for representing state machines. Compare
 
 ```flow
+// Not a discriminated union, just a grab-bag of properties that might be set.
 type HTTPResponse = {|
   status: 'sent' | 'received' | 'error' | 'done'
   url: string,
@@ -203,6 +232,11 @@ type HTTPResponse = {|
   headers?: {[string]: string},
   statusCode?: number
 |}
+
+// A discriminated union that will help prevent users of this data
+// type from assuming that "headers" or "statusCode" are set, when
+// in many cases they might not be.
+
 type TaggedHTTPResponse =
   | {|
       tag: 'sent',
@@ -240,6 +274,4 @@ type TaggedHTTPResponse =
   |}
 ```
 
-Modelling the HTTPResponse state machine as a tagged union makes it a lot easier to prevent e.g. assuming that `statusCode` or `body` exists when it doesn't, yet.
-
-
+Go forth and use discriminated unions!
