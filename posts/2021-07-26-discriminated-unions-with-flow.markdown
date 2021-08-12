@@ -27,7 +27,7 @@ While some hipster languages do exhaustiveness checking for you by default, in F
 
 Here's an example in Flow:
 
-```flow
+```javascript
 type JSON =
   | boolean
   | number
@@ -92,12 +92,12 @@ console.log(typeof [1, 2, 3]) // 'object'
 What if we wanted to define our own set of cases, and separate arrays out into their own case?
 
 Recall our `JSON` type from the previous example:
-```flow
+```javascript
 type JSON = boolean | number | string | Map<string, JSON>;
 ```
 
 The "discriminated union" version of this type would be
-```flow
+```javascript
 type TaggedJSON = 
   | {tag: 'boolean', value: boolean}
   | {tag: 'number', value: number}
@@ -109,7 +109,7 @@ The `tag` property here is called the "tag" or "discriminant" or the "sentinel".
 
 Here is how the analog `prettyPrint` would look:
 
-```flow
+```javascript
 const taggedPrettyPrint = (json: TaggedJSON): string => {
   if (json.tag === 'boolean') {
     if (json.value === 'true') {
@@ -163,7 +163,7 @@ Discriminated unions are, in a way, the *transpose* of interfaces. With interfac
 
 Here's what `prettyPrint` would look like if we encoded the problem with interfaces instead of discriminated unions
 
-```flow
+```javascript
 type JSONInterface = interface {
     prettyPrint: () => string
 }
