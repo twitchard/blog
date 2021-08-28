@@ -16,6 +16,10 @@ function deploy {
         cd "${BLOG_DEST_DIR}" && git reset && git add . && git commit -m "Blog update $(date)" && git push
     )
 }
+if [ "$1" == "" ]; then
+    cat "$0";
+fi
+
 case $1 in
     update) build && sync && deploy;;
     build) build;;
