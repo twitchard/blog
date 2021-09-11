@@ -6,7 +6,7 @@ description: Richard's Software Blog
 
 *"Give a small boy a hammer, and he will find that everything he encounters needs pounding." - Abraham Kaplan*
 
-When you're writing an HTTP API, you generally describe two sorts of behavior:
+<img src="../images/dropCapW.png" alt="W" class="dropCap"/>hen you're writing an HTTP API, you generally describe two sorts of behavior:
 
   - Behavior that applies to specific routes.
   - Behavior that applies to all, or many routes.

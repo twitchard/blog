@@ -3,7 +3,7 @@ title: Software Development and the False Promise of Science
 class: prose
 description: Richard's Software Blog
 ---
-You are, I will assume, the typical software developer. In arguments about anything from "will single payer healthcare be good for the economy?" to "can Myers-Briggs personality tests be a meaningful basis for business decisions" -- your habitual response is to cite a peer-reviewed, scientific study to bolster your argument.
+<img src="../images/dropCapY.jpeg" alt="Y" class="dropCap" />ou are, I will assume, the typical software developer. In arguments about anything from "will single payer healthcare be good for the economy?" to "can Myers-Briggs personality tests be a meaningful basis for business decisions" -- your habitual response is to cite a peer-reviewed, scientific study to bolster your argument.
 
 That is, except when it comes to software. You have opinions -- strong opinions -- on questions such as "do microservices encourage modular code design?" and "should software projects stick to a 'novelty budget'?" and "should composition be preferred to inheritance?". But are your opinions backed by peer-reviewed analyses of hypotheses subjected to statistical tests of empirical data? Not really. Your view that software projects should stick to a 'novelty budget', for instance, is backed by your experience reading about this idea in some rando’s blog post and the argument seeming plausible in light of the recent bankruptcy of your friend's web startup built on WebAssembly, CockroachDB, Elixir and Unikernels.
 

@@ -4,7 +4,7 @@ class: prose
 description: Richard's software blog
 ---
 
-About nine months ago, I requested a transfer to the team working on the company's CI tooling. In my judgement, CI was a major productivity blocker for the whole organization, and I hoped I would be able to help improve it and make a broad, positive impact.
+<img src="../images/dropCapA.jpg" alt="A" class="dropCap"/>bout nine months ago, I requested a transfer to the team working on the company's CI tooling. In my judgement, CI was a major productivity blocker for the whole organization, and I hoped I would be able to help improve it and make a broad, positive impact.
 
 At that time, CI was in Jenkins 1, which had three major problems:
 

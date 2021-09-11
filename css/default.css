@@ -24,6 +24,35 @@ home li {
   list-style: none;
 }
 
+/* DropCap for the first character of the body of a blog post */
+section.prose img.dropCap {
+  width: 80px;
+  float: left;
+  border: none;
+  margin-right: 5px;
+  margin-bottom: 10px
+}
+
+/* So the drop cap won't interfere with
+ * source blocks.
+ * */
+section.prose p:first-child::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+section.prose ul {
+  clear: both;
+}
+
+section.prose blockquote {
+  clear: both;
+  border-left: 10px solid #eee;
+  padding-left: 10px;
+}
+
+
 
 header {
   border-bottom: 0.2rem solid #000;
@@ -47,6 +76,14 @@ footer div.rightfeetatthemorningfeetatnight {
 h1 {
   font-size: 2.4rem;
   font-family: "Finger Paint";
+}
+section.header h1 {
+  text-align: center;
+  font-size: 3.2rem;
+  margin-bottom: 0;
+}
+section.header h3 {
+  text-align: center;
 }
 
 h2 {
@@ -205,10 +242,11 @@ article .header {
 
 code{background: lightgray}
 div.sourceCode code {
+  clear: both;
   background: none;
-  padding: 2px;
   vertical-align: center;
   line-height: 1.2em;
+  font-family: 'Source Code Pro'
 }
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -244,7 +282,7 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #839496;  padding-left: 4px; }
 div.sourceCode
-  { color: #839496; background-color: #002b36; }
+  { color: #839496; background-color: #002b36; padding: 10px; border: gray solid 2px}
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }

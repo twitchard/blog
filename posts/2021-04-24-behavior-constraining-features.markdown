@@ -7,7 +7,7 @@ draft: "false"
 
 ## The Two Types of Features
 
-I have two dogs. Mozzarella and Gouda. Sometimes, I add behavior to them. I teach them new tricks. My latest favorite is "dance." Other times, I (try to) add constraints to their behavior. Please, Gouda, do not eat shoes. Please, Gouda, urinate only outside the house. Please, Mozzarella, do not run out of the house to loudly express your opinions to the delivery woman.
+<img src="../images/dropCapI2.jpg" alt="I" class="dropCap" /> have two dogs. Mozzarella and Gouda. Sometimes, I add behavior to them. I teach them new tricks. My latest favorite is "dance." Other times, I (try to) add constraints to their behavior. Please, Gouda, do not eat shoes. Please, Gouda, urinate only outside the house. Please, Mozzarella, do not run out of the house to loudly express your opinions to the delivery woman.
 
 Software is the same. Some software features add behaviors, others mainly constrain them. 
 

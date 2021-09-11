@@ -4,7 +4,7 @@ class: prose
 description: The Oedipus Rex of Monad Tutorials
 ---
 
-Mom would be ashamed of you if you wrote a function like
+<img src="../images/dropCapM.png" class="dropCap" alt="M" />om would be ashamed of you if you wrote a function like
 
 ```javascript
 const nameOfLandlordsDog = person => {

@@ -5,21 +5,17 @@ description: "Use discriminated unions and exhaustiveness checking to level up y
 draft: "false"
 ---
 
-I extensively use a feature in Flow and Typescript called "discriminated unions with exhaustiveness checking".
+<img src="../images/dropCapF.png" alt="F" class="dropCap"/>low and Typescript have a feature called "discriminated unions with exhaustiveness checking". I use this feature extensively. The resulting code can look odd if you aren't familiar with this style of programming, but I think any Typed Javascript developer really should learn about this to really take full advantage of the type system. 
 
-The resulting code can look odd if you aren't familiar with this style of programming. You probably won't be, if you come to typed Javascript from a dynamically typed language, since discriminated unions make less sense in that context. You are likely not familiar even if you come from a statically typed language like Java, C#, or Go. They don't support discriminated unions.
+Discriminated unions aren't that well-known. You won't have encountered them in a dynamically typed language, of course, and the most popular statically typed languages Java, C#, or Go don't support them. The [Typescript docs](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#discriminated-unions) and the [Flow](https://flow.org/blog/2015/07/03/Disjoint-Unions/) docs both describe their support for discriminated unions, and exhaustively checking them, but it's mentioned deep in the annals of the docs, as if it's some obscure, advanced feature. Myself, I learned about discriminated unions from hipster programming languages, like Purescript, Elm, and Haskell. Other hipster languages have them too -- Scala, Rust, F#, and Ocaml, but I haven't written those very much. They are also called "tagged unions" or "sum types" or "algebraic data types". These phrases have slightly different meanings, but refer to approximately the same language feature.
 
-I learned about discriminated unions from hipster programming languages, like Purescript, Elm, and Haskell. Other hipster languages have them too -- Scala, Rust, F#, and Ocaml, but I haven't written those very much. They are also called "tagged unions" or "sum types" or "algebraic data types". All these phrases refer to essentially the same idea.
+In any case, I think you should know how to program this way, so I wrote this post to briefly explain what this technique is, and why you might use it.
 
-The [Typescript docs](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#discriminated-unions) and the [Flow](https://flow.org/blog/2015/07/03/Disjoint-Unions/) docs both describe their support for discriminated unions, and exhaustively checking them, but it's mentioned deep in the annals of the docs, as if it's some obscure, advanced feature.
+---
 
-I really wish it were more front and center. This feature is very useful, and I wish it were appreciated more broadly!
+## What is "discriminated unions with exhaustiveness checking?"
 
-## What is "discriminated unions with exhaustiveness checking"?
-
-High-level, it is a way for you to ask your type checker "make sure I have explicitly handled all the cases"
-  * "make sure I have explicitly handled" = "exhaustiveness checking"
-  * "all the cases" = "discriminated union"
+High-level, *exhaustiveness checking* is a way for you to ask your type checker "make sure I have explicitly handled all the cases." And *discriminated unions* are a way for you to define what the cases are that you want the type checker to enforce that you handle.
 
 ## Exhaustiveness checking
 
@@ -222,7 +218,7 @@ In any case, I think discriminated unions are *particularly* useful when you're 
 
 I also think they're also good for representing state machines. Compare
 
-```flow
+```javascript
 // Not a discriminated union, just a grab-bag of properties that might be set.
 type HTTPResponse = {|
   status: 'sent' | 'received' | 'error' | 'done'

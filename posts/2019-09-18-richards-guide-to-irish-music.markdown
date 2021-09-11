@@ -4,7 +4,7 @@ class: prose
 description: Richard's Software Blog
 ---
 
-My favorite genre of music is Irish Traditional Music, though I keep this fact relatively private.
+<img src="../images/dropCapM2.png" class="dropCap" alt="M"/>y favorite genre of music is Irish Traditional Music, though I keep this fact relatively private.
 My claim to Irish heritage is relatively weak -- you have to go back three generations to find a fully Irish ancestor,
 but this genre has made up the majority of what I choose to listen to for fifteen years or so, and I can play some of
 the most popular dance tunes on my mandolin.

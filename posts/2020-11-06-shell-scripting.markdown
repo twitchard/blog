@@ -5,12 +5,11 @@ description: "Analyzes several general-purpose languages' suitability for doing 
 draft: "true"
 ---
 
-
 # Which general-purpose programming language is the best alternative to shell scripting?
 
-Sometimes, I need to write a program whose main job is to run other programs.
+<img class="dropCap" src="../images/dropCapS.png" alt="S"/>S</span>ometimes, I need to write a program whose main job is to run other programs.
 
-For this, I often choose to write a Bash script. Bash makes it easy to run other programs, and the Bash prompt is this amazingly powerful interactive tool that many programmers are just kind of accidentally familiar with, because unix culture. You, dear reader, likely have a bash prompt running right now, open in another window!
+For this, I often choose to write a Bash script. Bash makes it easy to run other programs, and the Bash prompt is this amazingly powerful interactive tool that many programmers are just kind of accidentally familiar with. You, dear reader, likely have a bash prompt running right now, open in another window!
 
 But the conventional wisdom is that, while Bash is great for one-offs and experiments, for sufficiently serious projects, you should probably use a general-purpose programming language instead, where it's easier to write modular, testable, well-abstracted code.
 
@@ -25,7 +24,7 @@ Any viable Bash substitute will need to share Bash's strengths. What are Bash's 
       * Command substitution
   - **Interactive Development**: Bash has a great REPL that everybody already has open.
   - **Familiarity**: Again, everybody already has a Bash prompt open.
-  - **Flexible package management**: AKA `$PATH`. (
+  - **Flexible package management**: AKA `$PATH`
 
 ### The contenders
 
