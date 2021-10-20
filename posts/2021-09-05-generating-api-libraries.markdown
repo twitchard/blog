@@ -11,74 +11,68 @@ draft: "true"
 
 > Stripe recently began generating API libraries in seven different programming languages, after maintaining them by hand for eight years. We wanted the generated code to offer just as good a user experience and be no less readable than the handcrafted code, while keeping breaking changes to a minimum, so we built a tool for this ourselves: a compiler of sorts. This talk is a deep dive into how we built our tool and lessons we learned along the way. 
 
-My process for writing presentations is fickle. I need a flash of inspiration. Typically, I think of some gimmick I think is clever or funny and I build the presentation around that. That hasn't happened yet and time is ticking. 
+In preparation for this talk, I submit to you this blog post.
 
-As a technique to search for inspiration, I present to you this blog post, a prototype of my conference talk.
-
+<!--
 ## What is Stripe?
 
-Stripe is a company with a public API. The details of  the API don't matter too much for my purposes here, but here's a word cloud I generated from the API definition to give you a general flavor.
+Stripe is a company with a public API. I generated a word cloud from the API definition, to give you a flavor of the API's subject matter, but the details of the API won't matter much for this post.
 
 <img src="../images/stripe-wordcloud.png" style="position: relative;width: 100%" alt="word cloud featuring big words like 'payment', 'customer', 'account', 'create', 'subscription', and 'invoice'; medium words like 'currency', 'refund', 'document', and 'bill'; and small words like 'checkout', 'report', 'identify', and 'schedule'"/>
+-->
 
-## What is an API Library?
+## What's an API Library?
 
-Stripe has seven API libraries: stripe-ruby, stripe-python, stripe-php, stripe-node, stripe-java, stripe-dotnet, and stripe-go.
+Stripe has seven API libraries: stripe-ruby, stripe-python, stripe-php, stripe-node, stripe-java, stripe-dotnet, and stripe-go. 
 
-I'm sure you're wondering "Richard, which is your favorite library?". That's a ridiculous question: I love them all equally.
+Briefly put, these libraries aim to make invoking an (HTTP) endpoint of Stripe API as simple as invoking a method in your programming language of choice, and provide a few niceties on top of that.
 
-What do these libraries do? Primarily, the aim is to make invoking an endpoint on Stripe API as simple as invoking a method in your programming language of choice.
-
-Here's an example of invoking the `POST /v1/coupons` endpoint in stripe-php.
+In this example, I use stripe-php to call the `POST /v1/customers` endpoint, and the `POST /v1/setup_intents` endpoint.
 
 ```php
 $stripe = new \Stripe\StripeClient(
   'sk_test_xyz'
 );
-$stripe->coupons->create([
-  'percent_off' => null,
-  'duration' => 'repeating',
-  'duration_in_months' => 3,
+
+$customer = $stripe->customers->create([
+  "email" => "jane.doe@example.com"
+]);
+
+$intent = $stripe->setupIntents->create([
+  "customer" => $customer->id
 ]);
 ```
 
-It's a simple purpose. But this is software; every simple purpose turns out to be more involved than you might expect.
+## Maintaining API Libraries
 
-## What are the three aspects of an API library?
+<!--
 
-I like to divide the responsibilities of an API library into three categories: transport, vocabulary, and ergonomics.
+## Responsibilities of an API Library.
 
-A message to the Stripe API looks like this:
+I like to divide the responsibilities of an API library into three categories: transport, definitions, and ergonomics.
 
-```txt
-POST /v1/coupons HTTP/1.1
-Authorization: Bearer sk_test_xyz
-Accept: application/json
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 70
-User-Agent: Stripe/v1 NodeBindings/8.174.0
-Host: localhost:4444
-Connection: keep-alive
+**Transport** is how to talk to the API. It encompasses concerns such as:
 
-percent_off=0.1&duration=repeating&duration_in_months=3&metadata[foo]=bar
-```
+  * Making HTTP requests.
+  * Retrying HTTP requests.
+  * Providing an idempotency key (for preventing duplicates)
+  * Setting headers like 'user-agent' or 'stripe-version'.
+  * Parsing JSON
+  * Verifying webhooks
 
-A response from the Stripe API looks like this:
+**Definitions** is what to say to the API. In encompasses concerns as:
 
-```txt
-HTTP/1.1 200 OK
-Server: nginx
-Date: Sat, 11 Sep 2021 20:38:39 GMT
-Content-Type: application/json
-Content-Length: 334
-Connection: keep-alive
-stripe-version: 2019-02-19
+  * What resources are there?
+  * What properties are on those resources?
+  * What methods are there?
+  * What parameters are on those resources.
 
-{
-  "id": "hxPDwuVz",
-  "object": "coupon",
-  "amount_off": null,
-  ...
-}
-```
+Finally, **ergonomics** makes it easier to talk to the API. It encompasses such concerns as:
+
+  * Auto-pagination helpers, so getting the next page from a list endpoint is as easy as using a for loop.
+  * Supporting promises and callbacks in Javascript, or providing sync and async versions of each method in C#.
+
+-->
+
+## Maintaining an API Library
 
