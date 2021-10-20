@@ -17,6 +17,9 @@ jobs:
         name: twitchard
         signingKey: ${{ secrets.CACHIX_SIGNING_KEY }}
         authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+    - name: build hakyll binary
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: nix-build | cachix push twitchard
     - name: build site
       run:  result/bin/site build
     - name: publish with peaceiris/actions-gh-pages
