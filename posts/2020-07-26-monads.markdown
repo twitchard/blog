@@ -195,7 +195,11 @@ bookMeeting participants room details callback =
 
 Again, the plumbing here is out of control. Mom is irate! If you're going to write code like this, why don't you just do in it Javascript, or dance on her grave?
 
-Luckily for us, Haskell has a monad that captures "callbacks that short-circuit on error". This monad is called `ExceptT Error (ContT r IO)`, and the reason it has such a confusing name is because it's actually a combination of three monads: `Except String`, which is the monad that captures short-circuiting on errors (specifically, errors of type String), `Cont`, which is the monad that captures sequential execution of functions that accept callbacks, and `IO`, which is the monad that lets you do IO -- access the network and the operating system and stuff.
+Luckily for us, Haskell has a monad that captures "callbacks that short-circuit on error". This monad is called `ExceptT String (ContT r IO)`, and the reason it has such a confusing name is because it's actually a combination of three monads:
+
+  1. `Except String`, which is the monad that captures short-circuiting on errors (specifically, errors described by type `String`),
+  2. `Cont`, which is the monad that captures sequential execution of functions that accept callbacks, and
+  3. `IO`, which is the monad that lets you do IO -- access the network and the operating system and stuff.
 
 So first, with a bit of boilerplate, we can wrap the callbacky `addMeeting` and `sendEmail` operations in this monad:
 
