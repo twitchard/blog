@@ -20,12 +20,13 @@ jobs:
     - name: build site
       run:  result/bin/site build
     - name: publish with peaceiris/actions-gh-pages
-      uses: peaceiris/actions-gh-pages@v2.5.1
-      env:
-        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        PUBLISH_BRANCH: master
-        EXTERNAL_REPOSITORY: twitchard/twitchard.github.io
-        PUBLISH_DIR: _site
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        keep_files: true
+        publish_dir: _site
+        external_repository: twitchard/twitchard.github.io
+        publish_branch: master
       if: github.ref == 'refs/heads/master'
 
 
