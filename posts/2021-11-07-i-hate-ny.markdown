@@ -1,5 +1,5 @@
 ---
-title: I hate NY: a rant by Richard
+title: "I hate NY: a rant by Richard"
 class: prose
 description: "The horrible apartments and neighbors I've had in New York."
 draft: "true"
