@@ -4,7 +4,7 @@ class: prose
 description: "Software culture and the abuse of data"
 ---
 
-I've [ranted previously](/2019-10-13-software-development-and-the-false-promise-of-science.html) about taking empirical research about software engineering practices with a grain of salt. Let's dust off the old salt shaker and season up a related idea: the notion that software organizations ought to be "data-driven", i.e. that all teams and projects should define metrics to evaluate their success; decisions should be generally be given some data-based justification; without data we can't be objective; if we rely merely on reason and intuition, bias will creep in. Science! Truth! The American Way!
+<img src="../images/dropCapI.jpg" alt="I" class="dropCap"/>'ve [ranted previously](/2019-10-13-software-development-and-the-false-promise-of-science.html) about taking empirical research about software engineering practices with a grain of salt. Let's dust off the old salt shaker and season up a related idea: the notion that software organizations ought to be "data-driven", i.e. that all teams and projects should define metrics to evaluate their success; decisions should be generally be given some data-based justification; without data we can't be objective; if we rely merely on reason and intuition, bias will creep in. Science! Truth! The American Way!
 
 There's nothing wrong with a fondness for data. The trouble begins when you begin to favor *bad arguments* that involve data over good arguments that don't, or insist that metrics be introduced in realms where data couldn’t realistically be the foundation of a good argument. 
 
@@ -55,3 +55,7 @@ I think overemphasis on data is also a sign of weak leadership. It is interperso
 ## Call to action
 
 Data has its place. It is a useful tool for making a certain class of persuasive arguments in certain domains. But do not worship it. Do not treat it as an end in itself. Stop going all googly-eyed (tee hee) at statistics. Metrics are tempting. They promise easy answers. Resist! Be skeptical! Have no tolerance for poor arguments made with data. Keep intrinsic motivation alive.
+
+## Disclaimer
+
+This is a draft. I may edit this post / moderate my position in the next week in response from feedback from internet commenters.
