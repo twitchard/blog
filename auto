@@ -5,6 +5,9 @@ function update {
 function build {
     ./result/bin/site build
 }
+function watch {
+    ./result/bin/site watch
+}
 function full_build {
     nix-build && build
 }
@@ -25,6 +28,7 @@ case $1 in
     build) build;;
     sync) sync;;
     deploy) deploy;;
+    watch) watch;;
 
     full-build) full_build;;
 esac
