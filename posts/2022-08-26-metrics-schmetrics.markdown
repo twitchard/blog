@@ -56,7 +56,7 @@ Overemphasis on data is also a sign of weak leadership. It is interpersonally le
 
 ## Call to action
 
-Data has its place. It is a useful tool for making a certain class of persuasive arguments in certain domains. But do not worship it. Do not treat it as an end in itself. Stop going all googly-eyed (tee hee) at statistics. Metrics are tempting. They promise easy answers. Resist! Be skeptical! Have no tolerance for poor arguments made with data. Keep intrinsic motivation alive.
+Data has its place. Metrics are a useful tool for making a certain class of persuasive arguments in certain domains. But they are *only a tool* for making good arguments. Data is not an end in itself. A weak argument founded on poorly-interpreted data is not better than a well-reasoned argument founded on observation and theory. Stop going all googly-eyed (tee hee) at statistics. Metrics are tempting. They promise easy answers. Resist! Be skeptical! Have no tolerance for poor arguments made with data. Keep intrinsic motivation alive.
 
 ## Disclaimer
 
