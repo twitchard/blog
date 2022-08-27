@@ -3,6 +3,8 @@ title: "Be good-argument-driven, not data-driven"
 class: prose
 description: "Software culture and the abuse of data"
 ---
+<meta property="og:image"
+    content="../images/appropriate-data.png" />
 
 <img src="../images/dropCapI.jpg" alt="I" class="dropCap"/>'ve [ranted previously](2019-10-13-software-development-and-the-false-promise-of-science.html) about taking empirical research about software engineering practices with a grain of salt. Let's dust off the old salt shaker and season up a related idea: the notion that software organizations ought to be "data-driven", i.e. that all teams and projects should define metrics to evaluate their success; decisions should be generally be given some data-based justification; without data we can't be objective; if we rely merely on reason and intuition, bias will creep in. Science! Truth! The American Way!
 
