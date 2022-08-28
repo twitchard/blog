@@ -3,9 +3,21 @@
 import           Data.Monoid (mappend)
 import           Hakyll
 import           Data.Maybe (catMaybes)
+import           Text.Pandoc (writerExtensions, readerExtensions, enableExtension, Extension(Ext_footnotes))
 
 
 --------------------------------------------------------------------------------
+
+myPandocCompiler = pandocCompiler
+-- Turns out the footnotes extension is enabled by default, but preserving this in case I want to add a different extension someday
+-- myPandocCompiler = pandocCompilerWith ro wo
+--   where
+--       ro = defaultHakyllReaderOptions
+--       defaultWriterExtensions = writerExtensions defaultHakyllWriterOptions 
+--       defaultReaderExtensions = readerExtensions defaultHakyllReaderOptions
+--       wo = defaultHakyllWriterOptions {writerExtensions = enableExtension Ext_footnotes defaultWriterExtensions, readerExtensions = enableExtension Ext_footnotes defaultReaderExtensions}
+
+
 main :: IO ()
 main = hakyll $ do
     match "images/*" $ do
@@ -16,15 +28,15 @@ main = hakyll $ do
         route   idRoute
         compile compressCssCompiler
 
-    -- match (fromList ["about.rst", "contact.markdown"]) $ do
-    --     route   $ setExtension "html"
-    --     compile $ pandocCompiler
-    --         >>= loadAndApplyTemplate "templates/default.html" defaultContext
-    --         >>= relativizeUrls
+    match (fromList ["journal.md"]) $ do
+        route   $ setExtension "html"
+        compile $ myPandocCompiler
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= relativizeUrls
 
     match "posts/*" $ do
         route $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ myPandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
             >>= saveSnapshot "content"
             >>= loadAndApplyTemplate "templates/default.html" postCtx
