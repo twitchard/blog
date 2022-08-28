@@ -62,7 +62,7 @@ Again, "await" is plumbing, but much more succinct plumbing. Mom will forgive yo
 
 She is, however, a real stickler for transactionality. I wouldn't be surprised if she asked you for a version of `bookMeeting` that rolls back if an operation is not successful.
 
-Here what you **don't** want to write:
+Here's what you **don't** want to write:
 
 ```javascript
 const bookMeeting = async (participants, room, details) => {
@@ -110,7 +110,7 @@ const bookMeeting = (transaction, participants, room, details) => {
     participant.calendar.addMeeting(transaction, details)
   )
   participants.map(participant =>
-    sendEmail(transaction, participant.email, meetingEmail(details)
+    sendEmail(transaction, participant.email, meetingEmail(details))
   )
   return transaction
 }
