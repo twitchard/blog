@@ -1,12 +1,11 @@
---------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
 import           Data.Maybe (catMaybes)
 import           Text.Pandoc (writerExtensions, readerExtensions, enableExtension, Extension(Ext_footnotes))
+import           Debug.Trace (trace)
 
 
---------------------------------------------------------------------------------
 
 myPandocCompiler = pandocCompiler
 -- Turns out the footnotes extension is enabled by default, but preserving this in case I want to add a different extension someday
@@ -34,6 +33,16 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
+    create ["atom.xml"] $ do
+        route idRoute
+        return (trace "hello" ())
+        compile $ do
+            all <- recentFirst =<<
+                loadAllSnapshots "posts/*" "content"
+            nonDraft <- nonDrafts all
+            let recent = (take 10) nonDraft
+            renderAtom feedConfiguration feedCtx recent
+
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ myPandocCompiler
@@ -41,14 +50,6 @@ main = hakyll $ do
             >>= saveSnapshot "content"
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
-
-    create ["atom.xml"] $ do
-        route idRoute
-        compile $ do
-            posts <- fmap (take 10) . recentFirst =<<
-                loadAllSnapshots "posts/*" "content"
-            renderAtom feedConfiguration feedCtx posts
-
 
     create ["archive.html"] $ do
         route idRoute
@@ -65,7 +66,6 @@ main = hakyll $ do
                 -- >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
-
 
     match "index.html" $ do
         route idRoute
@@ -86,9 +86,6 @@ main = hakyll $ do
 
     match "templates/*" $ compile templateBodyCompiler
 
-
---------------------------------------------------------------------------------
-
 nonDrafts :: [Item String] -> Compiler [Item String]
 nonDrafts items = fmap catMaybes (sequence (map nonDraft items))
 
@@ -108,7 +105,7 @@ feedCtx = defaultContext
 feedConfiguration :: FeedConfiguration
 feedConfiguration = FeedConfiguration
     { feedTitle = "Richard's Software Blog"
-    , feedDescription = "Richar's Software Blog"
+    , feedDescription = "Richard's Software Blog"
     , feedAuthorName = "Richard Marmorstein"
     , feedAuthorEmail = "nobody@example.com"
     , feedRoot = "https://twitchard.github.io"
