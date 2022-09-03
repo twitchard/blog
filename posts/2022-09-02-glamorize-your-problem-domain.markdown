@@ -2,6 +2,7 @@
 title: "Glamorize your problem domain"
 class: prose
 description: "Is this a compiler? Always answer yes."
+quote: You can hardly spit without hitting a configuration language that, frankly, deserves it. 
 ---
 
 I gave a [conference talk](https://thestrangeloop.com/2021/artisanal-machine-generated-api-libraries.html) last year, tldr: “we generate SDKs. Here are all the lessons we’ve learned from framing this as a compilers problem.”
@@ -40,4 +41,4 @@ Go forth, the blog post is ended.
 
 ---
 
-[^1] Not actually that easy, today's job climate is especially rough for entry-level programmers.
+[^1]: Not actually that easy, today's job climate is especially rough for entry-level programmers.

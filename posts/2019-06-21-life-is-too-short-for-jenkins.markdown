@@ -2,6 +2,7 @@
 title: Life is Too Short for Jenkins
 class: prose
 description: Richard's software blog
+quote: "The worst thing about Jenkins is that it works."
 ---
 
 <img src="../images/dropCapA.jpg" alt="A" class="dropCap"/>bout nine months ago, I requested a transfer to the team working on the company's CI tooling. In my judgement, CI was a major productivity blocker for the whole organization, and I hoped I would be able to help improve it and make a broad, positive impact.

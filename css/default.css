@@ -24,6 +24,13 @@ home li {
   list-style: none;
 }
 
+.excerpt {
+  color: gray;
+  margin-bottom: 10px;
+  font-size: .8em;
+}
+
+
 /* DropCap for the first character of the body of a blog post */
 section.prose img.dropCap {
   width: 80px;

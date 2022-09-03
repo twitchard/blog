@@ -1,6 +1,10 @@
 $for(posts)$
     <li>
-        <a href="$url$">$title$</a> - $date$
+        $date$ -
+        <a href="$url$">$title$</a>
+    $if(quote)$
+    - <em class="excerpt">$quote$</em>
     </li>
+    $endif$
 $endfor$
 <!-- <li><a href="/archive.html">(More)</a> -->

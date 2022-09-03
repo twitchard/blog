@@ -2,6 +2,7 @@
 title: Building a Playground for Ideas
 class: prose
 description: Richard's Software Blog
+quote: "Excellent products, alas, don't have that much market advantage over mediocre projects. The reason to write excellent code is because it increases the ability of an organization to adapt and learn."
 ---
 
 ## Is mediocrity enough?
@@ -16,7 +17,7 @@ Excellence is its own reward, of course -- but I'd like to believe that excellen
 
 ## Higher-order benefits of excellence
 
-What I'm beginning to suspect is this: I am right. The important (market) reason to care about writing excellent code is not to ship excellent products -- the market for excellent products unfortunately is not really much bigger than the market for mediocre projects. The reason to write excellent code is because it increases the ability of an organization to adapt and learn. 
+What I'm beginning to suspect is this: I am right. The important (market) reason to care about writing excellent code is not to ship excellent products -- excellent products, alas, don't have that much market advantage over mediocre projects. The reason to write excellent code is because it increases the ability of an organization to adapt and learn. 
 
 Excellent code is general. It can be changed, re-used, applied in different circumstances. You can ask questions about it. It is an asset. If I know the relevant keywords and hit the search button in the version control system at an organization with a tradition of excellent code, chances are good that, if the problem I'm working on has been solved before by a colleague, I won't have to solve it again myself a different way. Even if the code I found was never shipped, or belongs to a product that nobody uses.
 
