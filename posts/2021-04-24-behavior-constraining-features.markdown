@@ -2,7 +2,8 @@
 title: Please, Systematically Enforce Your Constraints
 class: prose
 description: "There are two types of features: behavior-adding features and behavior-constraining features."
-draft: "false"
+quote: "Some software features add behaviors, others mainly constrain them."
+
 ---
 
 ## The Two Types of Features

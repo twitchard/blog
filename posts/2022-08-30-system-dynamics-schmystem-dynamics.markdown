@@ -7,11 +7,11 @@ draft: true
 
 I have [ranted previously](2020-03-28-against-process.html) against scrum-like practices, e.g. grooming the backlog, and ascribed them to a flawed, implicit mental model of "software teams are job schedulers". 
 
-The more sophisticated version of "software teams are job schedulers" is "software teams are system dynamics problems". You actually see this stated explicitly quite a bit: software thought leaders attempting to use [queueing theory](https://www.lostconsultants.com/2019/11/20/littles-law-applied-in-agile-software-development/), [diagrams](https://lethain.com/systems-thinking/), and [equations](https://codahale.com/work-is-work/), [even](https://lethain.com/limiting-wip/) [simulations](https://twitter.com/michelgrootjans/status/1431653674024046593) to make arguments about software engineering organizations. I understand this: we're engineers. We like to build things. A system dynamics model let's you argue by building something. 
+The more sophisticated version of "software teams are job schedulers" is "software teams are system dynamics problems". You actually see this stated explicitly quite a bit: software thought leaders attempting to use [queueing theory](https://www.lostconsultants.com/2019/11/20/littles-law-applied-in-agile-software-development/), [diagrams](https://lethain.com/systems-thinking/), and [equations](https://codahale.com/work-is-work/), [even](https://lethain.com/limiting-wip/) [simulations](https://twitter.com/michelgrootjans/status/1431653674024046593) to make arguments about software engineering organizations. I understand this: we're engineers. We like to build things. A system dynamics model lets you argue by building something. 
 
 I like this style of argument. It's explicit, engaging. It can be visual, or even interactive! Some of the best, most thoughtful writing about software teams comes from people arguing in this style.
 
-The trouble is when we give credence to an argument from a system dynamics model because its framing appeals to our aesthetic tastes, not because the story it tells about software engineering is actually plausible in light of our experience and knowledge.
+But! The trouble is when we give credence to an argument from a system dynamics model because its framing appeals to our aesthetic tastes, not because the story it tells about software engineering is actually plausible in light of our experience and knowledge.
 
 How about an example? Take [this post](https://lethain.com/systems-thinking/) by Will Larson (author of "An Elegant Puzzle", which I recommend). He draws a stocks and flows diagram,
 
@@ -21,7 +21,9 @@ and then argues
 
 > If your model is a good one, opportunities for improvement should be immediately obvious, which I believe is true in this case. However, to truly identify where to invest, you need to identify the true values of these stocks and flows! For example, if you don’t have a backlog of ready commits, then speeding up your deploy rate may not be valuable. 
  
-The first time I read this post, I went all googly-eyed at the diagram and nodded along to this analysis. Now I have deliberately set out to criticize this sort of argument, something is clearly wrong here. Imagine you are a solo developer, and deploys take an hour. You won't build up a backlog of commits. Does this mean speeding up deploys to 1 minute is valueless? That's crazy talk! Speed up your deploys and you have gained a super power: the ability to interactively ask questions of your production environment, e.g. add a quick log statement to get a sample of the values a variable has under production traffic.
+The first time I read this post, I went googly-eyed at the diagram and nodded along to this analysis. But something is clearly wrong here. Imagine you are a solo developer, and deploys take an hour. You won't build up a backlog of commits. Does this mean speeding up deploys to 1 minute is valueless? That's crazy talk! Speed up your deploys and you have gained a super power: the ability to interactively ask questions of your production environment, e.g. add a quick log statement to get a sample of the values a variable has under production traffic.
+
+The stocks-and-flows diagram says nothing about this superpower. To the stock-and-flows diagram, the only value of deploys is that they convert the stock of ready commits to the stock of deployed commits. The stocks-and-flows diagrams knows nothing about developer workflows or time-sensitive information. It knows stocks - quantities that accumulate, and it knows flows - rates of change - and the concept of "interactivity" doesn't fit neatly into either concept.
 
 
 

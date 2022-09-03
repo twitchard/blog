@@ -2,6 +2,7 @@
 title: "My opinion concerning opinions"
 class: prose
 description: "Your tools and code have opinions. Rule them or be ruled!"
+quote: The opinions of your tools are like currents. They can carry you long and far, but if you don't steer, you will end up some place you don't want to be. Steer, I tell you, steer!
 draft: true
 ---
 

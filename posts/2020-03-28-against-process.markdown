@@ -2,6 +2,8 @@
 title: "Building software is not a job scheduling optimization problem"
 class: prose
 description: Richard's Software Blog
+quote: "It is true that a software team executes tasks, and it is true that it executes these tasks in a particular sequence. But it just doesn't seem likely to me that spending time and attention fiddling with the details of this sequence is a very promising way of becoming more effective as a team."
+
 ---
 
 <img src="../images/dropCapI.jpg" alt="I" class="dropCap" /> am skeptical of team traditions like "prioritizing the backlog", "estimating story points", "ending the sprint", "prioritizing the roadmap" and such. I am happy to fully commit these rituals when they're in place -- but I've always been quite skeptical that any of them actually make software teams more effective. It is important, of course, that teammates to talk to each other and to other teams about the work they are planning and doing, but in almost every case I believe it is better for this to be organic and freeform. My favorite sort of team meeting has an agenda anybody can add items to, and a note-taker transforms the agenda into meeting minutes as each item is discussed.

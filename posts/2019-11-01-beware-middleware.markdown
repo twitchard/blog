@@ -2,6 +2,7 @@
 title: "Beware Middleware"
 class: prose
 description: Richard's Software Blog
+quote: It's like we threw out everything we learned in model/controller land about trying to operate on constrained data, and just decided that, before the router, it needs to be HTTP requests everywhere!
 ---
 
 *"Give a small boy a hammer, and he will find that everything he encounters needs pounding." - Abraham Kaplan*

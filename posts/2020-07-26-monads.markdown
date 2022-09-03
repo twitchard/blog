@@ -2,6 +2,7 @@
 title: Monads and Mom
 class: prose
 description: The Oedipus Rex of Monad Tutorials
+quote: "Do you kiss your mother with that Javascript?"
 ---
 
 <img src="../images/dropCapM.png" class="dropCap" alt="M" />om would be ashamed of you if you wrote a function like

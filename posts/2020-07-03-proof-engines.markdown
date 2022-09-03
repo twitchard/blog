@@ -2,6 +2,7 @@
 title: "Software culture as proof strategies"
 class: prose
 description: "\"Product-driven\" means backward-chaining, \"Engineering-driven\" means forward chaining."
+quote: When you're being "engineering-driven" your ideas about what to do next are suggested by the code itself... The "product-driven" approach, like backward chaining, is goal-directed.
 ---
 
 [<u><img class="dropCap" src="../images/dropCapI3.jpg" alt="I"/>nternet</u>](https://www.uxmatters.com/mt/archives/2018/01/a-shift-from-engineering-driven-to-design-driven-business-models.php) [<u>ink</u>](https://twitter.com/sachinrekhi/status/1232412946434641920) [<u>spills</u>](https://www.productplan.com/product-culture-mistakes/) [<u>occasionally</u>](https://twitter.com/AustinTByrd/status/1104466068146335744?s=20) [<u>about</u>](https://twitter.com/tsunanet/status/1234866890670923776) a distinction between "product-driven" and "engineering-driven" software cultures. These terms are somewhat vague -- apparently companies like Google are "engineering-driven" and companies like Amazon or Apple are "product-driven," though I can't speak to that.

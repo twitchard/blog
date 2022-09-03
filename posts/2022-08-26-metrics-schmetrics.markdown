@@ -2,6 +2,7 @@
 title: "Be good-argument-driven, not data-driven"
 class: prose
 description: "Software culture and the abuse of data"
+quote: Is data-drivenness a psyop from Google?
 ---
 <meta property="og:image"
     content="../images/appropriate-data.png" />

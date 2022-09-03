@@ -4,13 +4,13 @@ class: prose
 description: Richard's Software Blog
 ---
 
-<img src="../images/dropCapM2.png" class="dropCap" alt="M"/>y favorite genre of music is Irish Traditional Music, though I keep this fact relatively private.
-My claim to Irish heritage is relatively weak -- you have to go back three generations to find a fully Irish ancestor,
+<img src="../images/dropCapM2.png" class="dropCap" alt="M"/>y favorite genre of music is Irish Traditional Music. I don't talk about this much, I feel a little impostory because
+my claim to Irish heritage is relatively weak -- you have to go back three generations to find a fully Irish ancestor,
 but this genre has made up the majority of what I choose to listen to for fifteen years or so, and I can play some of
 the most popular dance tunes on my mandolin.
 
-A friend who knew this fact about me recently asked me for a recommendation of what tracks to listen to in order to
-become more familiar with the genre.
+A friend recently asked me for a recommendation of what tracks to listen to in order to
+become more familiar with Irish traditional music.
 
 First, I recommended that he become familiar with a phenomenal website [TheSession.org](https://thesession.org) which allows
 you to list tunes by popularity, and to find gatherings of Irish musicians.

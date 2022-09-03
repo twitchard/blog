@@ -2,7 +2,8 @@
 title: Discriminated Unions and Exhaustiveness Checking
 class: prose
 description: "Use discriminated unions and exhaustiveness checking to level up your Javascript"
-draft: "false"
+quote: Discriminated unions are, in a way, the *transpose* of interfaces. 
+
 ---
 
 <img src="../images/dropCapF.png" alt="F" class="dropCap"/>low and Typescript have a feature called "discriminated unions with exhaustiveness checking". I use this feature extensively. The resulting code can look odd if you aren't familiar with this style of programming, but I think any Typed Javascript developer really should learn about this to really take full advantage of the type system. 
