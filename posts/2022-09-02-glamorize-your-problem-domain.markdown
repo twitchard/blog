@@ -5,7 +5,7 @@ description: "Is this a compiler? Always answer yes."
 quote: You can hardly spit without hitting a configuration language that, frankly, deserves it. 
 ---
 
-I gave a [conference talk](https://thestrangeloop.com/2021/artisanal-machine-generated-api-libraries.html) last year, tldr: “we generate SDKs. Here are all the lessons we’ve learned from framing this as a compilers problem.”
+<img src="../images/dropCapI2.jpg" alt="I" class="dropCap"/> gave a [conference talk](https://thestrangeloop.com/2021/artisanal-machine-generated-api-libraries.html) last year, tldr: “we generate SDKs. Here are all the lessons we’ve learned from framing this as a compilers problem.”
 
 My introductory joke was "how to become a compiler engineer in three easy steps".
 
