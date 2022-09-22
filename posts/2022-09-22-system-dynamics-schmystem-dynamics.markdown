@@ -53,7 +53,7 @@ The questions most suited to analysis via stock and flow diagrams are questions 
 
 These things, I believe, are not really subject to stock and flow analysis. So I fear claiming stock and flow analysis is an important skill for software leaders amounts to deemphasizing them.
 
-## The Theory of Constraints
+## Example: The Theory of Constraints
 
 I occasionally see software writers mention ["The Theory of Constraints"](https://en.wikipedia.org/wiki/Theory_of_constraints). This comes from a book "The Goal", a work of fiction about a manufacturing plant, which I haven't read, but I have read ["The Phoenix Project"](https://www.goodreads.com/book/show/17255186-the-phoenix-project),  which I understand is a knock-off of "The Goal" but in a software setting. It's a novel, where the authors invent a fictional dysfunctional company that is only able to fix its problems by applying the particular techniques the author wishes to advance.
 
@@ -83,7 +83,7 @@ Maybe I'm obtuse, and this was the point all along of "The Pheonix Project". You
 
 I find this vision wanting. Engineering leaders, in my view, are gardeners, not bottleneck-clearers. As I wrote above, the priority of leaders should be *culture* - psychological safety, pride of workmanship, compelling narratives, and such. The Theory of Constraints is an attempt to turn leadership back into an engineering problem. I see the appeal, so many of our managers in this industry were originally engineers. But I reject it.
 
-## Queuing Theory
+## Example: Queuing Theory
 
 The last example I'll discuss is the acclaimed, irreverent blog post ["Work is Work"](https://codahale.com/work-is-work/) by Coda Hale. 
 
