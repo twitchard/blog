@@ -3,7 +3,6 @@ title: "Fools! Stop Mysticizing System Dynamics"
 class: prose
 description: "Queuing theory and stock and flow diagrams are mere analogies"
 quote: Engineering leaders are gardeners, not bottleneck-clearers.
-draft: true
 ---
 
 ![O](../images/dropCapO.jpg){class="dropCap"}ccasionally, my Twitter feed sends to me a writer arguing via [queueing theory](https://www.lostconsultants.com/2019/11/20/littles-law-applied-in-agile-software-development/), [stock and flow diagrams](https://lethain.com/systems-thinking/), [equations](https://codahale.com/work-is-work/), or [even](https://lethain.com/limiting-wip/) [simulations](https://twitter.com/michelgrootjans/status/1431653674024046593) to advance their ideas of how software teams should operate. These are the tools of [system dynamics](https://en.wikipedia.org/wiki/System_dynamics).
