@@ -2,7 +2,7 @@
 title: Software Development and the False Promise of Science
 class: prose
 description: Richard's Software Blog
-quote: "No ray of light has ever written a treatise about wavelength, and you cannot adopt the mindset of a pancreas in hopes of building an introspective understanding of its secretions. Measurement and statistics are preferred in the natural science because the subject matter can only be understood indirectly, through measurement and inference. Software development, like history and philosophy, can be understood directly."
+quote: "You cannot adopt the mindset of a pancreas in hopes of building an introspective understanding of its secretions."
 ---
 <img src="../images/dropCapY.jpeg" alt="Y" class="dropCap" />ou are, I will assume, the typical software developer. In arguments about anything from "will single payer healthcare be good for the economy?" to "can Myers-Briggs personality tests be a meaningful basis for business decisions" -- your habitual response is to cite a peer-reviewed, scientific study to bolster your argument.
 
