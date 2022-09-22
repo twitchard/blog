@@ -2,7 +2,6 @@
 title: "I hate NY: a rant by Richard"
 class: prose
 description: "The horrible apartments and neighbors I've had in New York."
-quote: "Maybe living in terrible apartments with horrible neighbors is just the price you pay for the New York experience?"
 ---
 
 ## I Hate New York

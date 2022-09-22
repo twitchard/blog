@@ -2,7 +2,7 @@
 title: "Beware Middleware"
 class: prose
 description: Richard's Software Blog
-quote: It's like we threw out everything we learned in model/controller land about trying to operate on constrained data, and just decided that, before the router, it needs to be HTTP requests everywhere!
+quote: "Use the tools. Don't let the tools use you."
 ---
 
 *"Give a small boy a hammer, and he will find that everything he encounters needs pounding." - Abraham Kaplan*
@@ -227,7 +227,7 @@ which -- defining a variable `account` before it is used is miles easier to spot
 
 I hope this example convinces you, or resonates with your experience using middleware, even though the issues in my example are still quite mild. It becomes much worse in real applications, especially when you add more complications into the mix -- admins being able to act as other accounts, resource-level rate-limits and ip restrictions, feature flags, and so on.
 
-## Whence cometh this darkness?
+## Don't let the tool think for you
 
 Hopefully I've convinced you that middlewares are bad -- or at least easily misapplied. But if they are so bad, how did they come to be so popular?
 

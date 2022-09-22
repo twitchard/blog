@@ -2,7 +2,7 @@
 title: "Engineer SHORT feedback loops"
 class: prose
 description: "Speedy, hands-off, opinionated, reliable, timely"
-quote: "Great feedback from developer tools is SHORT: speedy, hands-off, opinionated, reliable, and timely."
+quote: "speedy, hands-off, opinionated, reliable, and timely."
 ---
 
 <img src="../images/dropCapI4.jpg" alt="I" class="dropCap"/> used to work on a developer productivity team. This kind of team is responsible for the maintenance and configuration of tools that developers on other teams use to do their jobs: test suites, type checkers, ci systems, linters, error trackers, bug reports, code review, code search, debuggers, logs, code coverage tools, reliability metrics, observability tools, repls, profiling tools, and so on. 
