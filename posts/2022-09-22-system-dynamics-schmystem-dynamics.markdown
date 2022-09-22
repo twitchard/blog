@@ -1,5 +1,5 @@
 ---
-title: "System Dynamics is not The Answer"
+title: "Fools! Stop Mysticizing System Dynamics"
 class: prose
 description: "Queuing theory and stock and flow diagrams are mere analogies"
 quote: Engineering leaders are gardeners, not bottleneck-clearers.
@@ -8,17 +8,17 @@ draft: true
 
 ![O](../images/dropCapO.jpg){class="dropCap"}ccasionally, my Twitter feed sends to me a writer arguing via [queueing theory](https://www.lostconsultants.com/2019/11/20/littles-law-applied-in-agile-software-development/), [stock and flow diagrams](https://lethain.com/systems-thinking/), [equations](https://codahale.com/work-is-work/), or [even](https://lethain.com/limiting-wip/) [simulations](https://twitter.com/michelgrootjans/status/1431653674024046593) to advance their ideas of how software teams should operate. These are the tools of [system dynamics](https://en.wikipedia.org/wiki/System_dynamics).
 
-I think this style of argument appeals to engineers because we like to build things. System dynamics lets you argue by *building* a model. Some very thoughtful writing happens in this style. It's explicit and engaging. It can even be visual or interactive. 
+I think this style of argument appeals to engineers because we like to build things. System dynamics lets you argue by *building* a model. Some very thoughtful writing happens in this style. It's explicit and engaging. It can even be visual or interactive. Despite my overblown, attention-grabbing title, I like reading arguments in this style.
 
 But I have two objections: first, I think system dynamics models are given more authority than they deserve. A system dynamics model is just an analogy dressed up in a bit of formalism. Like any analogy, you should only give it force if the stories it tells are plausible in light of your experience and knowledge.
 
-Second, I think system dynamics *mechanizes* software teams too much: they model software teams as mechanical phenomena that obey equations and universal laws -- not collections of humans, unpredictable and unique. This suggests a vision of *software leader as maximizer*: leadership is a type of engineering, it is ultimately about designing systems and organizing processes to maximize throughput.
+Second, I think system dynamics *mechanizes* software teams too much: they model software teams as mechanical phenomena that obey equations and universal laws -- not collections of humans, unpredictable and unique. This suggests a vision of *software leader as maximizer*: leadership is cast as a type of engineering, it is ultimately about designing systems and organizing processes to maximize throughput. I find this deficient.
 
-In this post, I'll rave against three examples of "system dynamics gone wrong" I've encountered in blogs or books I've read. Mind, I'm not concerned with the examples' *conclusions*. I agree with those, mostly. I'm after the *framing*.
+To illustrate, I'll proceed through three examples of "system dynamics gone wrong" from blogs or books I've read. 
 
 ## Example: Stock and Flow Diagrams
 
-Let's start with [this post](https://lethain.com/systems-thinking/) by Will Larson. Will Larson is the author of [An Elegant Puzzle](https://lethain.com/elegant-puzzle/), a treasury of thoughtful advice for software leaders. I recommend it. Larson writes sometimes about "systems thinking", and is particularly fond of [stock and flow diagrams](https://en.wikipedia.org/wiki/Stock_and_flow). In [this particular post](https://lethain.com/systems-thinking/), he draws this diagram
+Let's start with [a post](https://lethain.com/systems-thinking/) by Will Larson. Will Larson is the author of [An Elegant Puzzle](https://lethain.com/elegant-puzzle/), a treasury of thoughtful advice for software leaders. I recommend it. Larson writes sometimes about "systems thinking", and is particularly fond of [stock and flow diagrams](https://en.wikipedia.org/wiki/Stock_and_flow). In [this particular post](https://lethain.com/systems-thinking/), he draws this diagram
 
 ![](../images/dev-velocity-sys.png){style="width: 100%"}
 
@@ -32,7 +32,7 @@ The stock and flow diagram says nothing about this superpower. To the diagram, t
 
 Stock and flow models have this deceptive veneer of flexibility: you can model virtually everything with them, it seems: you need only think of it as something that *accumulates*. But this is the limitation -- the only aspect of your system a stocks and flows model can capture is the *accumulation* aspect. This is why you can't really use a stocks and flows diagram to tell the story about fast deploys making production logs more interactive. This is a story about time-sensitive information and temporary developer mental states - these things don't really accumulate into a stockpile. You could press on, perhaps, and attempt to model stocks of "unanswered questions" flowing into "answered questions", but this is still unsatisfactory. Unanswered questions don't stockpile across individuals, and you would only hold one or two unanswered questions in your head at a time; you would abandon it or find another way to answer it, rather than let it stockpile.
 
-Models don't need to completely realistic. They don't need to capture every aspect of a system to be useful. But you're supposed to be explicit about their limitations and have their shortcomings at the front of your mind when you apply a model. My experience: I've read almost nothing critical of stock and flow models. Their shortcomings are never discussed. They are praised universally as a useful tool for leaders no reason about complicated systems. I attribute this to that deceptive veneer of flexibility I mentioned. They *seem* much more flexible than they are. You can pick virtually *any* object and tell *a* story about it with a stock and flow diagram. But you can't pick *an* object and tell *any* story about it, you are actually very limited about the types of stories that you can tell. And these won't always be the stories that best describe the important behavior of the system.
+Models don't need to completely realistic or capture every aspect of a system to be useful. But you're supposed to be explicit about their limitations and have their shortcomings at the front of your mind when you apply a model. My experience: I've read almost nothing critical of stock and flow models. Their shortcomings are never discussed. They are praised universally as a useful tool for leaders no reason about complicated systems. I attribute this to that deceptive veneer of flexibility I mentioned. They *seem* much more flexible than they are. You can pick virtually *any* object and tell *a* story about it with a stock and flow diagram. But you can't pick *an* object and tell *any* story about it, you are actually very limited about the types of stories that you can tell. And these won't always be the stories that best describe the important behavior of the system.
 
 I also worry that, an eagerness to apply stock and flow modelling can bias your perception of which questions are important in favor of those that are more amenable to the approach. This isn't quite *the law of the hammer* i.e. "if you've got a hammer, everything looks like a nail". Perhaps it is *the hammer's second law*: "if you've got a hammer, you'll overlook screws in your quest to find nails."
 
