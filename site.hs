@@ -1,10 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
-import           Data.Maybe (catMaybes)
+import           Data.Maybe (catMaybes, fromMaybe)
 import           Text.Pandoc (writerExtensions, readerExtensions, enableExtension, Extension(Ext_footnotes))
-import           Debug.Trace (trace)
-
+import           Debug.Trace (traceShowId, trace)
+import           Data.Foldable (find)
+import           Control.Applicative (empty)
+import           Data.Char (toLower)
 
 
 myPandocCompiler = pandocCompiler
@@ -27,15 +29,8 @@ main = hakyll $ do
         route   idRoute
         compile compressCssCompiler
 
-    match (fromList ["journal.md"]) $ do
-        route   $ setExtension "html"
-        compile $ myPandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
-
     create ["atom.xml"] $ do
         route idRoute
-        return (trace "hello" ())
         compile $ do
             all <- recentFirst =<<
                 loadAllSnapshots "posts/*" "content"
@@ -45,27 +40,27 @@ main = hakyll $ do
 
     match "posts/*" $ do
         route $ setExtension "html"
-        compile $ myPandocCompiler
-            >>= loadAndApplyTemplate "templates/post.html"    postCtx
-            >>= saveSnapshot "content"
-            >>= loadAndApplyTemplate "templates/default.html" postCtx
-            >>= relativizeUrls
-
-    create ["archive.html"] $ do
-        route idRoute
-        compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
-            let archiveCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Archives"            `mappend`
-                    constField "description" "Richard's Software Blog"
-                    `mappend`
-                    defaultContext
-
-            makeItem ""
-                -- >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
-                >>= loadAndApplyTemplate "templates/default.html" archiveCtx
-                >>= relativizeUrls
+        --           field "prevPost" prevUrl `mappend` postCtx
+        --    (postCtx `mappend` field "nextUrl" (nextUrl (zip postIds metadatas)))
+        --
+        compile $ do 
+            postIds <- getMatches "posts/*"
+            metadatas <- mapM getMetadata postIds
+            let isDrafts = map (lookupString "draft") metadatas
+            let posts = map (\(x, y, z) -> (x, y)) $ filter (\(_, _, isDraft) -> isDraft /= Just "true") $ zip3 postIds metadatas isDrafts 
+            let ctx = postCtx
+                        `mappend` field "nextPost" (nextUrl posts)
+                        `mappend` field "prevPost" (prevUrl posts)
+                        `mappend` field "nextTitle" (nextTitle posts)
+                        `mappend` field "prevTitle" (prevTitle posts)
+                        `mappend` field "nextQuote" (nextQuote posts)
+                        `mappend` field "prevQuote" (prevQuote posts)
+                        `mappend` field "callToAction" callToAction
+            myPandocCompiler
+              >>= loadAndApplyTemplate "templates/post.html" ctx
+              >>= saveSnapshot "content"
+              >>= loadAndApplyTemplate "templates/default.html" ctx
+              >>= relativizeUrls
 
     match "index.html" $ do
         route idRoute
@@ -98,6 +93,65 @@ postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
+
+type NeighborGetter = Identifier -> [(Identifier, Metadata)] -> Maybe (Identifier, Metadata)
+after :: NeighborGetter
+after x xs = fmap snd (find (\y -> fst (fst y) == x) $ zip xs (tail xs))
+before :: NeighborGetter
+before x xs = fmap fst (find (\y -> fst (snd y) == x) $ zip xs (tail xs))
+
+type NeighborData = (String, String, String)
+
+neighborData :: NeighborGetter -> [(Identifier, Metadata)] -> Item String -> Maybe (Identifier, Metadata)
+neighborData getNeighbor posts item = 
+  getNeighbor (itemIdentifier item) posts
+
+nextUrl :: [(Identifier, Metadata)] -> Item String -> Compiler String
+nextUrl posts item = do
+   (ident, _) <- maybe empty return $ neighborData after posts item
+   getRoute ident >>= maybe empty return
+
+prevUrl :: [(Identifier, Metadata)] -> Item String -> Compiler String
+prevUrl posts item = do
+   (ident, _) <- maybe empty return $ neighborData before posts item
+   getRoute ident >>= maybe empty return
+
+nextTitle :: [(Identifier, Metadata)] -> Item String -> Compiler String
+nextTitle posts item = fmap (map toLower) $ do
+   (_, metadata) <- maybe empty return $ neighborData after posts item
+   maybe empty return (lookupString "title" metadata)
+
+nextQuote :: [(Identifier, Metadata)] -> Item String -> Compiler String
+nextQuote posts item = do
+   (_, metadata) <- maybe empty return $ neighborData after posts item
+   maybe empty return (lookupString "quote" metadata)
+
+prevTitle :: [(Identifier, Metadata)] -> Item String -> Compiler String
+prevTitle posts item = fmap (map toLower) $ do
+   (_, metadata) <- maybe empty return $ neighborData before posts item
+   maybe empty return (lookupString "title" metadata)
+
+prevQuote :: [(Identifier, Metadata)] -> Item String -> Compiler String
+prevQuote posts item = do
+   (_, metadata) <- maybe empty return $ neighborData before posts item
+   maybe empty return (lookupString "quote" metadata)
+
+callToAction :: Item String -> Compiler String
+callToAction item = do
+  let thisId = itemIdentifier item
+  reddit <- getMetadataField thisId "reddit"
+  hackernews <- getMetadataField thisId "hackernews"
+  retweet <- getMetadataField thisId "retweet"
+  let link url text = "<a href=\"" <> url <> "\">" <> text <> "</a>"
+      redditText = fmap (\url -> "commenting " <> link url "on reddit") reddit
+      hackernewsText = fmap (\url -> "discussing " <> link url "on the orange website") hackernews
+      twitterText = fmap (\url -> link url "retweeting" <> " the post") retweet
+
+      oxfordComma [x] = " Consider " <> x <> "."
+      oxfordComma [x, y] = " Consider " <> x <> " or " <> y <> "."
+      oxfordComma [x, y, z] = " Consider " <> x <> ", " <> y <> ", " <> "or " <> z      <> "."
+      oxfordComma _ = ""
+  return $ "Thanks for reading!" <> oxfordComma (catMaybes [twitterText, hackernewsText, redditText])
 
 feedCtx :: Context String
 feedCtx = defaultContext

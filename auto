@@ -2,6 +2,9 @@ BLOG_DEST_DIR="$HOME/twitchard.github.io"
 function update {
     build && sync && deploy
 }
+function clean {
+    ./result/bin/site clean
+}
 function build {
     ./result/bin/site build
 }
@@ -9,7 +12,7 @@ function watch {
     ./result/bin/site watch
 }
 function full_build {
-    nix-build && build
+    nix-build && clean && build
 }
 function sync {
     rsync -r "./_site/" "${BLOG_DEST_DIR}/"
