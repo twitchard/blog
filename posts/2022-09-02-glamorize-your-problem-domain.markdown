@@ -39,6 +39,4 @@ Even if you don't work on a developer-facing product, the internal tools and sys
 
 Go forth, the blog post is ended.
 
----
-
 [^1]: Not actually that easy, today's job climate is especially rough for entry-level programmers.

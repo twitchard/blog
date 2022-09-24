@@ -1,23 +1,23 @@
 ---
 title: "Fools! Stop Mysticizing System Dynamics"
 class: prose
-description: "Queuing theory and stock and flow diagrams are mere analogies"
-quote: Engineering leaders are gardeners, not bottleneck-clearers.
+description: "A system dynamics model, properly considered, is just an analogy dressed up in a bit of formalism."
+quote: "A system dynamics model, properly considered, is just an analogy dressed up in a bit of formalism."
 ---
 
 ![O](../images/dropCapO.jpg){class="dropCap"}ccasionally, my Twitter feed sends to me a writer arguing via [queueing theory](https://www.lostconsultants.com/2019/11/20/littles-law-applied-in-agile-software-development/), [stock and flow diagrams](https://lethain.com/systems-thinking/), [equations](https://codahale.com/work-is-work/), or [even](https://lethain.com/limiting-wip/) [simulations](https://twitter.com/michelgrootjans/status/1431653674024046593) to advance their ideas of how software teams should operate. These are the tools of [system dynamics](https://en.wikipedia.org/wiki/System_dynamics).
 
 This style of argument appeals to engineers because we like building things, and system dynamics lets you construct an argument by building a model. Despite my overblown title, I do have some appreciation for this style of argument. Some very thoughtful writing is done this way. It is explicit and engaging; it can even be visual or interactive.
 
-But I have two objections: first, arguments involving system dynamics tend to rely on mysticism. They claim authority without enough justification. A system dynamics model, properly considered, is just an analogy dressed up in a bit of formalism. Like any analogy, you should only give it force if the stories it tells are plausible in light of your experience and knowledge.
+But I have two objections: first, arguments involving system dynamics tend to rely on *mysticism*; that is, they claim authority without enough justification. A system dynamics model, properly considered, is just an analogy dressed up in a bit of formalism. Like any analogy, you should only give it force if the stories it tells are plausible in light of your experience and knowledge.
 
 Second, system dynamics *mechanizes* software teams too much: it models software teams as ruly phenomena that obey equations and universal laws -- not collections of humans, unpredictable and unique. It suggests a vision of *software leader as maximizer*: leadership is cast as a form of engineering, it is ultimately about designing systems and organizing processes to maximize throughput. I'm not sure whether the wielders of system dynamics *intend* to advance the *leadership is engineering* metaphor, but that is the undercurrent.
 
 To illustrate, I'll proceed through three examples of "system dynamics gone wrong" from blogs or books I've read. 
 
-## Example: Stock and Flow Diagrams
+## Example 1: Stock and Flow Diagrams
 
-Let's start with [a post](https://lethain.com/systems-thinking/) by Will Larson. I have a small criticism of a single blog post, but I heartily recommend all of Larson's writing, particularly his book [An Elegant Puzzle](https://lethain.com/elegant-puzzle/), a treasury of thoughtful, practical advice for engineering leaders. Larson writes occasionally about "systems thinking", and is particularly fond of [stock and flow diagrams](https://en.wikipedia.org/wiki/Stock_and_flow). In [this particular post](https://lethain.com/systems-thinking/), he draws this diagram
+Let's start with [a post](https://lethain.com/systems-thinking/) by Will Larson. I have a small criticism of a single blog post, but I heartily recommend all of Larson's writing, particularly his book [An Elegant Puzzle](https://lethain.com/elegant-puzzle/), a treasury of thoughtful, practical advice for engineering leaders. Larson writes occasionally about "systems thinking", and is particularly fond of [stock and flow diagrams](https://en.wikipedia.org/wiki/Stock_and_flow), from the system dynamics toolbox. In [this particular post](https://lethain.com/systems-thinking/), he draws this diagram
 
 ![](../images/dev-velocity-sys.png){style="width: 100%"}
 
@@ -27,7 +27,7 @@ and then argues
  
 The first time I read this post, I went googly-eyed at the diagram and nodded along to the analysis. But something is clearly wrong. Imagine you are a solo developer, and deploys take an hour. You won't build up a backlog of commits. Does this mean speeding up deploys to 1 minute is valueless? That's crazy talk! [Speed](2022-08-30-short-feedback.html) up your deploys and you have gained a super power: the ability to interactively ask questions of your production environment, e.g. add a quick log statement to get a sample of the values a variable has under production traffic.
 
-The stock and flow diagram says nothing about this superpower. To the diagram, the only value of deploys is that they convert the stock of ready commits to the stock of deployed commits. It has nothing to say about developer workflows, time-sensitive information, or the concept of interactivity.
+The stock and flow diagram says nothing about this superpower. To the diagram, the only value of deploys is that they convert the stock of ready commits into the stock of deployed commits. It has nothing to say about developer workflows, time-sensitive information, or the concept of interactivity.
 
 ### Not as flexible as they seem 
 
@@ -35,11 +35,13 @@ Stock and flow models have this deceptive veneer of flexibility: you can model v
 
 Put another way, stock and flow models *seem* much more flexible than they actually *are*. You can pick virtually *any* object and tell *a* story about it with a stock and flow diagram. But you can't pick *an* object and tell *any* story about it, you are actually very limited about the types of stories that you can tell. And these won't always be the stories that best describe the important behavior of the system.
 
-### The streetlight effect
+### Leadership is not modeling
 
-I also worry that eagerness to apply stock and flow analysis can bias your perception of which questions are important in favor of those that are more amenable to the approach. This isn't quite *the law of the hammer* i.e. "if you've got a hammer, everything looks like a nail". Perhaps it is *the second law of the hammer*: "if you've got a hammer, you'll overlook screws in your frenzied pursuit of nails."
+I think stock and flow analysis can be a fun, occasionally useful exercise for brainstorming and ideation. I do not think it is a fundamentally important skill for leaders.
 
-The questions most suited to analysis via stock and flow diagrams are questions of project management and organizational design. These problems do come up, and they do matter: it's nice to work in an organization with thoughtful and smooth bureaucracy. But at least in my philosophy of engineering leadership[^1], these concerns are very secondary. I don't want my manager's manager and their manager to spend all their energy fiddling with the details of the reporting structure, review processes, or making sure all the teams use Jira in exactly the right way. I would rather they focus on developing culture, i.e. here is a list of things I think matter much more in a software team than smooth bureaucracy:
+Leaders[^1] should worry foremost about being effective, inspiring communicators, spending time listening to the people they are responsible for and understanding the organization's problems from their perspective. They should learn to tell stories that resonate about the organization's direction and the product vision. Their job is not to lock themselves in a room, build models of the organization, draw diagrams, measure things, diagnose issues, and implement solutions. That's *leadership as engineering*.
+
+Leaders do need to manage the bureaucracy. Somebody needs to manage the reporting structure, the hiring process, review processes, and so forth. It's nice to work in an organization with thoughtful and smooth bureaucracy. Bureaucracy can be engineered, to an extent. Stock and flow analysis has a place here. In my philosophy of engineering leadership, though, smooth bureaucracy is very secondary. Culture is king. I don't want my manager's manager and their manager to spend all their energy fiddling with the details of the org chart all the time. They should fix these things if they are severely broken -- i.e. in a way that does not require detailed analysis of subtle interactions-at-a-distance between interrelated elements of a system to uncover -- but I would rather they focus on developing culture. Here is a list of things I think matter much more in a software team than smooth bureaucracy:
 
   * psychological safety
   * deep understanding of the customer
@@ -50,9 +52,9 @@ The questions most suited to analysis via stock and flow diagrams are questions 
   * [pride of workmanship](https://en.wikipedia.org/wiki/Pride_of_workmanship)
   * [interactive tools](2022-08-30-short-feedback.html)
 
-These things are not really subject to stock and flow analysis. So I fear claiming stock and flow analysis is an important skill for software leaders amounts to deemphasizing them.
+These things are not really subject to stock and flow analysis. I am afraid that expositing stock and flow analysis as a tool for engineering leaders without this context paints a distorted picture of what leadership is.
 
-## Example: The Theory of Constraints
+## Example 2: The Theory of Constraints
 
 I occasionally see software writers mention ["The Theory of Constraints"](https://en.wikipedia.org/wiki/Theory_of_constraints). This comes from a book "The Goal", a work of fiction about a manufacturing plant, which I haven't read, but I have read ["The Phoenix Project"](https://www.goodreads.com/book/show/17255186-the-phoenix-project), which I understand is a knock-off of "The Goal" but in a software setting. It's a novel, where the authors invent a fictional dysfunctional company that is only able to fix its problems by applying the particular techniques the author wishes to advance. I recommend this book, too. It's thoughtful and entertaining, although I'm not sure I agree with the authors' agenda.
 
@@ -74,15 +76,13 @@ So the question is, are software teams more like manufacturing plants or more li
 
 Or, you can have a culture where you have "product" teams, who own and are responsible for driving all aspects of their projects end-to-end, and "platform teams" whose mandate is not to undertake the database work, the cloud work, etc. of particular projects, but is to provide and support a set of tools so that it is easy for product teams to undertake and drive this work themselves. This sort of environment is much less likely to be subject to a single constraint.
 
-Or you can be an early-stage start-up where everybody just does everything.
-
-### What is leadership?
+### Leadership is not bottleneck-clearing
 
 Maybe I'm obtuse, and this was the point all along of "The Pheonix Project". You apply the theory of constraints to a dysfunctional organization until the theory doesn't apply anymore and the end result is a well-platformed engineering organization with autonomous teams that own projects end-to-end. But by my reading, advocates of The Theory of Constraints seem to think it *always* applies. The business of leaders is always to optimize the system dynamics problem and single-mindedly focus on clearing bottlenecks at *the constraint*.
 
 I find this vision wanting. Engineering leaders, in my view, are gardeners, not bottleneck-clearers. As I wrote above, the priority of leaders should be *culture* - psychological safety, pride of workmanship, compelling narratives, and such. The Theory of Constraints is an attempt to turn leadership back into an engineering problem. I see the appeal, so many of our managers in this industry were originally engineers. But I reject it.
 
-## Example: Queuing Theory
+## Example 3: Queuing Theory
 
 The last example I'll discuss is the acclaimed, irreverent blog post ["Work is Work"](https://codahale.com/work-is-work/) by Coda Hale. 
 
@@ -98,7 +98,7 @@ Furthermore, we know that this is the True Story of the slower pace at larger or
 
 ### Sanity check
 
-Let's not be hypnotized by fancy equations, and check our experience and intuitions. Is this story actually plausible? Over the last decade or so, the company I work for grew from dozens to thousands of engineers. If tomorrow they decided to fire all the engineers except for me, this would eliminate contention costs and coherence costs. I wouldn't have to contend with anybody for the QA environment. I wouldn't need to communicate with anybody, either. Would I suddenly be able to ship my assigned feature as fast as I could have back in 2012? If Hale is right, and it's really about contention costs and coherence costs, then yes.
+Let's not be hypnotized by fancy equations, and check our experience and intuitions. Is this story actually plausible? Over the last decade or so, the company I work for grew from dozens to thousands of engineers. If tomorrow they decided to fire all the engineers except for me, this would eliminate contention costs and coherence costs. I wouldn't have to contend with anybody for the QA environment. I wouldn't need to communicate with anybody, either. Would I suddenly be able to ship my assigned feature as fast as I could have back in 2012? If Hale is right, and it's really about contention costs and coherence costs, then I should.
 
 It would be nice to clear my calendar a bit. And it would be nice not to risk merge conflicts or code review disputes. But will this change the game? No.
 
@@ -117,7 +117,7 @@ This isn't bad advice. I agree with it. I hate contending for shared resources a
 
 There is no one way to battle complexity. But some things help. ["Make your constraints explicit, enforce them systematically"](http://twitchard.github.io/posts/2021-04-24-behavior-constraining-features.html), as I advised in that previous post. You also need to battle complexity on the fronts that Hale dismissed as "crap". Do keep a high bar for talent. Do be thoughtful about your tech stack: it's no accident that Facebook, Google, Microsoft, Stripe, and Dropbox invested in ways to bolt static type systems on top of Javascript, PHP, Ruby, and Python. Static types matter.
 
-### A call for humanity
+### Leadership is building humane organizations
 
 Despite vastly overselling system dynamics, Hale does an admirable job combatting its tendency to over-mechanize the practice of software leadership. He writes
 

@@ -2,11 +2,36 @@
     <section class="header">
       <h1>$title$</h1>
       <h3>by Richard Marmorstein - $date$</h3>
-      <h4><a href="/">← More Posts</a></h4>
+      <h4><a href="/">← Home</a></h4>
     </section>
     <section class="$class$">
         $body$
-    <h4><a href="/">← More Posts</a></h4>
-    <h4><a href="https://twitter.com/twitchard">Twitter</a></h4>
+    <hr/>
+
+    <div class="callToAction">
+    <p>
+    $if(callToAction)$
+      $callToAction$
+    $endif$
+    To read more by me, you can subscribe to the <a href="/atom.xml">Atom feed</a> or follow my <a href="https://twitter.com/twitchard">Twitter</a>.</p>
+    $if(nextPost)$
+    $if(nextTitle)$
+    <p>The post after this is <a href="../$nextPost$">"$nextTitle$"</a>.</p>
+    $if(nextQuote)$
+      <blockquote>$nextQuote$</blockquote>
+    $endif$
+    $endif$
+    $endif$
+    $if(prevPost)$
+    $if(prevTitle)$
+    <p>The post before this is <a href="../$prevPost$">"$prevTitle$"</a>.</p>
+    $if(prevQuote)$
+      <blockquote>"$prevQuote$"</blockquote>
+    $endif$
+    $endif$
+    </p>
+    $endif$
+    <h4><a href="/">Home</a></h4>
+    </div>
     </section>
 </article>

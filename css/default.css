@@ -30,6 +30,18 @@ home li {
   font-size: .8em;
 }
 
+section.footnotes-end-of-document {
+  font-size: 0.8em;
+}
+
+div.callToAction {
+  margin: 5px;
+  border: 1px dotted black;
+  border-radius: 15px;
+  padding: 5px;
+  background: #eee;
+
+}
 
 /* DropCap for the first character of the body of a blog post */
 section.prose img.dropCap {

@@ -3,6 +3,9 @@ title: "Be good-argument-driven, not data-driven"
 class: prose
 description: "Software culture and the abuse of data"
 quote: Is data-drivenness a psyop from Google?
+hackernews: https://news.ycombinator.com/item?id=32651763
+retweet: https://twitter.com/twitchard/status/1563267751803637760
+reddit: https://www.reddit.com/r/programming/comments/wymg9e/be_goodargumentdriven_not_datadriven
 ---
 <meta property="og:image"
     content="../images/appropriate-data.png" />
