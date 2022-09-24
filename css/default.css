@@ -35,6 +35,7 @@ section.footnotes-end-of-document {
 }
 
 div.callToAction {
+  font-family: "Finger Paint";
   margin: 5px;
   border: 1px dotted black;
   border-radius: 15px;
