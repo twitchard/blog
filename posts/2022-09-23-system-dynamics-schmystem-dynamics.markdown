@@ -7,7 +7,7 @@ quote: "A system dynamics model, properly considered, is just an analogy dressed
 
 ![O](../images/dropCapO.jpg){class="dropCap"}ccasionally, my Twitter feed sends to me a writer arguing via [queueing theory](https://www.lostconsultants.com/2019/11/20/littles-law-applied-in-agile-software-development/), [stock and flow diagrams](https://lethain.com/systems-thinking/), [equations](https://codahale.com/work-is-work/), or [even](https://lethain.com/limiting-wip/) [simulations](https://twitter.com/michelgrootjans/status/1431653674024046593) to advance their ideas of how software teams should operate. These are the tools of [system dynamics](https://en.wikipedia.org/wiki/System_dynamics).
 
-This style of argument appeals to engineers because we like building things, and system dynamics lets you construct an argument by building a model. Despite my overblown title, I do have some appreciation for this style of argument. Some very thoughtful writing is done this way. It is explicit and engaging; it can even be visual or interactive.
+I understand the appeal. We're engineers. We like building things. System dynamics lets you construct an argument by building a model. Provocative title aside, I do appreciate this style of argument. Some very thoughtful writing is done this way. It is explicit and engaging; it can even be visual or interactive.
 
 But I have two objections: first, **arguments involving system dynamics tend to rely on *mysticism***; that is, they claim authority without enough justification. A system dynamics model, properly considered, is just an analogy dressed up in a bit of formalism. Like any analogy, you should only give it force if the stories it tells are plausible in light of your experience and knowledge.
 
