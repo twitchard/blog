@@ -3,6 +3,8 @@ title: "Fools! Stop Mysticizing System Dynamics"
 class: prose
 description: "A system dynamics model, properly considered, is just an analogy dressed up in a bit of formalism."
 quote: "A system dynamics model, properly considered, is just an analogy dressed up in a bit of formalism."
+reddit: https://www.reddit.com/r/programming/comments/xn1qil/fools_stop_mysticizing_system_dynamics/?utm_source=share&utm_medium=web2x&context=3
+twitter: https://twitter.com/twitchard/status/1573756536496656384?s=20&t=ewxW-11tc9Q0FX7hd0itRg
 ---
 
 ![O](../images/dropCapO.jpg){class="dropCap"}ccasionally, my Twitter feed sends to me a writer arguing via [queueing theory](https://www.lostconsultants.com/2019/11/20/littles-law-applied-in-agile-software-development/), [stock and flow diagrams](https://lethain.com/systems-thinking/), [equations](https://codahale.com/work-is-work/), or [even](https://lethain.com/limiting-wip/) [simulations](https://twitter.com/michelgrootjans/status/1431653674024046593) to advance their ideas of how software teams should operate. These are the tools of [system dynamics](https://en.wikipedia.org/wiki/System_dynamics).
