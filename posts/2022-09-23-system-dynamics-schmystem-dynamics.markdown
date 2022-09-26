@@ -54,7 +54,7 @@ Leaders do need to manage the bureaucracy. Somebody needs to manage the reportin
   * [pride of workmanship](https://en.wikipedia.org/wiki/Pride_of_workmanship)
   * [interactive tools](2022-08-30-short-feedback.html)
 
-These things are not really subject to stock and flow analysis. I am afraid that expositing stock and flow analysis as a tool for engineering leaders without this context paints a distorted picture of what leadership is.
+These things are not really subject to stock and flow analysis. I am afraid that expositing stock and flow analysis as a tool for engineering leaders without this context paints a distorted picture[^2] of what leadership is.
 
 ## Example 2: The Theory of Constraints
 
@@ -94,7 +94,7 @@ Why do features take longer to ship as an organization grows, asks Hale. His sto
 
   * "Work capacity" only grows linearly as you hire more engineers, but
   * "Contention costs grow superlinearly" (for shared resources); and
-  * "Coherence costs grow quadratically" (i.e. communication costs[^2]).
+  * "Coherence costs grow quadratically" (i.e. communication costs[^3]).
 
 Furthermore, we know that this is the True Story of the slower pace at larger organizations. Stories about tech stack, talent level, or project management are "emic" and therefore "crap", whereas a queueing theory explanation is "etic" and therefore "a priori truth". Hale is very explicit about expecting you to grant special authority to the system dynamics analogy.
 
@@ -131,7 +131,12 @@ A beautiful sentiment, and a fine way to end the post. Go in peace!
 
     Of course, my managers seem always to be full of opinions about what their engineers should be doing. Why shouldn't an engineer have opinions the opposite way?
 
-[^2]: This is similar to the famous argument from "The Mythical Man Month" by Fred Brooks, as [Wikipedia](https://en.wikipedia.org/wiki/The_Mythical_Man-Month#The_mythical_man-month) summarizes
+[^2]: A [commenter on the orange website](https://news.ycombinator.com/item?id=32973254) has, somewhat fairly, accused me of setting up a straw man here, so I wanted to write a footnote mentioning that Larson has written [a post warning against](https://lethain.com/how-to-safely-think-in-systems/) taking your models too literally, and elsewhere he [has written](https://lethain.com/limiting-wip/) "Models are just models, and they tell us what we ask them to".
+
+    He has also written that a systems model enables "testing hypothesis about how things work", which I view as assigning mystical authority to the practice, but he is also not there advocating for the completely uncritical application of system dynamics, either.
+
+
+[^3]: This is similar to the famous argument from "The Mythical Man Month" by Fred Brooks, as [Wikipedia](https://en.wikipedia.org/wiki/The_Mythical_Man-Month#The_mythical_man-month) summarizes
 
     > Assigning more programmers to a project running behind schedule will make it even later. This is because the time required for the new programmers to learn about the project and the increased communication overhead will consume an ever-increasing quantity of the calendar time available. When n people have to communicate among themselves, as n increases, their output decreases and when it becomes negative the project is delayed further with every person added. 
   
