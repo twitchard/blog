@@ -5,6 +5,7 @@ description: "A system dynamics model, properly considered, is just an analogy d
 quote: "A system dynamics model, properly considered, is just an analogy dressed up in a bit of formalism."
 reddit: https://www.reddit.com/r/programming/comments/xn1qil/fools_stop_mysticizing_system_dynamics/?utm_source=share&utm_medium=web2x&context=3
 retweet: https://twitter.com/twitchard/status/1573756536496656384?s=20&t=ewxW-11tc9Q0FX7hd0itRg
+hackernews: https://news.ycombinator.com/item?id=32970265
 ---
 
 ![O](../images/dropCapO.jpg){class="dropCap"}ccasionally, my Twitter feed sends to me a writer arguing via [queueing theory](https://www.lostconsultants.com/2019/11/20/littles-law-applied-in-agile-software-development/), [stock and flow diagrams](https://lethain.com/systems-thinking/), [equations](https://codahale.com/work-is-work/), or [even](https://lethain.com/limiting-wip/) [simulations](https://twitter.com/michelgrootjans/status/1431653674024046593) to advance their ideas of how software teams should operate. These are the tools of [system dynamics](https://en.wikipedia.org/wiki/System_dynamics).
@@ -19,7 +20,7 @@ To illustrate, I'll proceed through three examples of "system dynamics gone wron
 
 ## Example 1: Stock and Flow Diagrams
 
-Let's start with [a post](https://lethain.com/systems-thinking/) by Will Larson. I have a small criticism of a single blog post, but I heartily recommend all of Larson's writing, particularly his book [An Elegant Puzzle](https://lethain.com/elegant-puzzle/), a treasury of thoughtful, practical advice for engineering leaders. Larson writes occasionally about "systems thinking", and is particularly fond of [stock and flow diagrams](https://en.wikipedia.org/wiki/Stock_and_flow), from the system dynamics toolbox. In [this particular post](https://lethain.com/systems-thinking/), he draws this diagram
+Let's start with [a post](https://lethain.com/systems-thinking/) by Will Larson. I have a small criticism[^1] of a single blog post, but I heartily recommend all of Larson's writing, particularly his book [An Elegant Puzzle](https://lethain.com/elegant-puzzle/), a treasury of thoughtful, practical advice for engineering leaders. Larson writes occasionally about "systems thinking", and is particularly fond of [stock and flow diagrams](https://en.wikipedia.org/wiki/Stock_and_flow), from the system dynamics toolbox. In [this particular post](https://lethain.com/systems-thinking/), he draws this diagram
 
 ![](../images/dev-velocity-sys.png){style="width: 100%"}
 
@@ -41,7 +42,7 @@ Put another way, stock and flow models *seem* much more flexible than they actua
 
 I think stock and flow analysis can be a fun, occasionally useful exercise for brainstorming and ideation. I do not think it is a fundamentally important skill for leaders.
 
-Leaders[^1] should worry foremost about being effective, inspiring communicators, spending time listening to the people they are responsible for and understanding the organization's problems from their perspective. They should learn to tell stories that resonate about the organization's direction and the product vision. Their job is not to lock themselves in a room, build models of the organization, draw diagrams, measure things, diagnose issues, and implement solutions. That's *leadership as engineering*.
+Leaders[^2] should worry foremost about being effective, inspiring communicators, spending time listening to the people they are responsible for and understanding the organization's problems from their perspective. They should learn to tell stories that resonate about the organization's direction and the product vision. Their job is not to lock themselves in a room, build models of the organization, draw diagrams, measure things, diagnose issues, and implement solutions. That's *leadership as engineering*.
 
 Leaders do need to manage the bureaucracy. Somebody needs to manage the reporting structure, the hiring process, review processes, and so forth. It's nice to work in an organization with thoughtful and smooth bureaucracy. Bureaucracy can be engineered, to an extent. Stock and flow analysis has a place here. In my philosophy of engineering leadership, though, smooth bureaucracy is very secondary. Culture is king. I don't want my manager's manager and their manager to spend all their energy fiddling with the details of the org chart all the time. They should fix these things if they are severely broken -- i.e. in a way that does not require detailed analysis of subtle interactions-at-a-distance between interrelated elements of a system to uncover -- but I would rather they focus on developing culture. Here is a list of things I think matter much more in a software team than smooth bureaucracy:
 
@@ -54,7 +55,7 @@ Leaders do need to manage the bureaucracy. Somebody needs to manage the reportin
   * [pride of workmanship](https://en.wikipedia.org/wiki/Pride_of_workmanship)
   * [interactive tools](2022-08-30-short-feedback.html)
 
-These things are not really subject to stock and flow analysis. I am afraid that expositing stock and flow analysis as a tool for engineering leaders without this context paints a distorted picture[^2] of what leadership is.
+These things are not really subject to stock and flow analysis. I am afraid that expositing stock and flow analysis as a tool for engineering leaders without this context paints a distorted picture of what leadership is.
 
 ## Example 2: The Theory of Constraints
 
@@ -127,14 +128,11 @@ Despite vastly overselling system dynamics, Hale does an admirable job combattin
 
 A beautiful sentiment, and a fine way to end the post. Go in peace!
 
-[^1]: Disclaimer: I have a lot of opinions about how software organizations should be led. I am not myself any sort of manager. So judge my argument on its merits, not on my credentials! 
+[^1]: Larson has expressed nuanced views on system dynamics. We has [a post warning against](https://lethain.com/how-to-safely-think-in-systems/) taking your models too literally, and elsewhere he [has written](https://lethain.com/limiting-wip/) "Models are just models, and they tell us what we ask them to". So he views it somewhat critically, although still presumably granting it a special authority beyond other types of storytelling; i.e. he states that it enables "testing hypothesis about how things work".
+
+[^2]: Disclaimer: I have a lot of opinions about how software organizations should be led. I am not myself any sort of manager. So judge my argument on its merits, not on my credentials! 
 
     Of course, my managers seem always to be full of opinions about what their engineers should be doing. Why shouldn't an engineer have opinions the opposite way?
-
-[^2]: A [commenter on the orange website](https://news.ycombinator.com/item?id=32973254) has, somewhat fairly, accused me of setting up a straw man here, so I wanted to write a footnote mentioning that Larson has written [a post warning against](https://lethain.com/how-to-safely-think-in-systems/) taking your models too literally, and elsewhere he [has written](https://lethain.com/limiting-wip/) "Models are just models, and they tell us what we ask them to".
-
-    He has also written that a systems model enables "testing hypothesis about how things work", which I view as assigning mystical authority to the practice, but he is also not there advocating for the completely uncritical application of system dynamics, either.
-
 
 [^3]: This is similar to the famous argument from "The Mythical Man Month" by Fred Brooks, as [Wikipedia](https://en.wikipedia.org/wiki/The_Mythical_Man-Month#The_mythical_man-month) summarizes
 
