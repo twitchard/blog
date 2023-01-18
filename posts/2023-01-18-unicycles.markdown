@@ -33,19 +33,19 @@ Vim is only one of my unicycles. I also use a very custom desktop Linux. I run N
 
 ## The critical resource
 
-The software world is obsessed with *developer time*. I had a college professor who used to say "computers are cheap, but *developer time* is expensive". The developer productivity team at the large tech company I work for often quantifies their wins in terms of *developer time* saved. When my team estimates tasks, we do in terms of *developer time*. When Hacker News discusses the merits of one software tool vs. another, the implicit criterion is often one of *efficiency*. Which tool will allow you to write better software quicker, per unit of *developer time* spent using the tool?
+The software world is obsessed with *developer time*. I had a college professor who used to say "computers are cheap, but *developer time* is expensive". The developer productivity team at the large tech company I work for often quantifies their wins in terms of *developer time* saved[^4]. When my team estimates tasks, we do in terms of *developer time*. When Hacker News discusses the merits of one software tool vs. another, the implicit criterion is often one of *efficiency*. Which tool will allow you to write better software quicker, per unit of *developer time* spent using the tool?
 
-But I'd like to challenge this. I say the the critical resource is not *developer time*, it's *developer energy*. The "10x developer" may or may not be a myth, but it is no myth that I personally am 10x more productive on days when I am energized than on days when I am exhausted, distracted, and frustrated. 
+But I'd like to challenge this. I say the critical resource is not *developer time*, it's *developer energy*. The "10x developer" may or may not be a myth, but it is no myth that I personally am 10x more productive on days when I am energized than on days when I am exhausted, distracted, and frustrated. 
 
 It's a rare day that I have the energy to spend all my time highly engaged with high-value work the whole day. I'll spend a typical morning getting organized, being on Slack, doing low-value administrivia, etc. Eventually, I'll have the energy built up (or get stressed out enough by the fact that I haven't accomplished anything valuable yet that day), and dive in to confront the challenging, high-value parts of whatever project I'm working on. Then after some time, my energy wanes, and I retreat back into lower-value administrivia again. So my productivity on a given day is less a function of how much *time* I have available, than how easy it is to muster up and preserve the *energy* to actually focus on the highest-value work and overcome the challenges there. I suspect something similar is probably true of your work habits, too.
 
-Energy is critical. Chronically low energy leads to burnout, which is tragic for the individual. And it leads to churn, which is death for the team. Think in terms of energy. Not in terms of time.
+Energy is critical. Chronically low energy leads to burnout, which is tragic for the individual. And it leads to churn, which is death for the team. Energy > time.
 
 ## The linguistic game
 
 Energy is different for everybody. For me, using a super custom Vim and window manager is one source of energy, especially if the challenge of the day involves a lot of text editing. I also get a lot of energy out of pair programming, especially if it's with somebody less experienced than me whom I can feel like I am helping learn. I also can get energy if I like the programming language that I'm using.
 
-There was a tweet that made the rounds awhile back
+There was[^6] a tweet that made the rounds awhile back
 
 <div style="text-align:center"><img alt="Becoming more and more aware that languages in the ML tradition (Haskell, Rust, OCaml, etc) are about a certain kind of linguistic game that the developers have fun playing, and not because it makes any software arrive quicker, behave righter, perform better, or last longer - Chris Done, September 2022]" src="../images/done-tweet.png" style="width:500px;"/></div>
 
@@ -83,35 +83,39 @@ On the one hand, I hate this. It seems like needless, frivolous indirection.
 
 On the other hand, there's just something cool about English text that executes. I have to admit it. I hate it, but there it is.
 
-My point is, this is a perfectly legitimate source of developer energy. If the ability to write grammatical, executable English sentences gets you and your team excited to write tests, then absolutely more power to you[^4]. It bears repeating: the critical resource is *developer energy*, not *developer time*. Energy is gold, and you should seize it wherever you can find it, even if it means writing cucumber scenarios.
+My point is, this is a perfectly legitimate source of developer energy. If the ability to write grammatical, executable English sentences gets you and your team excited to write tests, then absolutely more power to you[^5]. It bears repeating: the critical resource is *developer energy*, not *developer time*. Energy is gold, and you should seize it wherever you can find it, even if it means writing cucumber scenarios.
 
 ## The call to action
 
-This is a fairly recent shift in my thinking. Many practices and traditions across the industry that, a year ago, would have seemed misguided, frivolous, or pointless to me, make more sense considered in terms of "developer energy". For example, the people who are super dogmatic about TDD or XP, or super dogmatic about scrum, or the people who build their own freaky mechanical keyboards, or the people in [r/battlestations](https://reddit.com/r/battlestations), or the people who like dependency injection frameworks, or why web frameworks to give semantic meaning to file paths.
+This is a fairly recent shift in my thinking. Many practices and traditions across the industry that, a year ago, would have seemed misguided or pointless to me make more sense considered in terms of "developer energy". For example, the people who are super dogmatic about TDD or XP or Agile Methods, or obsessed with building their own elaborately customized mechanical keyboards, or the people in [r/battlestations](https://reddit.com/r/battlestations), or the people who like dependency injection frameworks, or why web frameworks to give semantic meaning to file paths. None of these things seem particularly practical to me, but at the same time I can also see how somebody would find them aesthetically satisfying or energizing in some way.
 
-So I have three calls to action:
+I have three calls to action:
 
 ### 1. Stop feeling guilty about the software you love.
 
-Don't feel bad about spending quality time with your dotfiles, or installing a fancy font with ligatures, or getting used to that fancy new mechanical keyboard. Think of these things as an investment in your energy, not a distraction from your work. (Everything in moderation, of course).
+Don't feel bad about spending quality time with your dotfiles, or installing a fancy font with ligatures, or getting used to that fancy new mechanical keyboard, or whatever your poison is. Think of these things as an investment in your energy, not a distraction from your work. (Everything in moderation, of course).
 
 ### 2. Hype things up, throw some shade.
 
-I have a brother 13 years older who is responsible for me adopting Vim and Desktop Linux. 
+I have a brother 13 years older -- it's his fault I use Vim and Desktop Linux. 
 
-I was in my formative college years. He convinced me to give Vim and Linux a shot, not by giving me some sort of objective analysis of all the options for editors available. He did this by throwing shade on IDEs ("they make you helpless, they obscure what's really going on") and Windows ("Microsoft is an evil monopoly, proprietary software is immoral"), and hyping up Vim and Linux a bit more than they probably deserved.
+I was in my formative college years. He convinced me to give Vim and Linux a shot, not by giving me some sort of objective analysis of all the options for editors available, but by throwing shade on IDEs ("they make you helpless, they obscure what's really going on") and Windows ("Microsoft is an evil monopoly, proprietary software is immoral"), and hyping up Vim and Linux a bit more than they probably deserved.
 
 This was a huge favor. I owe so much to him.
 
-By "throwing shade" I do not mean "bullying". Please don't join the wretches online who get their kicks from trying to make other people feel bad about themselves or lesser because of their choice of technology/programming language. But I think it's important to acknowledge that good-natured, civil hype and shade have their place.
+By "throwing shade" I do not mean "bullying". Please don't join the wretches online who get their kicks from trying to make other people feel bad about themselves or lesser because of their choice of technology/programming language. Good-natured, civil hype and shade have their place, though. Hype up what thrills you! Decry the mediocre, corporate-backed, optimized-for-drudgery alternatives[^7].
 
-If you're a beginner just entering the world of software, what you need most is energy and the motivation to learn. You should feel like the programming language you are learning to use is special, in some way. You should feel like the editor you are learning to use will let you become some sort of leet haxor. You should feel like you are becoming part of a tribe. You need these feelings more than you need an objective picture of things, and I am lucky I had them.
+If you're a beginner just entering the world of software, what you need most is energy and the motivation to learn. You should feel like the programming language you are learning to use is special, in some way. You should feel like the editor you are learning to use will let you become some sort of leet haxor. You should feel like you are becoming part of a community, with special lore, its own brand of humor, and a superior culture. You need these feelings more than you need an objective picture of things, and I am lucky I had them.
 
 ### 3. Open your mind. Try impractical things.
 
 Have a teammate who's really eager to introduce cucumber tests? Have a boss who's into heavily regimented scrum? Have a friend who always wants to talk your ear off about their weird obsession with custom mechanical keyboards?
 
-You have two options. You can take a stand for pragmatism, make your arguments about how these really aren't the most efficient uses of time. Or: you can dive in. Write those cucumber scenarios. Go ham with it. Don't settle for plain English, unleash your inner Shakespeare! Lean into that Scrum stuff too. Hop on the unicycle and start pedalling.
+You have two options. You can take a stand for pragmatism, make your arguments about how these really aren't the most efficient uses of time. Or: you can dive in. Write those cucumber scenarios. Go ham with it. Don't settle for plain English, unleash your inner Shakespeare! Lean into that Scrum stuff too. Throw pragmatism to the wind, find the joy in your team's favorite impracticalities, and see how much more productive you can be if you commit to *enjoying yourself*.
+
+---
+
+That's the post! Now hop on the unicycle and start pedalling.
 
 [^1]: I came across [this post](https://www.baldurbjarnason.com/2022/theory-building/) on Hacker News the other day, describing the act of programming as "theory-building". I like this frame. If you conceive software engineering as not just building software mechanisms, but growing the attitudes and ideas that surround those software mechanisms, it follows that the *feelings* people have about software tools can be more important than the actual technical characteristics those tools have.
 
@@ -121,4 +125,12 @@ You have two options. You can take a stand for pragmatism, make your arguments a
 
     If you're actually interested in the ability to input text faster than a qwerty typist can, and you have time to waste, you should look into a project called [plover](http://www.openstenoproject.org/plover/), which lets you use your keyboard like a stenography engine.
 
-[^4]: Couldn't be me.
+[^4]: If you quantify your success in terms of *developer time saved* you're probably *understating* the value of what you delivered, since often, the things that waste developer time are even more expensive in terms of *developer energy*. Nobody likes waiting for a slow script to finish. I've abandoned approaches due to slow scripts. I've ended pair programming sessions early due to slow scripts. I've *changed teams* because of slow scripts.
+
+    However, speeding up things isn't the only way to improve feedback loops and make the developer lifecycle more "energy-efficient", see [Engineer SHORT feedback loops](./2022-08-30-short-feedback.html)
+
+[^5]: Couldn't be me.
+
+[^6]: Chris Done, the author of the tweet, recently deleted all his tweets and left Twitter. Luckily, I found the tweet screenshotted in a [Strange Loop Talk, "Stop Writing Dead Programs" by Jack Rusher](https://thestrangeloop.com/2022/stop-writing-dead-programs.html).
+
+[^7]: You should read ["Choose Boring Technology"](https://mcfunley.com/choose-boring-technology). My post might *sound* like a counterargument to "Choose Boring Technology", but it isn't. "Choose Boring Technology" has a bad title: it's really an argument against *unproven* technology, not against exciting technology. McKinley for some reason seems to equate software being unproven with it being exciting, and software being proven being boring, but for me, at least, I find the most excitement mostly in old, mature technologies like Desktop Linux, Haskell, Nix, Vim -- which are hardly unproven, they're just a little bit out of the mainstream.
