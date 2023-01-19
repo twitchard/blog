@@ -1,9 +1,8 @@
 ---
 title: "Take your pragmatism for a unicycle ride"
 class: prose
-description: "The critical resource is not *developer time* it's *developer energy*"
+description: "The critical resource is not *developer time*, it's *developer energy*"
 quote: "Sometimes the tool that brings the best results isn't the tool that is \"best\" on the practical merits"
-draft: true
 ---
 
 <meta property="og:image"
