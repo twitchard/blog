@@ -57,7 +57,7 @@ Of course, different strokes for different folks. For me, once I got the hang of
 
 Take Ruby on Rails, for instance. I think Ruby on Rails makes developers excited in a completely different way. DHH, the author of Rails, has written about the first tenet of the "Rails Doctrine" being ["Optimize for Programmer Happiness"](https://rubyonrails.org/doctrine#optimize-for-programmer-happiness). 
 
-I'm interpreting a little bit, but I think what DHH means by "programmer happiness" he is specific referring to a particular ethos I have noticed among the Ruby/Rails community: a willingness to accept slightly convoluted implementations as a fair price for the ability to write code that looks "cute" on the surface.
+I'm interpreting a little bit, but I think what DHH means by "programmer happiness" he is specifically referring to a particular ethos I have noticed among the Ruby/Rails community: a willingness to accept slightly convoluted implementations as a fair price for the ability to write code that looks "cute" on the surface.
 
 DHH mentions two examples: the fact that Rails has `.first`, `.second`, `.third`, etc. accessors instead of just `[0]`, `[1]`, `[2]`, etc. and the fact that Rails knows that the plural of "person" is "people", not "persons" and the plural of "analysis" is "analyses", not "analysises".
 
