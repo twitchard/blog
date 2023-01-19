@@ -6,9 +6,8 @@ quote: Is data-drivenness a psyop from Google?
 hackernews: https://news.ycombinator.com/item?id=32651763
 retweet: https://twitter.com/twitchard/status/1563267751803637760
 reddit: https://www.reddit.com/r/programming/comments/wymg9e/be_goodargumentdriven_not_datadriven
+thumbnail: /images/appropriate-data.png
 ---
-<meta property="og:image"
-    content="../images/appropriate-data.png" />
 
 <img src="../images/dropCapI.jpg" alt="I" class="dropCap"/>'ve [ranted previously](2019-10-13-software-development-and-the-false-promise-of-science.html) about taking empirical research about software engineering practices with a grain of salt. Let's dust off the old salt shaker and season up a related idea: the notion that software organizations ought to be "data-driven", i.e. that all teams and projects should define metrics to evaluate their success; decisions should be generally be given some data-based justification; without data we can't be objective; if we rely merely on reason and intuition, bias will creep in. Science! Truth! The American Way!
 
