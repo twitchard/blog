@@ -6,7 +6,6 @@ quote: "Sometimes the tool that brings the best results isn't the tool that is \
 thumbnail: https://twitchard.github.io/images/clown-unicycle.png
 ---
 
-<meta prefix="og: http://ogp.me/ns#" property="og:image"
     content="../images/clown-unicycle.png" />
 ## The thrill of unicycling
 ![W](../images/dropCapW.jpg){class="dropCap"}hen
