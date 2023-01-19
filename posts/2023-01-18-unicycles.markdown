@@ -5,7 +5,7 @@ description: "The critical resource is not *developer time*, it's *developer ene
 quote: "Sometimes the tool that brings the best results isn't the tool that is \"best\" on the practical merits"
 ---
 
-<meta property="og:image"
+<meta prefix="og: http://ogp.me/ns#" property="og:image"
     content="../images/clown-unicycle.png" />
 ## The thrill of unicycling
 ![W](../images/dropCapW.jpg){class="dropCap"}hen
