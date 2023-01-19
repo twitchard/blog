@@ -47,9 +47,9 @@ There was[^6] a tweet that made the rounds awhile back
 
 <div style="text-align:center"><img alt="Becoming more and more aware that languages in the ML tradition (Haskell, Rust, OCaml, etc) are about a certain kind of linguistic game that the developers have fun playing, and not because it makes any software arrive quicker, behave righter, perform better, or last longer - Chris Done, September 2022]" src="../images/done-tweet.png" style="width:500px;"/></div>
 
-I am a staunch advocate of the ML tradition, as you may have guessed from my [monad tutorial](./2020-07-26-monads.markdown) (another example of how I'm a sucker for "quirky technology that promises great rewards past an initial challenge"), so this hurts a little to admit, but I think there's some truth in this tweet. Maybe we all give Haskell so much street cred because of how satisfying it is to play Haskell type tetris, and not because we've examined evidence that the practical merits of the language make it possible to write more robust software in less time.
+I am a staunch advocate of the ML tradition, as you may have guessed from my [monad tutorial](./2020-07-26-monads.html) (another example of how I'm a sucker for "quirky technology that promises great rewards past an initial challenge"), so this hurts a little to admit, but I think there's some truth in this tweet. Maybe we all give Haskell so much street cred because of how satisfying it is to play Haskell type tetris, and not because we've examined evidence that the practical merits of the language make it possible to write more robust software in less time.
 
-But so what? As I said about the unicycle, how a tool makes us *feel* can be way more important than the narrowly conceived "practical merits", anyway. By this measure, describing a "linguistic game that the developers have fun playing" seems like one of the most flattering way you could paint a programming language.
+But so what? As I said about the unicycle, how a tool makes us *feel* can be way more important than the narrowly conceived "practical merits", anyway. By this measure, describing a "linguistic game that the developers have fun playing" seems like one of the most flattering ways you could paint a programming language.
 
 Of course, different strokes for different folks. For me, once I got the hang of it, programming with an ML-style type system was an incredible source of energy. Addictive, even. But I think it's important to admit that type tetris is not the only thing about a programming language that can make people excited.
 
@@ -119,7 +119,7 @@ That's the post! Now hop on the unicycle and start pedalling.
 
 [^2]: If you take nothing else away from this post, try [home-manager](https://github.com/nix-community/home-manager).
 
-[^3]: I should say, I don't really recommend switching to Dvorak. Not in the same way as I recommend Vim or Desktop Linux, anyway. I switch in college, and mostly regret/am embarassed by it today, although possibly it could be protecting me against RSI, who can say? In any case, it's a part of who I am now and I'm not about to ditch it.
+[^3]: I should say, I don't really recommend switching to Dvorak. Not in the same way as I recommend Vim or Desktop Linux, anyway. I switched in college, and mostly regret/am embarassed by it today, although possibly it could be protecting me against RSI -- who can say? In any case, it's a part of who I am now and I'm not about to ditch it.
 
     If you're actually interested in the ability to input text faster than a qwerty typist can, and you have time to waste, you should look into a project called [plover](http://www.openstenoproject.org/plover/), which lets you use your keyboard like a stenography engine.
 
