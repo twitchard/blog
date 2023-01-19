@@ -6,7 +6,6 @@ quote: "Sometimes the tool that brings the best results isn't the tool that is \
 thumbnail: https://twitchard.github.io/images/clown-unicycle.png
 ---
 
-    content="../images/clown-unicycle.png" />
 ## The thrill of unicycling
 ![W](../images/dropCapW.jpg){class="dropCap"}hen
 I was a teenager, my parents bought my little brother a unicycle. It stayed unused in the garage for a year, but the next summer I decided I would learn to ride it.
