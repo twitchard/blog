@@ -5,8 +5,7 @@ description: "The critical resource is not *developer time*, it's *developer ene
 quote: "Sometimes the tool that brings the best results isn't the tool that is \"best\" on the practical merits"
 thumbnail: https://twitchard.github.io/images/clown-unicycle.png
 retweet: https://twitter.com/twitchard/status/1615919994755235844?s=20&t=wZSGABvjNCxq6XTmZUG7fA
-reddit: https://twitter.com/twitchard/status/1615919994755235844?s=20&t=wZSGABvjNCxq6XTmZUG7fA
----
+reddit: https://www.reddit.com/r/programming/comments/10fs360/take_your_pragmatism_for_a_unicycle_ride
 
 ## The thrill of unicycling
 ![W](../images/dropCapW.jpg){class="dropCap"}hen
