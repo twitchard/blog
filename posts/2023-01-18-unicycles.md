@@ -87,7 +87,7 @@ My point is, this is a perfectly legitimate source of developer energy. If the a
 
 ## The call to action
 
-This is a fairly recent shift in my thinking. Many practices and traditions across the industry that, a year ago, would have seemed misguided or pointless to me make more sense considered in terms of "developer energy". For example, the people who are super dogmatic about TDD or XP or Agile Methods, or obsessed with building their own elaborately customized mechanical keyboards, or the people in [r/battlestations](https://reddit.com/r/battlestations), or the people who like dependency injection frameworks, or why web frameworks to give semantic meaning to file paths. None of these things seem particularly practical to me, but at the same time I can also see how somebody would find them aesthetically satisfying or energizing in some way.
+This is a fairly recent shift in my thinking. Many practices and traditions across the industry that, a year ago, would have seemed misguided or pointless to me make more sense considered in terms of "developer energy". For example, the people who are super dogmatic about TDD or XP or Agile Methods, or obsessed with building their own elaborately customized mechanical keyboards, or the people in [r/battlestations](https://reddit.com/r/battlestations), or the people who like dependency injection frameworks, or why web frameworks give semantic meaning to file paths. None of these things seem particularly practical to me, but at the same time I can also see how somebody would find them aesthetically satisfying or energizing in some way.
 
 I have three calls to action:
 
