@@ -15,13 +15,13 @@ This is provocative in my favorite way. There is a truth here: libraries are sup
 
 But from a different perspective **most programmers' library preferences are really language preferences**. Libraries don't manifest out of thin air. They are written in a programming language, and the nature of the programming language influences the nature of its libraries, in two ways. 
 
-1. There's a *first-order effect*: the features of a programming language can enable libraries that provide more help for users. For example:
-    * **Metaprogramming:** Ruby and Python, for example, have metaprogramming features that allow libraries like Rails and Django to exist, where you just define a class, define some properties and relations on it, and then you get a bunch of definitions for free: methods to do database lookups and property edits and whatnot -- pretty cool if you're into that sort of thing.
-    * **Fancy types:** Rust and Haskell have linear types, which give library authors the ability to provide compile-time detection for certain types of user errors like resource leaks.
+There's a *first-order effect*: the features of a programming language can enable libraries that provide more help for users. For example:
+  * **Metaprogramming:** Ruby and Python, for example, have metaprogramming features that allow libraries like Rails and Django to exist, where you just define a class, define some properties and relations on it, and then you get a bunch of definitions for free: methods to do database lookups and property edits and whatnot -- pretty cool if you're into that sort of thing.
+  * **Fancy types:** Rust and Haskell have linear types, which give library authors the ability to provide compile-time detection for certain types of user errors like resource leaks.
 
-    This isn't really specific to *libraries* per se, languages that permit you to write more expressive code also permit you to use more expressive[^1] (and therefore more helpful) libraries. Go to your nearest Hacker News comments section and I'm sure you can find plenty of discussion about the sorts of things that make a programming language expressive.
+This isn't really specific to *libraries* per se, languages that permit you to write more expressive code also permit you to use more expressive[^1] (and therefore more helpful) libraries. Go to your nearest Hacker News comments section and I'm sure you can find plenty of discussion about the sorts of things that make a programming language expressive.
 
-2. The *second-order effect* is what I'm more interested in discussing here. A programming language that makes it easier to *improve* libraries -- and makes it easier for users to receive those improvements -- will tend to have better libraries.
+The *second-order effect* is what I'm more interested in discussing here. A programming language that makes it easier to *improve* libraries -- and makes it easier for users to receive those improvements -- will tend to have better libraries.
 
 ## The cost of breaking changes
 
