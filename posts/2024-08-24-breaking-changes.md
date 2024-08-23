@@ -44,13 +44,13 @@ Every maintainer faces this dilemma: abandon your discipline around breaking cha
 
 We all lose here. Every improvement a maintainer chooses not to ship because it breaks imaginary users means a worse library for the rest of us. Every moment a maintainer spends on workarounds to avoid breaking changes, or on managing the breaking changes they do ship -- e.g. delaying them so many breaking changes can be bundled, managing deprecation, writing migration instructions -- is a moment they don't spend on improving other, more tangible aspects of the library.
 
-![The world if library maintainers could spend more time improving the library and  less time managing breaking changes](../breaking_changes_meme.png)
+![](../images/breaking_changes_meme.png){style="width:80%"}
 
 ## Tips for library maintainers
 
 There are things you can and should do as a library maintainer to reduce the toll of breaking changes on your own library:
 
-* Run a tool in CI[^4]that detects breaking changes. Less burden on you to catch things.
+* Run a tool in CI[^4] that detects breaking changes. Less burden on you to catch things.
 * Be very conservative with your public interface. Default to making everything private or else final and readonly and whatever other limiting modifiers you can think of.
 * Explicitly disallow "weird" usage patterns inside your documentation. The [semver spec](https://semver.org/) says that your public interface is what you declare it to be, and you are allowed to say "the shape of the library under reflection is not considered part of the public interface" if you want to, or "only classes that are explicitly documented as such are allowed to be subclassed".
 
