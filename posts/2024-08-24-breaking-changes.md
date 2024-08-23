@@ -1,26 +1,27 @@
 ---
 title: "Breaking changes: a tooling problem"
-draft: true
 class: prose
 description: "How could our tools change to reduce the cost of breaking changes?"
 quote: "the library experience around breaking changes is poor and has room to improve"
 thumbnail: https://twitchard.github.io/images/breaking_changes_meme.png
 ---
 
-## Good libraries, please
-
 ![P](../images/dropCapP.png){class="dropCap"}aul Graham
 [said](https://x.com/paulg/status/1373926244673323008)
 
 > The base state of programming is gluing together library calls. Since glue code can be written in any language, most programmers' language preferences are really library preferences.
 
-This quote is provocative in exactly the right way. There is a truth here: libraries are supremely important, and will only become more important as the software world expands. Libraries are the software world's tool for the division of labor. [Ask Adam Smith](https://en.wikisource.org/wiki/The_Wealth_of_Nations/Book_I/Chapter_1): the larger the industry, the higher the degree of the division of labor. 
+This is provocative in my favorite way. There is a truth here: libraries are supremely important, and will only become more important as the software world expands. Libraries are the software world's tool for the division of labor. [Ask Adam Smith](https://en.wikisource.org/wiki/The_Wealth_of_Nations/Book_I/Chapter_1): the larger the industry, the higher the degree of the division of labor. As software eats the world, libraries will eat software.
 
-But from a different perspective it is also true that **most programmers' library preferences are really language preferences**. Libraries don't manifest out of thin air. They are written in a programming language, and the nature of the programming language influences the nature of its libraries, in two ways. 
+But from a different perspective **most programmers' library preferences are really language preferences**. Libraries don't manifest out of thin air. They are written in a programming language, and the nature of the programming language influences the nature of its libraries, in two ways. 
 
-There's a first-order effect: the features of a programming language can enable libraries that just *do more* for users. For example, Ruby and Python have metaprogramming features that allow libraries like Rails and Django to exist, where you just define a class, define some properties and relations on it, and then you get a bunch of definitions for free, methods to do database lookups and property edits and whatnot -- pretty cool if you're into that sort of thing. A different example: Rust and Haskell have linear types, which give library authors the ability to provide compile-time detection for certain types of user errors like resource leaks. This isn't really specific to *libraries* per se, it's just expressivity writ large -- if a language doesn't give you the tools to abstract away your own boilerplate, or write types to rule out your own errors, it certainly doesn't given library authors the tools to do those things for you when you're using their library, either. But plenty has been written elsewhere about expressiveness[^1].
+1. There's a *first-order effect*: the features of a programming language can enable libraries that provide more help for users. For example:
+    * **Metaprogramming:** Ruby and Python, for example, have metaprogramming features that allow libraries like Rails and Django to exist, where you just define a class, define some properties and relations on it, and then you get a bunch of definitions for free: methods to do database lookups and property edits and whatnot -- pretty cool if you're into that sort of thing.
+    * **Fancy types:** Rust and Haskell have linear types, which give library authors the ability to provide compile-time detection for certain types of user errors like resource leaks.
 
-What I'm more interested in discussing here is the *second-order effect*. A programming language that makes it easier to *improve* libraries -- and makes it easier for users to receive those improvements -- will tend to have better libraries.
+    This isn't really specific to *libraries* per se, languages that permit you to write more expressive code also permit you to use more expressive[^1] (and therefore more helpful) libraries. Go to your nearest Hacker News comments section and I'm sure you can find plenty of discussion about the sorts of things that make a programming language expressive.
+
+2. The *second-order effect* is what I'm more interested in discussing here. A programming language that makes it easier to *improve* libraries -- and makes it easier for users to receive those improvements -- will tend to have better libraries.
 
 ## The invisible cost of breaking changes
 
@@ -100,6 +101,7 @@ If you could actually rely upon users to read and obey the release notes, there 
  A way for tools to address this problem would be a finer-grained concept of "breaking change". Maintainers should be able to specify which *parts* of a library are subject to breakage, and users (with the help of their tools) should specify which *parts* of the library are used by their project, and this information should be used to determine which releases to automatically pull, not the coarse "breaking/non-breaking" distinction. Pull this off and breaking changes become less disruptive for those they do not affect, and the signal-to-noise ratio of reading the release notes that are flagged for you is much more favorable.
 
 As with codemods, types may be a big part of the story here. The type system has a pretty definitive answer to "do I use subject-to-breaking-change part X part of library Y" -- this is just checking if "find all references" returns an empty result or not. In theory, you can also get (even more granular) usage information with run-time mechanisms, if you have sufficient test coverage.
+
 ### Library-Level Access Control
 
 A feature that few programming languages provide is library-level access control. Many programming languages have no access control to speak of, and many of those that have access control do not provide it at the **library** level. 
@@ -113,6 +115,7 @@ A feature that few programming languages provide is library-level access control
 * In Typescript you can accomplish the effect of internal-only types by exporting different types to your users than what you use internally. I know of but have not used [API Extractor](https://api-extractor.com/pages/tsdoc/doc_comment_syntax/) which provides `@public`, `@private` annotations.
 
 This is mostly just an inconvenience. You can always use docstrings to mark something as internal. But in my opinion, every programming language serious about libraries should enforce access controls, or at a bare minimum, ratify a standard. Tools to detect breaking changes (and enforce semver?) can't work unless there's an agreed way for library maintainers to declare what's actually in the public interface.
+
 ### Unison
 
 I don't think a post on library upgrade experience would be complete if I didn't mention the programming language [Unison](https://www.unison-lang.org). In Unison, [things are referenced](https://www.unison-lang.org/docs/the-big-idea/) by *a hash of their syntax tree* instead of by *name*. This has several implications, but among other things it makes for an interesting library upgrade story. Several different versions of a single library can coexist peacefully in the same Unison project, so if you need something from the newest version of a library [you don't necessarily need to](https://www.unison-lang.org/docs/the-big-idea/) stop the world, upgrade all your existing usage of the library to be compatible with the latest version first, before bumping a single, project-wide version. You can very naturally just grab the latest version of the library and start using it *in addition* to the older version of the library that you are already using. You can consolidate things later, if it becomes convenient or proves to be logically necessary. When you do wish to do a project-wide upgrade, the a Unison tooling [partially automates](https://www.unison-lang.org/docs/usage-topics/workflow-how-tos/update-code/#upgrade-workflow) this with its [structured refactoring](https://www.unison-lang.org/docs/the-big-idea/#structured-refactoring) capabilities. Also because references are by-hash and not by-name, renames are non-breaking. So in theory, breaking changes in a Unison library promise to be less disruptive to users than breaking changes to a library in a more typical programming language.
@@ -122,12 +125,17 @@ I haven't used Unison too seriously, so I can't speak authoritatively to how thi
 ## Don't just click away and forget
 
 I hope I've convinced you 
+
 * the library experience around breaking changes is poor and has room to improve 
 * this is costly, not just to library maintainers but to everybody
 
 The next time you are selecting a programming language for an important, long-term project, the next time you are advising a friend which programming language they should choose to build their career around,  the next time that you are sitting down to a fancy dinner with the core team of the world's most promising programming language, the next time you are sounding off your unsolicited programming language opinions on Hacker News -- think of the library maintainers. Shake your fist at Mayhemus McWreckington. Remember that he is why we can't have nice things, even though he probably doesn't even really exist.
 
-[1]: I watched a "Papers We Love" talk about a paper that tries to formalize the notion of what it means or a programming language to be "expressive". I recommend it if you're PL-theory-curious: https://www.youtube.com/watch?v=43XaZEn2aLc
+[^1]: I watched a ["Papers We Love" talk](https://www.youtube.com/watch?v=43XaZEn2aLc)
+ about a paper that tries to formalize the notion of what it means or a programming language to be "expressive". I recommend it if you're PL-theory-curious. 
+
 [^2]: You can get a *little* insight into how users are using your library with telemetry. But you're never really going to be able to get answers to questions like "are any users extending this class?" with telemetry that you collect pre-emptively (unless your telemetry is terrifyingly invasive), you have to deploy a new version and you'll only get answers for users that upgrade. Telemetry has its uses but is really quite limited.
+
 [^3]: It might seem a little weird that, as I mentioned, the libraries I maintain are for wrapping a REST API, but then I'm contrasting how libraries are subject to more types of breaking change than REST APIs are. What gives? It turns out that (a), depending on how your REST API gets reflected into the libraries that wrap it, some changes that aren't strictly *breaking* on a data-over-the-wire level can correspond to a breaking change to e.g. the class structure that describes it inside your SDK, and (b) REST API wrapper libraries also contain a fair amount of "infrastructure" code, that needs to evolve as new patterns appear in the API it wraps, or to adapt to more user environments.
-[^4]:  In .NET there is something called the [Baseline Version Validator](https://learn.microsoft.com/en-us/dotnet/fundamentals/apicompat/package-validation/baseline-version-validator) For Java, the best tool I know of is [this ancient perl script](https://github.com/lvc/japi-compliance-checker). For Go, there is [gorelease](https://pkg.go.dev/golang.org/x/exp/cmd/gorelease). For Typescript, you should read the [semver-ts spec](https://www.semver-ts.org/index.html), and especially the section on [tooling](https://www.semver-ts.org/appendices/b-tooling.html#detect-breaking-changes-in-types). For Rust there is [cargo-semver-checks](https://github.com/obi1kenobi/cargo-semver-checks). For other languages, if you know of any good tools, please let me know!
+
+[^4]: In .NET there is something called the [Baseline Version Validator](https://learn.microsoft.com/en-us/dotnet/fundamentals/apicompat/package-validation/baseline-version-validator) For Java, the best tool I know of is [this ancient perl script](https://github.com/lvc/japi-compliance-checker). For Go, there is [gorelease](https://pkg.go.dev/golang.org/x/exp/cmd/gorelease). For Typescript, you should read the [semver-ts spec](https://www.semver-ts.org/index.html), and especially the section on [tooling](https://www.semver-ts.org/appendices/b-tooling.html#detect-breaking-changes-in-types). For Rust there is [cargo-semver-checks](https://github.com/obi1kenobi/cargo-semver-checks). For other languages, if you know of any good tools, please let me know!
