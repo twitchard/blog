@@ -4,6 +4,8 @@ class: prose
 description: "What explains the disproportionate popularity of typed FP for code tools and relative unpopularity for web apps?"
 quote: "an expressive type system gives you more of an ability to *centralize your reasoning* in a single place"
 retweet: "https://x.com/twitchard/status/1833721816973562087"
+reddit: "https://www.reddit.com/r/haskell/comments/1fe1rt9/big_datatype_why_code_tools_like_to_be_written/"
+hackernews: "https://news.ycombinator.com/item?id=41511140"
 ---
 ![L](../images/dropCapL.webp){class="dropCap"}anguages with ML-style type systems like Haskell and OCaml[^1] seem to be particularly successful in the "code tools" genre of software project. This is my subjective impression, at least. Here's a few I can think of off the top of my head:
 
