@@ -4,6 +4,7 @@ class: prose
 description: "How could our tools change to reduce the cost of breaking changes?"
 quote: "the library experience around breaking changes is poor and has room to improve"
 thumbnail: https://twitchard.github.io/images/breaking_changes_meme.png
+retweet: https://x.com/twitchard/status/1826907554947145732
 ---
 
 ![P](../images/dropCapP.png){class="dropCap"}aul Graham
