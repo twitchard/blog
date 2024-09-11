@@ -3,7 +3,7 @@ title: "How thick should your SDK be?"
 class: prose
 description: "Usually thin is better -- but not always"
 quote: "A 'thick' SDK method gives you all the responsibility and none of the control, it is the worst of both worlds."
-
+retweet: "https://twitter.com/twitchard/status/1615919994755235844?s=20&t=wZSGABvjNCxq6XTmZUG7fA"
 ---
 Say you've got a public REST API, that you wrap with SDKs in several languages. Should the SDK be a "thin" wrapper; that is, should the methods in the SDK be 1:1 with endpoints in the underlying API? Or should it be a "thick" wrapper; that is, should the SDK contain methods that have significant logic of their own, potentially calling multiple underlying API methods? 
 
