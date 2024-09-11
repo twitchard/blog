@@ -65,7 +65,7 @@ In (1), 66% of the changes you make are compiler-guided (1 original change, 2 ca
 
 A more abstract way to put this is that an expressive type system gives you more of an ability to *centralize your reasoning* in a single place (the definition of your datatypes). This gives you much more leverage in codebases where there are a small number of central datatypes (code tools), vs. codebases when there is a sprawling number of lesser-important datatypes (web apps).
 
-Does this mean I don't think you should use typed FP for web apps? No! You certainly can. As I've hinted in previous posts, my opinion is that we should actually try to write web apps [more like compilers](2019-11-01-beware-middleware.html), in a style that makes the [constraintful features](http://localhost:8000/posts/2021-04-24-behavior-constraining-features.html) of web apps more explicit.
+Does this mean I don't think you should use typed FP for web apps? No! You certainly can. As I've hinted in previous posts, my opinion is that we should actually try to write web apps [more like compilers](2019-11-01-beware-middleware.html), in a style that makes the [constraintful features](2021-04-24-behavior-constraining-features.html) of web apps more explicit.
 
 ## Typescript
 
