@@ -12,7 +12,7 @@ My take? Thick is typically wrong. Ninety percent of the time, If you're tempted
 * Put that logic in a new API endpoint. This gives you more control; or,
 * Put that logic in the docs. This lets you abdicate some of the responsibility to the user.
 
-g "thick" SDK method gives you all the responsibility and none of the control, it is the worst of both worlds.
+A "thick" SDK method gives you all the responsibility and none of the control, it is the worst of both worlds.
 
 ## Example
 
@@ -94,7 +94,7 @@ Other things to consider:
 * **Latency**: Logic that runs in the SDK has to make a round-trip per API call. Logic that runs on your server is already there, on your server.
 * **Consistency**: What happens if your "thick" SDK method fails halfway through? Logic on your server, in theory, can write durable records of partial progress to enable recovery. This isn't practical for logic in the SDK.
 
-### A case for thick: fetching more data
+## A case for thick: fetching more data
 
 I said that "thick" was inappropriate 90% of the time. What's the other 10%?
 
