@@ -40,9 +40,7 @@ progression is more or less set and the melody is up to interpretation, in Irish
 and the chord progression can be played around with.
 
 5. **"Raglan Road" by the Dubliners.** Luke Kelly is simply a phenomenal vocalist. He sings the lyrics of the (sappy) poem here like
-they're actually important and you're supposed to listen to them -- unlike say, Ariana Grande, who I don't think has learned
-about consonants yet.
-are.
+they're actually important and you're supposed to listen to them -- unlike say, Ariana Grande, who I don't think has learned about consonants yet. (Not that I don't enjoy Ariana Grande's music on its own, different merits)
 
 6. **"The Moving Cloud / Ril Gan Ainm" by Danu.** Showcases the button accordion, one of my favorite instruments in Irish
 music. Often you'll hear it doubling the fiddle, pipes, or flute, but here it gets the melody to itself. Unlike
