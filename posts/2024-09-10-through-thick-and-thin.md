@@ -42,7 +42,7 @@ export async function createAllSocialsPost(post) {
     linkedin_result: null,
   }
   if (enabled_socials.includes('twitter')) {
-    const tweets = sliceIntoChunks(140, post.text);
+    const tweets = sliceIntoChunks(280, post.text);
     ret.twitter_results = []
     ret.twitter_results.push(
       await lib.create_tweet({
