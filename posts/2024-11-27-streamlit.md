@@ -5,7 +5,7 @@ description: "How I learned to stop worrying and love Streamlit's execution mode
 quote: "I recently had the pleasure of using Streamlit for the first time"
 retweet: ""
 ---
-I recently had the pleasure of using [Streamlit](https://streamlit.io/) for the first time (to help build [this demo](https://x.com/hume_ai) ([code](https://github.com/jerhadf/voice-computer-use)). Streamlit is a Python library for making Web UIs. I really like it! 
+I recently had the pleasure of using [Streamlit](https://streamlit.io/) for the first time (for [this demo](https://x.com/hume_ai), [code here](https://github.com/jerhadf/voice-computer-use)). Streamlit is a Python library for making Web UIs. I really like it! 
 
 I also had some challenges trying to make some inherently “event-driven” UI play nicely with Streamlit’s unique execution model.
 
