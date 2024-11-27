@@ -5,7 +5,7 @@ description: "How I learned to stop worrying and love Streamlit's execution mode
 quote: "I recently had the pleasure of using Streamlit for the first time"
 retweet: ""
 ---
-I recently had the pleasure of using [Streamlit](https://streamlit.io/) for the first time. Streamlit is a Python library for making Web UIs. I really like it! 
+I recently had the pleasure of using [Streamlit](https://streamlit.io/) for the first time (to help build [this demo](https://x.com/hume_ai) ([code](https://github.com/jerhadf/voice-computer-use)). Streamlit is a Python library for making Web UIs. I really like it! 
 
 I also had some challenges trying to make some inherently “event-driven” UI play nicely with Streamlit’s unique execution model.
 
@@ -100,7 +100,7 @@ The first obstacle is: Streamlit runs in a Python process on a server somewhere.
 
 If you web search “Streamlit microphone” you will find some community-built components for getting audio from the user’s microphone through the browser. The problem is: none of these seem to handle *streaming, real-time* audio. The way they work is, the user hits record, they user speaks, the user hits stop record, and then all the audio is transmitted at once over to the Python side for processing. That’s not how EVI works. EVI wants a constant stream of audio chunks that are 10ms long.
 
-No fear: I quickly concluded I would need to make [Streamlit custom component](https://docs.streamlit.io/develop/concepts/custom-components/create) and do most of the EVI stuff completely on the browser side. The idea was, the user would talk to EVI entirely in the browser, and then when EVI needed to trigger the computer use API would just send a message back to the Python side. Easy peasy, right?
+No fear: I quickly concluded I would need to make a [Streamlit custom component](https://docs.streamlit.io/develop/concepts/custom-components/create) and do most of the EVI stuff completely on the browser side. The idea was, the user would talk to EVI entirely in the browser, and then when EVI needed to trigger the computer use API would just send a message back to the Python side. Easy peasy, right?
 
 ## Long-running tasks
 
@@ -197,7 +197,7 @@ And that’s it basically! It’s doesn’t look too bad in the context of this 
 
 ## Hindsight
 
-There’s a community component https://github.com/whitphx/streamlit-webrtc that [appears to be](https://towardsdatascience.com/developing-web-based-real-time-video-audio-processing-apps-quickly-with-streamlit-7c7bcd0bc5a8) a Streamlit custom component that accepts callbacks to give a more natural interface for working with realtime video/audio. Callbacks are not officially supported by the Streamlit custom component API, so I assume that this component is reaching into some sort of internals behind the scenes to make that happen.
+There’s a [community component]( https://github.com/whitphx/streamlit-webrtc) that [appears to be](https://towardsdatascience.com/developing-web-based-real-time-video-audio-processing-apps-quickly-with-streamlit-7c7bcd0bc5a8) a Streamlit custom component that accepts callbacks to give a more natural interface for working with realtime video/audio. Callbacks are not officially supported by the Streamlit custom component API, so I assume that this component is reaching into some sort of internals behind the scenes to make that happen.
 
 This being my first time using Streamlit, I shied away from reaching into internals and tried to stick to the blessed path. In retrospect, though, it might have been easier to try and figure this out.
 
@@ -241,6 +241,9 @@ class State:
     @debug.setter
     def debug(self, value: bool):
         self._session_state.debug = value
+
+    # Many more properties
+    ...
 ```
 
 And then in my main function, I did
