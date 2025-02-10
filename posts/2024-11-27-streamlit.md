@@ -3,7 +3,7 @@ title: "Pushing the boundaries of Streamlit"
 class: prose
 description: "How I learned to stop worrying and love Streamlit's execution model"
 quote: "I recently had the pleasure of using Streamlit for the first time"
-retweet: ""
+retweet: "https://x.com/twitchard/status/1861834040229470691"
 ---
 I recently had the pleasure of using [Streamlit](https://streamlit.io/) for the first time (for [this demo](https://x.com/hume_ai), [code here](https://github.com/jerhadf/voice-computer-use)). Streamlit is a Python library for making Web UIs. I really like it! 
 
