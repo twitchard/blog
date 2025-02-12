@@ -29,13 +29,13 @@ Examples of "user-hostile trash" that come to top of my mind:
 
 I play Words with Friends. What I really want is a Scrabble clone that runs on my phone, gives me reminders when it's my move, and lets me devastate my Mom by spelling "IBEXES" in a well-multiplied position. Instead, network effects oblige me to use a Scrabble clone that regales me with notifications for "daily word play" and other engagement-bait. After every move I am presented with an ad for "Royal Match" that mutes my background Spotify so it can play its obnoxious noises, and it strategically hides the "X" button at exactly the right moment to make me click the ad and go to the app store against my will.
 
-Don't get me wrong, I love the app despite all this and have many fond memories around it, it's just the sad and simple truth that pestering your users with ads and in-app purchase bait is often a winning strategy in the world of mobile games. This has become so normal that people don't really even think to complain.
+Don't get me wrong, I love Words With Friends despite all this, and it has given me lots of fond memories with family, it's just the sad and simple truth that pestering your users with ads and in-app purchase bait is often a winning strategy in the world of mobile games. This has become so normal that people don't really even think to complain.
 
 ### **Word Processing C-ad-tastrophe**
 
 I recently learned that Microsoft [stopped shipping/maintaining Wordpad](https://learn.microsoft.com/en-us/windows/whats-new/deprecated-features) on recent versions of Windows. If you won't pay for Word, they want you to use an ad-supported, free version of Word. That is, you have to watch **video ads** before you can do your word processing. No skin off my teeth — I do my writing in Vim or Google Docs — but I felt ashamed on behalf of the industry discovering this and explaining it to my wife's grandmother, who, before her latest computer upgrade, had been using Wordpad to write her annual "Letter to Myself" (basically a technical retrospective on the family Christmas party she hosts every year).
 
-Sadly, this is common practice just about everywhere: make the product worse, benefit by coercing users to paying money or being able to extract more from them via ads.
+Sadly, this is common practice just about everywhere: make the product worse, benefit when users pay money or watch ads.
 
 ### **Gen 1 Voice Assistants**
 
@@ -45,7 +45,7 @@ Fast forward to today, the novelty of Alexa, Siri, etc. has all worn off. This g
 
 Alexa is a great product in many ways (I own like 8 echos), despite her not living up to my inflated dreams. This example should be a reminder that tech companies don't always solve for constraints like "how can we build the voice assistant that outsells the others by offering a superior user experience", but more like "how can we build the voice assistant that helps us earn the most additional revenue from our existing vast retail empire?"
 
-First-world problems, I know. I'm complaining about what's top of mind -- you can learn about the more serious forms of software malfeasance from more serious writers. Subscribe to the EFF mailing list, read your local Hacker News. The point is: look around, Candide, we do not live in the best of all possible softwares.
+First-world problems, I know. I'm complaining about what's top of mind -- you can learn about the more serious forms of software malfeasance from more serious writers. Subscribe to the [EFF mailing list](https://www.eff.org/effector), read your local [Hacker News](https://news.ycombinator.com/). The point is: look around, Candide, we do not live in the best of all possible softworlds.
 
 ## AI Trash Will Also Win
 
