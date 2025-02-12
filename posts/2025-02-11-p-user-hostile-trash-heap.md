@@ -19,25 +19,25 @@ The quality of this genre of post varies a lot. Some of them are low-effort "I p
 
 ## Trash wins
 
-Just look around. Most of the software that wins is many times worse for users than the best version of the software it would be technically possible to build. To be blunt, the software that wins tends to be user-hostile trash.
+Just look around. Most of the software that wins is many times worse for users than the best version of the software it would be technically possible to build. To be blunt, the software that wins is often straight-up user-hostile trash.
 
 The website [How I Experience Web Today](http://how-i-experience-web-today.com/) makes the point pretty succinctly. You can read [Cory Doctorow on "en$#!^ification"](https://www.wired.com/story/tiktok-platforms-cory-doctorow/), who might be a bit sensationalist but makes criticisms of large tech platforms that I find resonant, as a user.
 
 Examples of "user-hostile trash" that come to top of my mind:
 
-### **Mobile Game Adpocalypse**
+### Mobile Game Adpocalypse
 
 I play Words with Friends. What I really want is a Scrabble clone that runs on my phone, gives me reminders when it's my move, and lets me devastate my Mom by spelling "IBEXES" in a well-multiplied position. Instead, network effects oblige me to use a Scrabble clone that regales me with notifications for "daily word play" and other engagement-bait. After every move I am presented with an ad for "Royal Match" that mutes my background Spotify so it can play its obnoxious noises, and it strategically hides the "X" button at exactly the right moment to make me click the ad and go to the app store against my will.
 
 Don't get me wrong, I love Words With Friends despite all this, and it has given me lots of fond memories with family, it's just the sad and simple truth that pestering your users with ads and in-app purchase bait is often a winning strategy in the world of mobile games. This has become so normal that people don't really even think to complain.
 
-### **Word Processing C-ad-tastrophe**
+### Word Processing C-ad-tastrophe
 
 I recently learned that Microsoft [stopped shipping/maintaining Wordpad](https://learn.microsoft.com/en-us/windows/whats-new/deprecated-features) on recent versions of Windows. If you won't pay for Word, they want you to use an ad-supported, free version of Word. That is, you have to watch **video ads** before you can do your word processing. No skin off my teeth — I do my writing in Vim or Google Docs — but I felt ashamed on behalf of the industry discovering this and explaining it to my wife's grandmother, who, before her latest computer upgrade, had been using Wordpad to write her annual "Letter to Myself" (basically a technical retrospective on the family Christmas party she hosts every year).
 
 Sadly, this is common practice just about everywhere: make the product worse, benefit when users pay money or watch ads.
 
-### **Gen 1 Voice Assistants**
+### First generation voice assistants
 
 A vivid memory for me is watching [the announcement of the Echo](https://youtu.be/zmhcPKKt7gw?feature=shared) by Amazon in 2014. I ordered it immediately. It completely captured my imagination — I was sure this was the beginning of a new era, the rise of a completely new, more natural way to interact with the world of computing. In the announcement video, a whole family gathers around the Echo in awe at the useful things it can do. The Echo is cast as a beloved household robot -- a digital member of the family. 
 
@@ -45,13 +45,13 @@ Fast forward to today, the novelty of Alexa, Siri, etc. has all worn off. This g
 
 Alexa is a great product in many ways (I own like 8 echos), despite her not living up to my inflated dreams. This example should be a reminder that tech companies don't always solve for constraints like "how can we build the voice assistant that outsells the others by offering a superior user experience", but more like "how can we build the voice assistant that helps us earn the most additional revenue from our existing vast retail empire?"
 
-First-world problems, I know. I'm complaining about what's top of mind -- you can learn about the more serious forms of software malfeasance from more serious writers. Subscribe to the [EFF mailing list](https://www.eff.org/effector), read your local [Hacker News](https://news.ycombinator.com/). The point is: look around, Candide, we do not live in the best of all possible softworlds.
+First-world problems, I know. I'm complaining about what's top of mind -- you can learn about the more serious forms of software malfeasance from more serious writers. Subscribe to the [EFF mailing list](https://www.eff.org/effector), read your local [Hacker News](https://news.ycombinator.com/), I mentioned Cory Doctorow (I enjoyed [his DEF CON talk](https://www.youtube.com/watch?v=4EmstuO0Em8), too). The point is: look around, Candide, we do not live in the best of all possible softworlds.
 
 ## AI Trash Will Also Win
 
 From the thought leaders in my social media bubble, you'd get the idea that there are basically only two outcomes when it comes to the future of AI: AI doom or AI paradise. AI could just destroy civilization, yes — but if it doesn't, then we're in a golden age where the best versions of all the coolest generative AI stuff we can imagine will inevitably[^2] enter common use.
 
-In reality, AI software of the future will be subject to all the same cultural and industrial pressures that ordinary software is today. There's no *a priori* reason to expect that it won't just wind up being like a lot of ordinary software is today: user-hostile trash. People don't like to write about this. It's more fun to think about the extremes. But you have to take it seriously.
+In reality, AI software of the future will be subject to all the same cultural and industrial pressures that exist. There's no *a priori* reason to expect that it won't just wind up being like a lot of ordinary software is today: user-hostile trash. People don't like to write about this. It's more fun to think about the extremes. But you have to take it seriously.
 
 So here's a more cynical "in-the-future": in the future, we will carry around tremendously intelligent AI in our pockets that can write better than Shakespeare, draw better than Picasso, theorize better than Einstein, etc. and it will direct these talents mainly for the purpose of creating addictive content to keep us clicking as we view ads for GLP-1s, boutique underwear subscriptions, and, most especially, the mobile game "Royal Match"
 
@@ -65,29 +65,29 @@ So, what's my call to action. How do we fight the trash heap?
 
 I'm just a random software engineer who enjoys writing on the Internet, not any kind of expert authority, so take my scattered thoughts with a grain of salt, but here they are:
 
-### **The time is now.**
+### The time is now
 
 Generative AI is a paradigm shift, and it's early days. Right now, there's a lot of enthusiasm within the software culture for trying new things, the industry is willing to tolerate a lot of experimentation. This is temporary. Sooner than you think, people will get used to generative AI, the taste for novelty will fade, and whatever products are successful at that point will set the tone for decades. 
 
 Imagine if, back in the 90s, instead of figuring out how to track ad impressions on the web, somebody really nailed how to do micropayments on the web really well. The world of consumer software would look completely different today.
 
-### **Don't be the problem**
+### Don't be the problem
 
 If you're in a position to be picky about your work, exercise the privilege. Try to work on a product that uses AI to make the lives of users better, not to manipulate the user to serve some other business goal. I'm fortunate to work for a company that has explicitly adopted [something like this](https://thehumeinitiative.org/about) as an official ethical principle.
 
 There's a lot of money to be made out there from treating users as a means to an end. This always will be unless we do something drastic like dismantle capitalism (and would that really be the lesser evil?) But you don't need to be involved.
 
-### **Learn to win.**
+### Learn to win
 
 To fight the trash heap, you have to build software that (a) does right by users and (b) wins. The trash heap rises when people pursue winning by any means: b without a, but if you're the sort of person who cares deeply about doing right by users, the more dangerous failure mode for you is (a) without (b) — building software that's fabulous for users but doesn't really have a prayer of seeing any type of serious adoption. Building great software that can't win is a waste of your time. You'd do more good joining a successful but unprincipled organization and doing your best to nudge them in a good direction, or finding some morally neutral B2B SaaS to write.
 
-### **Reject inevitabilism**
+### Reject inevitabilism
 
 I'll say it again: *technically possibility* doesn't entail *inevitability*. Excise inevitabilism from your language. Instead of "in the future, we'll all have &lt;amazing thing now possible with AI&gt;" — prefer "somebody should build &lt;amazing thing now possible with AI&gt;". 
 
 Excise it from your worldview too. Never decide against building something just because you assume somebody else inevitably will. Never find an amazing community or organization with a great vision and decide against getting involved just because you assume they'll succeed anyway. Things don't happen because they are inevitable, they happen because somebody makes them happen.
 
-### **Supplant trash, reset norms**
+### Supplant trash, reset norms
 
 Sadly, people have grown to tolerate being mistreated by the software they use. The software industry has grown bones around extractive business models that treat users as a means to an end.
 
