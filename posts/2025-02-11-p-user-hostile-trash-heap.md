@@ -61,7 +61,7 @@ If somebody does build a magnificent AI shopping concierge that helps you conver
 
 ## Minimizing P(user-hostile trash)[^3]
 
-So, what's my call to action. How do we fight the trash heap?
+So, what's my call to action? How do we fight the trash heap?
 
 I'm just a random software engineer who enjoys writing on the Internet, not any kind of expert authority, so take my scattered thoughts with a grain of salt, but here they are:
 
