@@ -15,7 +15,7 @@ There's a genre of AI influencer social media post — I call them "in-the-futur
 
 People post these because they are excited about all the new things that are technically possible with generative AI: there are ideas that, three years ago, were so infeasible they would have gotten you laughed out of the startup accelerator — today they are not only technically possible but perhaps even trivial ("just a gpt wrapper, not a real business, no moat").
 
-Quality of this genre of post varies a lot. Some of them are low-effort "I played around for 15 minutes with ChatGPT and now I'm playing "but with AI" madlibs; some posts are genuinely thoughtful insights into non-obvious new possibilities. But even these **are not actually very good predictions of the future**. They fall into a trap of mistaking *technical possibility* for *inevitability.* In reality, just because something amazing is *now possible to build* does not mean that something amazing *will win*.
+The quality of this genre of post varies a lot. Some of them are low-effort "I played around for 15 minutes with ChatGPT and now I'm playing 'but with AI' madlibs"; some posts are genuinely thoughtful insights into non-obvious new possibilities. But even the aren't very good *predictive* insights. They fall into a trap of mistaking *technical possibility* for *inevitability.* In reality, just because something amazing is *now possible to build* does not mean that something amazing *will win*.
 
 ## Trash wins
 
@@ -33,9 +33,9 @@ Don't get me wrong, I love the app despite all this and have many fond memories 
 
 ### **Word Processing C-ad-tastrophe**
 
-I recently learned that Microsoft [stopped shipping/maintaining Wordpad](https://learn.microsoft.com/en-us/windows/whats-new/deprecated-features) on recent versions of Windows. If you won't pay for Word, they want you to use an ad-supported, free version of Word. That is, you have to watch **video ads** before you can do your word processing. No skin off my teeth — I do my writing in Vim or Google Docs — but I felt ashamed on behalf the industry discovering this and explaining it to my wife's grandmother, who, before her latest computer upgrade, had been using Wordpad to write her annual "Letter to Myself" (basically a technical retrospective on the family Christmas party she hosts every year).
+I recently learned that Microsoft [stopped shipping/maintaining Wordpad](https://learn.microsoft.com/en-us/windows/whats-new/deprecated-features) on recent versions of Windows. If you won't pay for Word, they want you to use an ad-supported, free version of Word. That is, you have to watch **video ads** before you can do your word processing. No skin off my teeth — I do my writing in Vim or Google Docs — but I felt ashamed on behalf of the industry discovering this and explaining it to my wife's grandmother, who, before her latest computer upgrade, had been using Wordpad to write her annual "Letter to Myself" (basically a technical retrospective on the family Christmas party she hosts every year).
 
-Sadly, this is common practice just about everywhere: cripple the product so we can coerce users to paying us money or extract more from them via ads or data collection.
+Sadly, this is common practice just about everywhere: make the product worse, benefit by coercing users to paying money or being able to extract more from them via ads.
 
 ### **Gen 1 Voice Assistants**
 
