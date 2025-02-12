@@ -110,10 +110,10 @@ So I hope that the industry can start talking more about small-stakes AI ethics.
 
 [^1]: The touchscreen Alexas also make it way too easy for my toddler to order $50 worth of sugar-free strawberry syrup, probably the most useless liquid known to man. 
 
-[^2]: For example, Dario Amodei, CEO of Anthropic, writes in his essay["Machines of Loving Grace"](https://darioamodei.com/machines-of-loving-grace)
+[^2]: For example, Dario Amodei, CEO of Anthropic, writes in his essay ["Machines of Loving Grace"](https://darioamodei.com/machines-of-loving-grace)
 
-> The basic development of AI technology and many (not all) of its benefits seems inevitable (unless the risks derail everything) and is fundamentally driven by powerful market forces. 
+    > The basic development of AI technology and many (not all) of its benefits seems inevitable (unless the risks derail everything) and is fundamentally driven by powerful market forces. 
 
-His essay is about broader themes than just consumer software; but I think the state of consumer software today is a pretty strong argument that factors like power dynamics and industrial culture can hold a technology back from its potential in a significant way over the long term. Very far from all the benefits are inevitable.
+    His essay is about broader themes than just consumer software; but I think the state of consumer software today is a pretty strong argument that factors like power dynamics and industrial culture can hold a technology back from its potential in a significant way over the long term. Very far from all the benefits are inevitable.
 
 [^3]: In case you're not familiar, ["P(doom)"](https://en.wikipedia.org/wiki/P(doom)) is AI jargon for the probability that AI will destroy civilization. If failing to adequately house train my Yorkie mix has taught me anything, it's that you need not limit your imagination when it comes to considering things that `P()` might surround. Hence, `P(user-hostile trash heap)`.
