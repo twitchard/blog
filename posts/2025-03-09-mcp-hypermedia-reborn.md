@@ -6,7 +6,7 @@ quote: "Few know this, but *the entire web* is a battleground between these two 
 
 ---
 
-MCP is trending in my social media feeds. One popular take is "what's the big deal? Isn't MCP just APIs?" 
+<img src="../images/dropCapM.png" class="dropCap" alt="M" />CP is trending in my social media feeds. One popular take is "what's the big deal? Isn't MCP just APIs?" 
 
 Jacob Colling, author of AI tool Caret ([check it out](https://www.caretai.app/)!) put [the refutation to this](https://x.com/JacobColling/status/1898543068317679677) quite succinctly
 

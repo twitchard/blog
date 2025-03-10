@@ -8,7 +8,7 @@ quote: "just because something amazing is *now possible to build* does not mean 
 
 ## In the future AI will ____
 
-There's a genre of AI influencer social media post — I call them "in-the-futures". You'll see people make posts like 
+<img src="../images/dropCapT.jpg" class="dropCap" alt="T" />here's a genre of AI influencer social media post — I call them "in-the-futures". You'll see people make posts like 
 
 - "in the future all the kids will have personalized AI tutors that match their pace and learning style and teach them what they need to know while keeping curiosity alive", or
 
