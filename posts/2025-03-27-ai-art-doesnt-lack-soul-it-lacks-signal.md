@@ -5,9 +5,7 @@ description: "Beauty is no longer a reliable signal of artistic inspiration."
 quote: "When you experience a piece of art, you want to feel like there is somebody on the other end, with something worthwhile to say. With AI, that's often missing."
 ---
 
-<img src="../images/dropCapIArtist.png" class="dropCap" alt="I" />s AI art "soulless"?
-
-If you search X for the word "soulless" right now, you'll see (mostly) a discourse about ChatGPT's latest image model and the "Studio Ghibli" trend. This is all "soulless AI slop", say the people. There's a [clip circulating of Hayao Miyazaki](https://x.com/DannyDrinksWine/status/1813675038492733784), co-founder of Studio Ghibli, reacting to a demonstration of AI-generated art and calling it "an insult to life itself".
+<img src="../images/dropCapIArtist.png" class="dropCap" alt="I" />s AI art "soulless"? If you search X for the word "soulless" right now, you'll see (mostly) a discourse about ChatGPT's latest image model and the "Studio Ghibli" trend. This is all "soulless AI slop", say the people. There's a [clip circulating of Hayao Miyazaki](https://x.com/DannyDrinksWine/status/1813675038492733784), co-founder of Studio Ghibli, reacting to a demonstration of AI-generated art and calling it "an insult to life itself".
 
 ## Art as communication
 What exactly does it mean for art to be "soulless"? In my quest to find something intelligent to say here, I wound up discovering and reading ["What is Art"](https://www.gutenberg.org/files/64908/64908-h/64908-h.htm) by Leo Tolstoy. I think his notion of "art" is quite relevant.
