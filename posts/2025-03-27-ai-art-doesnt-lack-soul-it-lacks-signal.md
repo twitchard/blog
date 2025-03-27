@@ -7,9 +7,13 @@ quote: "When you experience a piece of art, you want to feel like there is someb
 
 <img src="../images/dropCapIArtist.png" class="dropCap" alt="I" />s AI art "soulless"? If you search Twitter for the word "soulless" right now, you'll see (mostly) a discourse about ChatGPT's latest image model and the "Studio Ghibli" trend. This is all "soulless AI slop", say the people. There's a [clip circulating of Hayao Miyazaki](https://x.com/DannyDrinksWine/status/1813675038492733784), co-founder of Studio Ghibli, reacting to a demonstration of AI-generated art and calling it "an insult to life itself".
 
+There's something to this. Soullessness isn't just a generic insult that people throw out when they don't like art that was created in a certain way. It's a real phenomenon. But I don't think AI art is *inevitably* soulless, and I also think there is a time and place for soullessness.
+
+In order to get there, though, we're going to have to get a little more precise, and a little metaphysical. 
+
 ## Defining "soullessness"
 
-What exactly does it mean for art to be "soulless"? In my quest to find something intelligent to say here, I wound up discovering and reading ["What is Art"](https://www.gutenberg.org/files/64908/64908-h/64908-h.htm) by Leo Tolstoy. Tolstoy doesn't use the phrase "soul" in art, but we can still use his framework to try and give "soullessness" a precise meaning.
+My custom is to outsource all my metaphysics to famous dead people. Lucky for me, in my quest to find something intelligent to say about this, I found an essay ["What is Art"](https://www.gutenberg.org/files/64908/64908-h/64908-h.htm) by one of my very favorite famous dead people, Leo Tolstoy. Tolstoy doesn't use the word "soul", but we can still use his framework to try and give a precise meaning to "soullessness".
 
 Tolstoy thinks that most people are confused about what art is. Most people conceive of art as the creation of beauty. There are different schools of thought as to what "beauty" is, of course: some say beauty is just subjective taste, other say beauty is objective, a reflection of the divine or something. No matter, Tolstoy entirely rejects the notion of art as beauty creation as circular and meaningless.
 
