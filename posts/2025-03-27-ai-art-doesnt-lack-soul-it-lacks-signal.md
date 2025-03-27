@@ -5,10 +5,11 @@ description: "Beauty is no longer a reliable signal of artistic inspiration."
 quote: "When you experience a piece of art, you want to feel like there is somebody on the other end, with something worthwhile to say. With AI, that's often missing."
 ---
 
-<img src="../images/dropCapIArtist.png" class="dropCap" alt="I" />s AI art "soulless"? If you search X for the word "soulless" right now, you'll see (mostly) a discourse about ChatGPT's latest image model and the "Studio Ghibli" trend. This is all "soulless AI slop", say the people. There's a [clip circulating of Hayao Miyazaki](https://x.com/DannyDrinksWine/status/1813675038492733784), co-founder of Studio Ghibli, reacting to a demonstration of AI-generated art and calling it "an insult to life itself".
+<img src="../images/dropCapIArtist.png" class="dropCap" alt="I" />s AI art "soulless"? If you search Twitter for the word "soulless" right now, you'll see (mostly) a discourse about ChatGPT's latest image model and the "Studio Ghibli" trend. This is all "soulless AI slop", say the people. There's a [clip circulating of Hayao Miyazaki](https://x.com/DannyDrinksWine/status/1813675038492733784), co-founder of Studio Ghibli, reacting to a demonstration of AI-generated art and calling it "an insult to life itself".
 
-## Art as communication
-What exactly does it mean for art to be "soulless"? In my quest to find something intelligent to say here, I wound up discovering and reading ["What is Art"](https://www.gutenberg.org/files/64908/64908-h/64908-h.htm) by Leo Tolstoy. I think his notion of "art" is quite relevant.
+## Defining "soullessness"
+
+What exactly does it mean for art to be "soulless"? In my quest to find something intelligent to say here, I wound up discovering and reading ["What is Art"](https://www.gutenberg.org/files/64908/64908-h/64908-h.htm) by Leo Tolstoy. Tolstoy doesn't use the phrase "soul" in art, but we can still use his framework to try and give "soullessness" a precise meaning.
 
 Tolstoy thinks that most people are confused about what art is. Most people conceive of art as the creation of beauty. There are different schools of thought as to what "beauty" is, of course: some say beauty is just subjective taste, other say beauty is objective, a reflection of the divine or something. No matter, Tolstoy entirely rejects the notion of art as beauty creation as circular and meaningless.
 
@@ -16,11 +17,11 @@ Tolstoy, would rather conceive of art as an act of *communication*, like speech.
 
 > _To evoke in oneself a feeling one has once experienced, and having evoked it in oneself then, by means of movements, lines, colours, sounds, or forms expressed in words, so to transmit that feeling that others may experience the same feeling—this is the activity of art._
 
-This may or may not be the final word on "what art is" -- but let's just roll with it. I think it is a useful frame for thinking about AI art and "soullessness". AI art can be beautiful. I don't think there is much doubt about that. But is AI art a transmission of feeling and experiences? Often no. The AI itself doesn't have feelings or experiences -- at least not in the same way we do -- so if there are feelings and experiences being transmitted, the AI cannot be the origin of them -- they must come from *the people prompting the AI*. 
+If you create beauty but you do not transmit a feeling or experience, Tolstoy would say you have created non-art. My hypothesis what is beautiful non-art to Tolstoy is what the Internet means when it calls something "soulless".
 
-And often, the people prompting the AI just aren't really trying to express anything. They're just trying to be responsible for the creation of something that looks or sounds good. X right now is full of people taking memes from yesteryear, feeding it to ChatGPT with "in the style of studio Ghibli" appended, send post. Tolstoy would say this is beauty creation, but it is not art. My hypothesis: this is something like what the Internet means when it criticizes AI art as "soulless".
+AI art can be beautiful. I don't think there is much doubt about that. But is AI art a transmission of feeling and experiences? Often no. The AI itself doesn't have feelings or experiences -- at least not in the same way we do -- so if there are feelings and experiences being transmitted, the AI cannot be the origin of them -- they must come from *the people prompting the AI*. 
 
-When you experience a piece of art, you want to feel like there is somebody on the other end, with something worthwhile to say. With AI, that's often missing.
+And often, the people prompting the AI aren't really trying to express anything. They're just trying to be responsible for the creation of something that looks or sounds good. Twitter right now is full of people taking memes from yesteryear, feeding it to ChatGPT with "in the style of studio Ghibli" appended, send post. Call it non-art, call it soulless slop, I do believe it is useful to distinguish this sort of thing from true artistic creation. When you experience true art, you're not just trying to indulging the senses, you want to feel like there is somebody on the other end, with something worthwhile to say.
 
 Sam Altman [posted the other day](https://x.com/sama/status/1899535387435086115) something he called "literary meta-fiction" that he created by prompting an internal OpenAI model. It was on the theme of grief. The writing seemed technically excellent, it had a type of "beauty", so to speak, but it bored me out of my skull. I very well might have been able to find enjoyment and meaning in it, had I perceived it to have been written by a renowned author, but knowing it to be the product of an AI given a generic prompt, I could not find it within myself to care.
 
