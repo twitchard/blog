@@ -11,19 +11,19 @@ There's something to this. Soullessness isn't just a generic insult that people 
 
 In order to get there, though, we're going to have to get a little more precise, and a little metaphysical. 
 
-## Defining "soullessness"
+## Soulnessness as Tolstoy's beauty without expression
 
-My custom is to outsource all my metaphysics to famous dead people. Lucky for me, in my quest to find something intelligent to say about this, I found an essay ["What is Art"](https://www.gutenberg.org/files/64908/64908-h/64908-h.htm) by one of my very favorite famous dead people, Leo Tolstoy. Tolstoy doesn't use the word "soul", but we can still use his framework to try and give a precise meaning to "soullessness".
+In my quest to find something intelligent to say about this, I found an essay ["What is Art"](https://www.gutenberg.org/files/64908/64908-h/64908-h.htm) by one of my very favorite famous dead people, Leo Tolstoy. Tolstoy doesn't use the word "soul", but we can still use his framework to try and give a precise meaning to "soullessness".
 
-Tolstoy thinks that most people are confused about what art is. Most people conceive of art as the creation of beauty. There are different schools of thought as to what "beauty" is, of course: some say beauty is just subjective taste, other say beauty is objective, a reflection of the divine or something. No matter, Tolstoy entirely rejects the notion of art as beauty creation as circular and meaningless.
+Tolstoy thinks that most people are confused about what art is. Most people conceive of art as the creation of beauty. There are different schools of thought as to what "beauty" is, of course: some say beauty is just subjective taste, other say beauty is objective, a reflection of the divine or something. No matter, Tolstoy entirely rejects the notion of art being beauty creation as circular and meaningless.
 
 Tolstoy, would rather conceive of art as an act of *communication*, like speech. Art is a means of transmitting feelings and experiences.
 
 > _To evoke in oneself a feeling one has once experienced, and having evoked it in oneself then, by means of movements, lines, colours, sounds, or forms expressed in words, so to transmit that feeling that others may experience the same feeling—this is the activity of art._
 
-If you create beauty but you do not transmit a feeling or experience, Tolstoy would say you have created non-art. My hypothesis what is beautiful non-art to Tolstoy is what the Internet means when it calls something "soulless".
+If you create beauty but you do not transmit a feeling or experience, Tolstoy would say you have created non-art. I hypothesize that, when the Internet calls something "soulless", what they are saying is that it falls into the category of beautiful things that don't meet this definition.
 
-AI art can be beautiful. I don't think there is much doubt about that. But is AI art a transmission of feeling and experiences? Often no. The AI itself doesn't have feelings or experiences -- at least not in the same way we do -- so if there are feelings and experiences being transmitted, the AI cannot be the origin of them -- they must come from *the people prompting the AI*. 
+AI art can be beautiful: I don't think there is much doubt about that. But is AI art a transmission of feeling and experiences? Often no. The AI itself doesn't have feelings or experiences -- at least not in the same way we do -- so if there are feelings and experiences being transmitted, the AI cannot be the origin of them -- they must come from *the people prompting the AI*. 
 
 And often, the people prompting the AI aren't really trying to express anything. They're just trying to be responsible for the creation of something that looks or sounds good. Twitter right now is full of people taking memes from yesteryear, feeding it to ChatGPT with "in the style of studio Ghibli" appended, send post. Call it non-art, call it soulless slop, I do believe it is useful to distinguish this sort of thing from true artistic creation. When you experience true art, you're not just trying to indulging the senses, you want to feel like there is somebody on the other end, with something worthwhile to say.
 
