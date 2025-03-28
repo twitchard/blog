@@ -3,9 +3,11 @@ title: "AI art doesn't lack 'soul', it lacks signal"
 class: prose
 description: "Beauty is no longer a reliable signal of artistic inspiration."
 quote: "When you experience a piece of art, you want to feel like there is somebody on the other end, with something worthwhile to say. With AI, that's often missing."
+thumbnail: https://twitchard.github.io/images/dropCapIArtist.png
+retweet: https://x.com/twitchard/status/1905581815580237900
 ---
 
-<img src="../images/dropCapIArtist.png" class="dropCap" alt="I" />s AI art "soulless"? If you search Twitter for the word "soulless" right now, you'll see (mostly) a discourse about ChatGPT's latest image model and the "Studio Ghibli" trend. This is all "soulless AI slop", say the people. There's a [clip circulating of Hayao Miyazaki](https://x.com/DannyDrinksWine/status/1813675038492733784), co-founder of Studio Ghibli, reacting to a demonstration of AI-generated art and calling it "an insult to life itself".
+<img src="../images/dropCapIArtist.png" class="dropCap" alt="I" />s AI art "soulless"? If you search Twitter for the word "soulless" right now, you'll see (mostly) a discourse about ChatGPT's latest image model and the "Studio Ghibli" trend. This is all "soulless AI slop", say the people. There's a [clip circulating of Hayao Miyazaki](https://x.com/DannyDrinksWine/status/1813675038492733784), co-founder of Studio Ghibli, reacting to a demonstration of AI-generated art and calling it "an insult to life itself"[^1]. 
 
 There's something to this. Soullessness isn't just a generic insult that people throw out when they don't like art that was created in a certain way. It's a real phenomenon. But I don't think AI art is *inevitably* soulless, and I also think there is a time and place for soullessness.
 
@@ -19,7 +21,7 @@ Tolstoy thinks that most people are confused about what art is. Most people conc
 
 Tolstoy, would rather conceive of art as an act of *communication*, like speech. Art is a means of transmitting feelings and experiences.
 
-> To evoke in oneself a feeling one has once experienced, and having evoked it in oneself then, by means of movements, lines, colours, sounds, or forms expressed in words, so to transmit that feeling that others may experience the same feeling -- this is the activity of art.
+> _To evoke in oneself a feeling one has once experienced, and having evoked it in oneself then, by means of movements, lines, colours, sounds, or forms expressed in words, so to transmit that feeling that others may experience the same feeling -- this is the activity of art._
 
 It is possible to create beauty, but not to transmit a feeling or experience. Tolstoy would deem this non-art. The Internet, I hypothesize, would deem it "soulless".
 
@@ -60,3 +62,5 @@ Last, I will shamelessly plug a piece of art created by me (plus AI). I wrote [t
 Multimedia is an interesting case. The poem itself I hold to be art in Tolstoy's sense -- I wrote it to communicate a particular feeling (a certain ironical delight in the English language and the juxtaposition of software culture and apocalyptic imagery). The AI-generated image and narration should probably *not* be considered art. My goal for the image and the voice was simply to depict the text of the poem and to be beautiful, not to realize any sort of independent artistic vision.
 
 Soulless slop? You tell me.
+
+[^1]: It's not clear to me whether Miyazaki is, in fact, reacting broadly to technology, or more narrowly to the fact that the demo is a hideously depicted corpse flopping around in a horrifying way.
