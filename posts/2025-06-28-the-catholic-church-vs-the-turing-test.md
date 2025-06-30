@@ -22,7 +22,7 @@ Turing's position is that the question "can machines think?", thus stated, is "t
 
 Here is my paraphrase of *Antique et Nova*'s argument re: the Turing Test.
 
-1. The Turing Test evaluates "intelligence" by performance on a task: imitating written human discourse.
+1. The Turing Test evaluates "intelligence" by performance on a task: the interactive imitation of written human discourse.
 2. Sure, imitating human discourse is a task that requires a degree of sophistication, but human intelligence is more than just sophistication in the ability to perform tasks, being intelligent includes many other things. There are intelligent activities like "willing, loving, choosing, desiring". Intelligence is also a *conscious experience* with a certain nature ("embodiment", "relationality", a "drive toward truth").
 3. These activities and experiences aren't just incidentals that happen to accompany human intelligence. They are important for theological reasons and essential to what it means to be "made in God's image".
 4. AI merely has a sophistication in performing tasks. It doesn't have any of human intelligence's other trappings.
@@ -37,7 +37,7 @@ Can AI gain wisdom from a sunset?
 
 You can stream your camera to ChatGPT and have a sophisticated conversation with it about the setting sun, certainly. If we played the imitation game, em dashes and "delve" aside I might have difficulty telling it from a human.
 
-But for *Antiqua et Nova*, the capacity to *imitate* such things does not meet the bar for intelligence. You must have the capacity to *actually experience* them. Turing anticipates this line of argument, calling it the "objection from consciousness", and argues that it collapses at into solipsism.
+But for *Antiqua et Nova*, the capacity to *imitate* such things does not meet the bar for intelligence. You must have the capacity to *actually experience* them. Turing anticipates this line of argument, calling it the "objection from consciousness", and argues that it collapses into solipsism.
 
 > According to the most extreme form of this view the only way by which one could be sure that machine thinks is to be the machine and to feel oneself thinking... according to this view the only way to know that a man thinks is to be that particular
   man. It is in fact the solipsist point of view. It may be the most logical view to hold but it makes communication of ideas difficult. A is liable to believe "A thinks but B does not" whilst B believes "B thinks but A does not." instead of arguing continually over this point
