@@ -10,16 +10,18 @@ thumbnail: https://twitchard.github.io/images/dropCapC.png
 <img src="../images/dropCapC.png" class="dropCap" alt="C" />
 an machines think? Alan Turing wrote that the question, thus stated, was "too meaningless to deserve discussion", proposed his imitation game, and further predicted that "at the end of the century the use of words and educated opinion will have altered so much that one will be able to speak of machines thinking without expecting to be contradicted."
 
-As far as casual conversation, he was right. I speak casually of GPT-o3 "thinking" and nobody bats an eye. Speak of machines thinking as a formal matter of philosophy, though, and you will be contradicted -- by the Roman Curia's recent doctrinal note about artificial intelligence, *Antiqua et Nova*, no less.
+As far as casual conversation, he was right. I speak casually of GPT-o3 "thinking" and nobody bats an eye. Speak of machines thinking as a formal matter of philosophy, though, and you will be contradicted -- by the Roman Curia's recent doctrinal note about artificial intelligence, [*Antiqua et Nova*](https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_ddf_doc_20250128_antiqua-et-nova_en.html), no less.
 
-This was a bit of a surprise to me. (Nobody expects the Roman Inquisition!) The fairness of the Turing test has always struck me as somewhat self-evident, and the thought had never really occurred to me you could pose serious objections. This post is the distillation of what (after several reads) I understand the Church's challenge of the Turing Test to be, alongside relevant parts of argument that Turing originally advanced in ["Computing Machinery and Intelligence"](https://courses.cs.umbc.edu/471/papers/turing.pdf) . I don't think you have to be Catholic to find this interesting.
+This was a bit of a surprise to me. (Nobody expects the Roman Inquisition!) The fairness of the Turing test has always struck me as somewhat self-evident, and the thought had never really occurred to me you could pose serious objections. This post is the distillation of what (after several reads) I understand the Church's challenge of the Turing Test to be, alongside relevant parts of argument that Turing originally advanced in ["Computing Machinery and Intelligence"](https://courses.cs.umbc.edu/471/papers/turing.pdf). I don't think you have to be Catholic to find this interesting.
 
 ## Turing: a fair test considers the intellect in isolation
 
-Turing spends much of his essay anticipating objections to the Turing Test, but doesn't offer much in the way of *positive argument* for it. He asserts simply that it "has the advantage of drawing a fairly sharp line between the physical and the intellectual capacities of a man".  
+Turing spends much of his essay anticipating objections to the Turing Test, but doesn't offer much in the way of *positive argument* for it. He asserts simply that it "has the advantage of drawing a fairly sharp line between the physical and the intellectual capacities of a man".
+
 ## The Church: nope, intelligence comes from the whole person
 
 Here is my paraphrase of *Antique et Nova*'s argument re: the Turing Test.
+
 1. The Turing Test evaluates "intelligence" by performance on a task: imitating written human discourse.
 2. Sure, imitating human discourse is a task that requires a degree of sophistication, but human intelligence is more than just sophistication in the ability to perform tasks, being intelligent includes many other things. There are intelligent activities like "willing, loving, choosing, desiring". Intelligence is also a *conscious experience* with a certain nature ("embodiment", "relationality", a "drive toward truth").
 3. These activities and experiences aren't just incidentals that happen to accompany human intelligence. They are important for theological reasons and essential to what it means to be "made in God's image".
@@ -31,7 +33,7 @@ It's fairly challenging to pull quotes from the document that distill the struct
 
 ## Turing: so we're solipsists now?
 
-Can AI gain wisdom from a sunset? 
+Can AI gain wisdom from a sunset?
 
 You can stream your camera to ChatGPT and have a sophisticated conversation with it about the setting sun, certainly. If we played the imitation game, em dashes and "delve" aside I might have difficulty telling it from a human.
 
@@ -54,6 +56,7 @@ This proposes a justification for the double standard. Sure, we don't fully unde
 We shouldn't "rule out machine consciousness a priori" and completely foreclose upon the idea that something physically different than us could be intelligent, but we also shouldn't artificially restrict what knowledge we consider in judging this, as the Turing Test suggests.
 
 My editorial: today's LLMs will tell you they are conscious if you ask them. But this seems less authentic because today's LLMs are created essentially as imitation machines on datasets that include humans describing what consciousness is like. Perhaps someday, AIs created through some other means would describe conscious experience, and it would be another story.
+
 ## Domain errors
 
 Turing, the founding father of Computer Science, is primarily concerned with predicting what digital computers will become able to do. The Vatican, on the other hand, is concerned with speaking to ethical and religious questions about intelligence and what it means for man's relationship with the machine, fellow man, and God. 
@@ -61,6 +64,7 @@ Turing, the founding father of Computer Science, is primarily concerned with pre
 Turing reads to me as quite frustrated with domain errors -- people taking ideas from theology or philosophy and applying them inappropriately to interfere with the scientific inquiry into what behavior it will be possible to elicit from machines -- "machines will never be able to be rational because rationality comes from the soul and God only gives souls to people" and so forth.
 
 The Church also reads to me as attempting to correct a domain error. When discussing the technical capabilities of machines it might be convenient to use "intelligence" as a shorthand for a human-level sophistication in performing tasks. But when you're moved on to questions of ethics, philosophy and theology, the interior experience of intelligence seems important. 
+
 ## Final notes
 
 If you've made it this far, you should read ["Computing Machinery and Intelligence"](https://courses.cs.umbc.edu/471/papers/turing.pdf), [*Antiqua et Nova*](https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_ddf_doc_20250128_antiqua-et-nova_en.html), and ["Encountering Artificial Intelligence"](https://jmt.scholasticahq.com/article/91230-encountering-artificial-intelligence-ethical-and-anthropological-investigations) yourself! I have no formal training in philosophy or theology, so you should take my paraphrases and summarizations with some skepticism as I probably am missing subtleties of meaning. That last source ["Encountering Artificial Intelligence"](https://jmt.scholasticahq.com/article/91230-encountering-artificial-intelligence-ethical-and-anthropological-investigations) includes a survey of the arguments made by modern philosophers on artificial intelligence in this area, which I found very helpful.
