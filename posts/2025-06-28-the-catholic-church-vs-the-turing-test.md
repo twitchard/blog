@@ -2,9 +2,9 @@
 title: "The Catholic Church vs. the Turing Test"
 draft: false
 class: prose
-description: "The Catholic Church says the Turing Test missing what is important about human intelligence"
+description: "Is the Turing Test missing what is most important about human intelligence?"
 quote: "Nobody expects the Roman Inquisition!"
-thumbnail: https://twitchard.github.io/images/dropCapC.png
+thumbnail: https://twitchard.github.io/images/dropCapA.png
 ---
 
 <img src="../images/dropCapA.png" class="dropCap" alt="A" />
