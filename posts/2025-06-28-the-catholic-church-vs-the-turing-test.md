@@ -7,8 +7,7 @@ quote: "Nobody expects the Roman Inquisition!"
 thumbnail: https://twitchard.github.io/images/dropCapC.png
 ---
 
-<img src="../images/dropCapC.png" class="dropCap" alt="C" />
-an machines think? Alan Turing wrote that the question, thus stated, was "too meaningless to deserve discussion", proposed his imitation game, and further predicted that "at the end of the century the use of words and educated opinion will have altered so much that one will be able to speak of machines thinking without expecting to be contradicted."
+Alan Turing wrote "at the end of the century the use of words and educated opinion will have altered so much that one will be able to speak of machines thinking without expecting to be contradicted."
 
 As far as casual conversation, he was right. I speak casually of GPT-o3 "thinking" and nobody bats an eye. Speak of machines thinking as a formal matter of philosophy, though, and you will be contradicted -- by the Roman Curia's recent doctrinal note about artificial intelligence, [*Antiqua et Nova*](https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_ddf_doc_20250128_antiqua-et-nova_en.html), no less.
 
@@ -16,7 +15,7 @@ This was a bit of a surprise to me. (Nobody expects the Roman Inquisition!) The 
 
 ## Turing: a fair test considers the intellect in isolation
 
-Turing spends much of his essay anticipating objections to the Turing Test, but doesn't offer much in the way of *positive argument* for it. He asserts simply that it "has the advantage of drawing a fairly sharp line between the physical and the intellectual capacities of a man".
+Turing's position is that the question "can machines think?", thus stated, is "too meaningless to deserve discussion". He spends much of his essay anticipating objections to the Turing Test, but doesn't offer much in the way of *positive argument* for it. He asserts simply that it "has the advantage of drawing a fairly sharp line between the physical and the intellectual capacities of a man".
 
 ## The Church: nope, intelligence comes from the whole person
 
