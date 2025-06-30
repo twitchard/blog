@@ -7,7 +7,8 @@ quote: "Nobody expects the Roman Inquisition!"
 thumbnail: https://twitchard.github.io/images/dropCapC.png
 ---
 
-Alan Turing wrote "at the end of the century the use of words and educated opinion will have altered so much that one will be able to speak of machines thinking without expecting to be contradicted."
+<img src="../images/dropCapA.png" class="dropCap" alt="A" />
+lan Turing wrote "at the end of the century the use of words and educated opinion will have altered so much that one will be able to speak of machines thinking without expecting to be contradicted."
 
 As far as casual conversation, he was right. I speak casually of GPT-o3 "thinking" and nobody bats an eye. Speak of machines thinking as a formal matter of philosophy, though, and you will be contradicted -- by the Roman Curia's recent doctrinal note about artificial intelligence, [*Antiqua et Nova*](https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_ddf_doc_20250128_antiqua-et-nova_en.html), no less.
 
