@@ -4,9 +4,9 @@ draft: false
 class: prose
 description: "Is the Turing Test missing what is most important about human intelligence?"
 quote: "Nobody expects the Roman Inquisition!"
-thumbnail: https://twitchard.github.io/images/dropCapA.png
-hackernews: https://news.ycombinator.com/item?id=44422577#44423206
-retweet: https://x.com/twitchard/status/1939595905445007477
+thumbnail: "https://twitchard.github.io/images/dropCapA.png"
+hackernews: "https://news.ycombinator.com/item?id=44422577#44423206"
+retweet: "https://x.com/twitchard/status/1939595905445007477"
 ---
 
 <img src="../images/dropCapA.png" class="dropCap" alt="A" />
