@@ -62,6 +62,14 @@ main = hakyll $ do
               >>= loadAndApplyTemplate "templates/default.html" ctx
               >>= relativizeUrls
 
+    match "about.html" $ do
+        route idRoute
+        compile $ do
+            let aboutCtx = constField "title" "About Me" `mappend` defaultContext
+            getResourceBody
+                >>= loadAndApplyTemplate "templates/default.html" aboutCtx
+                >>= relativizeUrls
+
     match "index.html" $ do
         route idRoute
         compile $ do
