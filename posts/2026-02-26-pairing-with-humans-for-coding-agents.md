@@ -87,7 +87,7 @@ I wrote the original draft of this post in January. Two things have changed sinc
 
 Before, AI was a tool I used to help me more quickly write the code I was already going to write. Now, AI is more like a partner I am using to discover what sort of code should be written in the first place. I barely open Vim now. I've got agents using agents using agents.
 
-My first day at the new job I realized the budget prompting habits I had developed were drastically different from the habits of my colleagues who had been living in this brave world, in a world where tokens are superabundant and *your time* is scarce. So, I held off on publishing. What did I know about anything?
+My first day at the new job I realized the budget prompting habits I had developed were drastically different from the habits of my colleagues who had been living in this brave world, in a world where tokens are abundant and *your time* is scarce. So, I held off on publishing. What did I know about anything?
 
 One month in to the token-rich lifestyle, I'm not the Leonard Bernstein of conducting multi-agent coding symphonies, but I've had a chance to get the lay of the land. And I'm comfortable enough to confidently stand by everything that I wrote.
 
