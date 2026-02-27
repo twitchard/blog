@@ -4,7 +4,7 @@ draft: false
 class: prose
 description: "Lessons from a decade of pair programming that transfer surprisingly well to working with coding agents"
 quote: "Pairing with a human can be better practice for using AI than using AI is"
-thumbnail: "https://twitchard.github.io/images/pair-programming-ai.png"
+thumbnail: "https://twitchard.github.io/images/dropCapPairProgramming.png"
 ---
 
 <div class="epigraph">
@@ -12,7 +12,7 @@ thumbnail: "https://twitchard.github.io/images/pair-programming-ai.png"
 <cite>— Proverbs 27:17</cite>
 </div>
 
-There's skill to using coding agents effectively.
+<img src="../images/dropCapPairProgramming.png" class="dropCap only-light-mode" alt="Two people pair programming" /><img src="../images/dropCapPairProgrammingDark.png" class="dropCap only-dark-mode" alt="Two people pair programming" />There's skill to using coding agents effectively.
 
 Being skilled at using LLMs to code involves, among others, the following skills:
 
