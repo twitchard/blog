@@ -83,7 +83,7 @@ Creative dialogue with AI is a challenge. AI agents like to go off to work in co
 
 
 
-Being creative with a partner is a *different skill* than being creative solo. If I want to be creative solo, I , relax, and let my mind explore various trains of thought. Being creative with a partner involves creative dialogue -- which is more like attaching my mind like a caboose to my partner's selected train of thought, and alternating and letting them do the same. To do this well, you have to learn to put aside your preconceptions so you can truly open yourself to ideas from somebody else, but the other hand you need to stay critical so you can apply your own perspective.
+Being creative with a partner is argument, skepticism, entertaining ideas you are resistant to, hypothesis, antithesis, synthesis. To do this well, you have to learn to put aside your preconceptions so you can truly open yourself to ideas from somebody else, but on the other hand you need to stay critical so you can apply your own perspective.
 
 You can have creative dialogue with an AI assistant, but you need to explicitly ask. Coding agents have a strong tendency to just go off to try and work in complete iterations. Even in 
 
