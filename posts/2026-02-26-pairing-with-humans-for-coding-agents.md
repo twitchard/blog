@@ -12,7 +12,7 @@ thumbnail: "https://twitchard.github.io/images/dropCapPairProgramming.png"
 <cite>— Proverbs 27:17</cite>
 </div>
 
-<img src="../images/dropCapPairProgramming.png" class="dropCap only-light-mode" alt="Two people pair programming" /><img src="../images/dropCapPairProgrammingDark.png" class="dropCap only-dark-mode" alt="Two people pair programming" />There's skill to using coding agents effectively.
+<img src="../images/dropCapPairProgramming.png" class="dropCap only-light-mode" alt="T" style="shape-outside: url(../images/dropCapPairProgramming.png); shape-margin: 8px;" /><img src="../images/dropCapPairProgrammingDark.png" class="dropCap only-dark-mode" alt="T" style="shape-outside: url(../images/dropCapPairProgrammingDark.png); shape-margin: 8px;" />here's skill to using coding agents effectively.
 
 Being skilled at using LLMs to code involves, among others, the following skills:
 
