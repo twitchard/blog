@@ -58,21 +58,19 @@ The advantage of practicing this skill with people, rather than just LLMs, is th
 
 Solving many code problems is a straightforward application of experience and elbow grease. At other times you encounter a problem that requires unusual creativity or particularly careful judgement. If I hit a problem like this while pair programming, we will begin to ask questions starting with "why is..." or "why don't we..." or "what if..." We have to take a step back and actually think creatively.
 
-Being creative with a partner is a *different skill* than being creative solo. If I want to be creative solo, I [take a shower](https://medium.com/engineering-livestream/on-showers-golang-and-creativity-2230b0b97d78), relax, and let my mind explore various trains of thought. Being creative with a partner is more like attaching my mind like a caboose to my partner's selected train of thought, and alternating and letting them do the same. It's the skill of dialogue.
+Being creative with a partner is a *different skill* than being creative solo. If I want to be creative solo, I [take a shower](https://medium.com/engineering-livestream/on-showers-golang-and-creativity-2230b0b97d78), relax, and let my mind explore various trains of thought. Being creative with a partner is argument, skepticism, entertaining ideas you are resistant to, hypothesis, antithesis, synthesis. To do this well, you have to learn to put aside your preconceptions so you can truly open yourself to ideas from somebody else, but on the other hand you need to stay critical so you can apply your own perspective.
 
 You can have creative dialogue with an AI assistant, too, but you have to explicitly set it up. Coding agents have a strong bias towards *making progress*, they like to just go off to try and work in complete iterations. Even in "plan mode" they can try and do all the thinking and maybe give you a little questionnaire after the fact so you feel included.
 
-In any case, creative dialogue is a skill, or perhaps two skills: the ability to put aside your preconceptions so you can really listen to what your partner is saying, and on the other hand the ability to listen openly but critically to what your partner is saying.
-
 There's also a meta-level to this. If you have a good sense for when a problem is hairy and really needs careful thought, especially if you have tokens to spare, you can put your agent on the highest reasoning level, spin off several subagents, instruct them each to pursue different lines of thinking, have them debate and synthesize, instruct them to check their assumptions, etc. etc. Basically, take your skill for creative dialogue and put it into a prompt.
 
-AI is much inferior to humans for practice here. When an AI is wrong it will still confidently spout nonsense to you, but when you challenge them, they will sycophantly just yield to your point of view. They can still be still useful partners, they can take your thought to places you could never reach alone, but you have to take them with a grain of salt -- and it helps a lot the more experience you have doing this type of discussion live with humans.
+AI is much inferior to humans for practice here. When an AI is wrong it will still confidently spout nonsense to you, but when you challenge them, they will sycophantly just yield to your point of view. They can still be useful partners, they can take your thought to places you could never reach alone, but you have to take them with a grain of salt -- and it helps a lot the more experience you have doing this type of discussion live with humans.
 
 ### Frontloading the tricky bits
 
 Especially when I'm pairing with a more junior developer, I apply some techniques to try and tackle the interesting, difficult parts of a problem first. This allows me to provide (impose?) maximum direction on what my pair is working on, and reduces the likelihood of somebody asking for rework later when there's code review.
 
-One such technique is TDD -- writing the tests first -- and another is the other TDD -- writing the *types* (plus function stubs with type signatures) first. Both techniques allow you to start specifying details about the *whole approach* sooner than you could if you just dive into implementation. You can also temporarily hardcore data or implementations -- there's a whole art to setting up clever feedback loops from types, tests, logs, debuggers, even agents, in order to tackle things in a different order.
+One such technique is TDD -- writing the tests first -- and another is the other TDD -- writing the *types* (plus function stubs with type signatures) first. Both techniques allow you to start specifying details about the *whole approach* sooner than you could if you just dive into implementation. You can also temporarily hardcode data or implementations -- there's a whole art to setting up clever feedback loops from types, tests, logs, debuggers, even agents, in order to tackle things in a different order.
 
 Frontloading the tricky bits can also be useful for agents. Especially having the agent start with type definitions. I do this all the time. I get the results I want much more quickly versus when I just hand the agent the problem and then say "no, I want X", "no, I want Y". You want to iterate as much as possible on a smaller artifact that captures the essential details of the whole implementation.
 
@@ -84,14 +82,14 @@ The first time I screenshared and shared my editor with advanced voice mode on C
 
 I wrote the original draft of this post in January. Two things have changed since then:
 
-1. I joined Ramp. Tokens aren't scare for me, now.
+1. I joined Ramp. Tokens aren't scarce for me, now.
 2. 2026 Opus, Codex, and Gemini are just waay better. [^4]
 
 Before, AI was a tool I used to help me more quickly write the code I was already going to write. Now, AI is more like a partner I am using to discover what sort of code should be written in the first place. I barely open Vim now. I've got agents using agents using agents.
 
-My first day at the new job I realized the budget prompting habits I had developed were drastically different from the habits of my colleagues who had been living in this brave world, in a world where tokens as superabundant and *your time* is scarce. So, I held off on publishing. What did I know about anything?
+My first day at the new job I realized the budget prompting habits I had developed were drastically different from the habits of my colleagues who had been living in this brave world, in a world where tokens are superabundant and *your time* is scarce. So, I held off on publishing. What did I know about anything?
 
-One month in to the token-rich lifestyle, I'm not the Leonard Bernstein of conducting multi-agent coding symphonies, but I've had a chance to get the lay of the land. And I comfortable enough to confidently stand by everything that I wrote.
+One month in to the token-rich lifestyle, I'm not the Leonard Bernstein of conducting multi-agent coding symphonies, but I've had a chance to get the lay of the land. And I'm comfortable enough to confidently stand by everything that I wrote.
 
 It is still true that listening, articulating, contextualizing, dialectic, and derisking are the skills you need to get the most out of your agents.
 
