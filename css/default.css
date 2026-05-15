@@ -57,7 +57,7 @@ div.callToAction {
 
 }
 
-/* DropCap for the first character of the body of a blog post */
+/* Legacy raster drop caps (older posts use <img class=dropCap>) */
 section.prose img.dropCap {
   width: 80px;
   float: left;
@@ -67,16 +67,44 @@ section.prose img.dropCap {
   margin-bottom: 10px
 }
 
-/* So the drop cap won't interfere with
- * source blocks.
- * */
-section.prose p:first-child::after {
-  content: "";
-  clear: both;
-  display: table;
+/* New procgen drop cap framework. <drop-cap>X</drop-cap> at the start of
+ * the first paragraph renders an inline SVG glyph wrapped in procedural
+ * vines. The fallback "X" is shown if the JS doesn't run. */
+section.prose drop-cap {
+  float: left;
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 120px;
+  margin: 4px 12px 0 0;
+  shape-margin: 6px;
+  color: currentColor;
 }
 
-section.prose ul {
+/* The SVG is intentionally bigger than the float footprint and absolutely
+ * positioned, so vine tendrils can extend up and into the left page margin
+ * without affecting text wrap. */
+section.prose drop-cap svg {
+  position: absolute;
+  width: 160px;
+  height: 190px;
+  top: -30px;
+  left: -36px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Block elements that should never wrap around a drop cap or other float.
+ * Paragraphs are intentionally NOT in this list — letting <p>s flow
+ * continuously alongside the cap is what fixes the "void after a short
+ * first paragraph" problem. */
+section.prose ul,
+section.prose ol,
+section.prose pre,
+section.prose figure,
+section.prose hr,
+section.prose h2,
+section.prose h3 {
   clear: both;
 }
 

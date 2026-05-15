@@ -7,7 +7,7 @@ quote: "The quality bar is higher for tools that save you energy than for tools 
 thumbnail: "https://twitchard.github.io/images/bottlenecks-dam.jpg"
 ---
 
-<img src="../images/dropCapY.jpeg" class="dropCap" alt="Y" />our agents need you.
+<drop-cap>Y</drop-cap>our agents need you.
 
 Leave them to their own devices and they go off the rails pretty fast -- maybe tomorrow's models won't, but today's need periodic infusions of the taste, values, and common sense that only you can provide.
 

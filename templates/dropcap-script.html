@@ -1,0 +1,159 @@
+<script>
+(() => {
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+
+  // FNV-1a hash — stable seed from a string.
+  const fnv1a = (str) => {
+    let h = 2166136261 >>> 0;
+    for (let i = 0; i < str.length; i++) {
+      h ^= str.charCodeAt(i);
+      h = Math.imul(h, 16777619) >>> 0;
+    }
+    return h >>> 0;
+  };
+
+  // Mulberry32 PRNG: deterministic, good enough for ornament.
+  const mulberry32 = (seed) => () => {
+    seed = (seed + 0x6D2B79F5) >>> 0;
+    let t = seed;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+
+  const el = (name, attrs = {}, children = []) => {
+    const n = document.createElementNS(SVG_NS, name);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    for (const c of children) n.appendChild(c);
+    return n;
+  };
+
+  // Recursive curved branch. Returns an array of SVG nodes.
+  const growVine = (rand, opts) => {
+    const out = [];
+    const {
+      x, y, angle, length, depth,
+      thickness = 2.2,
+      branchProb = 0.55,
+      curl = 0.55,
+      shrink = 0.72,
+    } = opts;
+
+    if (depth === 0 || length < 6) {
+      out.push(el('ellipse', {
+        cx: x.toFixed(1),
+        cy: y.toFixed(1),
+        rx: '7',
+        ry: '3.2',
+        transform: `rotate(${(angle * 180 / Math.PI).toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)})`,
+        fill: 'currentColor',
+        'fill-opacity': '0.55',
+      }));
+      return out;
+    }
+
+    const x2 = x + Math.cos(angle) * length;
+    const y2 = y + Math.sin(angle) * length;
+    const bend = (rand() - 0.5) * length * curl;
+    const cx = (x + x2) / 2 + Math.cos(angle + Math.PI / 2) * bend;
+    const cy = (y + y2) / 2 + Math.sin(angle + Math.PI / 2) * bend;
+
+    out.push(el('path', {
+      d: `M ${x.toFixed(1)} ${y.toFixed(1)} Q ${cx.toFixed(1)} ${cy.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`,
+      fill: 'none',
+      stroke: 'currentColor',
+      'stroke-width': thickness.toFixed(2),
+      'stroke-linecap': 'round',
+      'stroke-opacity': '0.75',
+    }));
+
+    const childThickness = Math.max(0.6, thickness * 0.78);
+    const newLen = length * shrink * (0.85 + rand() * 0.25);
+    const continueAngle = angle + (rand() - 0.5) * 0.7;
+    out.push(...growVine(rand, { ...opts, x: x2, y: y2, angle: continueAngle, length: newLen, depth: depth - 1, thickness: childThickness }));
+
+    if (rand() < branchProb) {
+      const side = rand() < 0.5 ? -1 : 1;
+      const branchAngle = angle + side * (0.55 + rand() * 0.6);
+      const branchLen = newLen * (0.55 + rand() * 0.2);
+      out.push(...growVine(rand, { ...opts, x: x2, y: y2, angle: branchAngle, length: branchLen, depth: depth - 1, thickness: childThickness }));
+    }
+    return out;
+  };
+
+  const buildDropCap = (glyph, seedSalt) => {
+    const rand = mulberry32(fnv1a(glyph + '|' + seedSalt));
+
+    // viewBox is wider/taller than the visible float footprint so vines can
+    // extend into the surrounding margins.
+    const VB_W = 220, VB_H = 260;
+    const GX = 30, GY = 30, GW = 130, GH = 160;
+
+    const svg = el('svg', {
+      viewBox: `0 0 ${VB_W} ${VB_H}`,
+      xmlns: SVG_NS,
+      role: 'img',
+      'aria-label': glyph,
+    });
+
+    const vines = el('g', { class: 'dropcap-vines' });
+
+    // Anchors around the perimeter of the glyph box. The fixed positions
+    // keep composition recognizable; the per-glyph seed varies bends/branches.
+    const anchors = [
+      { x: GX + GW * 0.10, y: GY,             a: -Math.PI * 0.55, len: 42 },
+      { x: GX + GW * 0.85, y: GY,             a: -Math.PI * 0.30, len: 52 },
+      { x: GX + GW,        y: GY + GH * 0.50, a:  0.05,           len: 36 },
+      { x: GX + GW * 0.85, y: GY + GH,        a:  Math.PI * 0.30, len: 58 },
+      { x: GX + GW * 0.15, y: GY + GH,        a:  Math.PI * 0.65, len: 46 },
+    ];
+
+    for (const anc of anchors) {
+      const nodes = growVine(rand, {
+        x: anc.x,
+        y: anc.y,
+        angle: anc.a + (rand() - 0.5) * 0.4,
+        length: anc.len * (0.85 + rand() * 0.4),
+        depth: 5,
+      });
+      for (const n of nodes) vines.appendChild(n);
+    }
+
+    svg.appendChild(vines);
+
+    const text = el('text', {
+      x: (GX + GW / 2).toFixed(1),
+      y: (GY + GH * 0.86).toFixed(1),
+      'text-anchor': 'middle',
+      'font-family': 'Finger Paint, Georgia, "Times New Roman", serif',
+      'font-size': (GH * 1.05).toFixed(1),
+      'font-weight': '700',
+      fill: 'currentColor',
+      class: 'dropcap-glyph',
+    });
+    text.textContent = glyph;
+    svg.appendChild(text);
+
+    return svg;
+  };
+
+  const renderOne = (node) => {
+    if (node.dataset.rendered === '1') return;
+    const explicit = node.getAttribute('glyph');
+    const fallback = (node.textContent || '').trim();
+    const glyph = (explicit || fallback || '?').slice(0, 4);
+    const salt = node.getAttribute('seed') || location.pathname || '';
+    node.replaceChildren(buildDropCap(glyph, salt));
+    node.dataset.rendered = '1';
+    node.setAttribute('aria-label', glyph);
+  };
+
+  const renderAll = () => document.querySelectorAll('drop-cap').forEach(renderOne);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderAll);
+  } else {
+    renderAll();
+  }
+})();
+</script>
