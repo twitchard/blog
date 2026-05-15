@@ -1,9 +1,10 @@
 ---
-title: "We are all bottlenecks now"
+title: "We're all bottlenecks now"
 draft: false
 class: prose
 description: "On the customization craze, and why your personal tooling deserves real care"
 quote: "The quality bar is higher for tools that save you energy than for tools that merely save you time"
+thumbnail: "https://twitchard.github.io/images/bottlenecks-dam.jpg"
 ---
 
 <img src="../images/dropCapY.jpeg" class="dropCap" alt="Y" />our agents need you.
