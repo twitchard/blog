@@ -1,5 +1,5 @@
 ---
-title: "Your agents need you"
+title: "We are all bottlenecks now"
 draft: false
 class: prose
 description: "On the customization craze, and why your personal tooling deserves real care"
