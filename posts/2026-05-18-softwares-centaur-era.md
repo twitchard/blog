@@ -16,7 +16,7 @@ Will AI automate away all the software jobs?
 
 I think it's easy to miss what this actually means, economically speaking. Software jobs don't necessarily disappear if AI surpasses humans at writing software -- the jobs might *change in nature*, but they don't disappear. The software jobs only really disappear when there is really *nothing left for humans to contribute to the process*.
 
-Take chess. Deep Blue beat Kasparov in 1997, but for a long period of time after that, the best chess performance didn't come from engines playing by themselves -- it came from "centaurs" -- a colorful term for a team comprised of *a skilled human wielding a chess engine*. Now the centaur era of chess is over -- the best engines are so good that a grandmaster steering them only weakens them -- but the centaur era lasted for decades.
+Take chess. Deep Blue beat Kasparov in 1997, but for a long period of time after that, the best chess performance didn't come from engines playing by themselves -- it came from "centaurs" -- a colorful term for a team composed of *a skilled human wielding a chess engine*. Now the centaur era of chess is over -- the best engines are so good that a grandmaster steering them only weakens them -- but the centaur era lasted for decades.
 
 Is the software industry in its centaur era right now? No. Not even. Deep Blue hasn't even beaten Kasparov yet.
 
