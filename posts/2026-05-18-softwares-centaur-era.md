@@ -6,9 +6,11 @@ description: "Will AI automate away all the software jobs? Not until humans have
 quote: "We're not over until the Centaur Era is over, and it hasn't even really begun yet"
 ---
 
-<img src="../images/dropCapI.jpg" class="dropCap" alt="I" />*t's 2030. I wake up, make my coffee, drag myself over to my laptop. Then I remember -- AI has completely replaced knowledge work. I open up my agent chat, type* "still got access to my bank account? Please continue making money." *I hesitate, briefly considering typing something else. Maybe influence the AI's direction toward an area of my own particular interest? But of course, as that would constitute knowledge work (which AI has entirely replaced), it would strictly decrease my expected return. I press enter, and scratch that itch instead by starting Wordle with something other than SLATE. I solve in 5, finish my coffee, and then get to work at my side gig: driving around doing TaskRabbit jobs at the behest of AIs that are not (yet) otherwise capable of influencing the physical world.*
+<img src="../images/dropCapI.jpg" class="dropCap" alt="I" />*t's 2030. I wake up, make my coffee, drag myself over to my laptop. Then I remember -- AI has completely replaced knowledge work. I open up my agent chat, type* "still got access to my bank account? Please continue making money."
 
-...
+*I hesitate, briefly considering typing something else. Maybe influence the AI's direction toward an area of my own particular interest? But of course, as that would constitute knowledge work (which AI has entirely replaced), it would strictly decrease my expected return.*
+
+*I press enter, and scratch that itch instead by starting Wordle with something other than SLATE. I solve in 5, finish my coffee, and then get to work at my side gig: driving around doing TaskRabbit jobs at the behest of AIs that are not (yet) otherwise capable of influencing the physical world.*
 
 There was a teenager on r/programming asking about whether they should go to college and major in computer science. They were worried -- is AI going to automate away all the software jobs? I went back to my alma mater -- a small (beautiful) Liberal Arts college in Virginia -- a few weeks ago and was visiting with one of my computer science professors. She told me the major was shrinking, presumably also because of AI fears.
 
