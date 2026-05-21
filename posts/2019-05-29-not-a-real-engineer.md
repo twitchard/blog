@@ -1,7 +1,7 @@
 ---
 title: Not a real engineer
 class: poetry
-description: Richard's Software Blog
+description: "A short, dark prose poem on being told you are not a real engineer, and the monstrous thing you become instead."
 ---
 
 You are not a real engineer.

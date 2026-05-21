@@ -1,11 +1,11 @@
 ---
 title: "Incidental UI, essential UI"
 class: prose
-description: "What the rise of agents means for software UIs"
+description: "As agents learn to operate software for us, which interfaces still deserve real craft, and which become mere incidental UI?"
 quote: "The only UIs worth putting effort into will be the UIs that humans value using themselves"
 ---
 
-Agents can competently use browsers now. Lately, I've been telling my agent to do things on web interfaces instead of clicking around myself.
+<img src="../images/dropCapA.png" class="dropCap" alt="A" />gents can competently use browsers now. Lately, I've been telling my agent to do things on web interfaces instead of clicking around myself.
 
 It's tragic, in a way. Engineers put so much thought and effort into making these browser UIs nice for human use. But the visual craftsmanship is mostly just noise to an agent. My agent would be happier with a big ugly JSON blob and a nice labeled list of functions.
 

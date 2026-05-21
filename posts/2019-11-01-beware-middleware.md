@@ -1,7 +1,7 @@
 ---
 title: "Beware Middleware"
 class: prose
-description: Richard's Software Blog
+description: "Middleware is seductive and easy to overuse: when route-spanning behavior belongs in middleware, and when it really does not."
 quote: "Use the tools. Don't let the tools use you."
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Glamorize your problem domain"
 class: prose
-description: "Is this a compiler? Always answer yes."
+description: "Why software teams should work hard to frame what they build as a classic, well-studied system like a compiler or a database."
 quote: You can hardly spit without hitting a configuration language that, frankly, deserves it. 
 ---
 

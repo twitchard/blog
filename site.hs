@@ -25,6 +25,10 @@ main = hakyll $ do
         route   idRoute
         compile copyFileCompiler
 
+    match "robots.txt" $ do
+        route   idRoute
+        compile copyFileCompiler
+
     match "css/*" $ do
         route   idRoute
         compile compressCssCompiler
@@ -37,6 +41,17 @@ main = hakyll $ do
             nonDraft <- nonDrafts all
             let recent = (take 10) nonDraft
             renderAtom feedConfiguration feedCtx recent
+
+    create ["sitemap.xml"] $ do
+        route idRoute
+        compile $ do
+            allPosts <- recentFirst =<< loadAll "posts/*"
+            posts <- nonDrafts allPosts
+            let sitemapCtx =
+                    listField "posts" postCtx (return posts) `mappend`
+                    defaultContext
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/sitemap.xml" sitemapCtx
 
     match "posts/*" $ do
         route $ setExtension "html"
@@ -65,7 +80,7 @@ main = hakyll $ do
     match "about.html" $ do
         route idRoute
         compile $ do
-            let aboutCtx = constField "title" "About Me" `mappend` defaultContext
+            let aboutCtx = metaCtx `mappend` defaultContext
             getResourceBody
                 >>= loadAndApplyTemplate "templates/default.html" aboutCtx
                 >>= relativizeUrls
@@ -77,9 +92,7 @@ main = hakyll $ do
             posts <- nonDrafts allPosts
             let indexCtx =
                     listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Home"                `mappend`
-                    constField "description" "Richard's Software Blog"
-                    `mappend`
+                    metaCtx                                  `mappend`
                     defaultContext
 
             getResourceBody
@@ -99,8 +112,54 @@ nonDraft item = do
 
 postCtx :: Context String
 postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
+    dateField "date" "%B %e, %Y"   `mappend`
+    dateField "isoDate" "%Y-%m-%d" `mappend`
+    constField "ogType" "article"  `mappend`
+    noindexField                   `mappend`
+    metaCtx                        `mappend`
     defaultContext
+
+-- | Escape a string so it is safe inside a double-quoted HTML attribute.
+escapeHtmlAttr :: String -> String
+escapeHtmlAttr = concatMap esc
+  where
+    esc '&'  = "&amp;"
+    esc '<'  = "&lt;"
+    esc '>'  = "&gt;"
+    esc '"'  = "&quot;"
+    esc '\'' = "&#39;"
+    esc c    = [c]
+
+-- | Escape a string so it is safe inside a JSON string literal.
+escapeJson :: String -> String
+escapeJson = concatMap esc
+  where
+    esc '"'  = "\\\""
+    esc '\\' = "\\\\"
+    esc '\n' = "\\n"
+    esc '\r' = "\\r"
+    esc '\t' = "\\t"
+    esc c    = [c]
+
+-- | A context field that reads a metadata key and runs it through an escaper.
+-- Fails (so $if(...)$ is false) when the key is absent.
+escapedField :: (String -> String) -> String -> String -> Context a
+escapedField transform name metaKey = field name $ \item ->
+    maybe empty (return . transform) =<< getMetadataField (itemIdentifier item) metaKey
+
+-- | Escaped title/description for meta tags (HTML) and JSON-LD (JSON).
+metaCtx :: Context String
+metaCtx =
+    escapedField escapeHtmlAttr "metaTitle"       "title"       `mappend`
+    escapedField escapeHtmlAttr "metaDescription" "description" `mappend`
+    escapedField escapeJson     "jsonTitle"       "title"       `mappend`
+    escapedField escapeJson     "jsonDescription" "description"
+
+-- | Present (and "true") only for draft posts, so templates can emit noindex.
+noindexField :: Context String
+noindexField = field "noindex" $ \item -> do
+    draftValue <- getMetadataField (itemIdentifier item) "draft"
+    if draftValue == Just "true" then return "true" else empty
 
 type NeighborGetter = Identifier -> [(Identifier, Metadata)] -> Maybe (Identifier, Metadata)
 after :: NeighborGetter
