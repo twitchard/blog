@@ -1,7 +1,7 @@
 ---
 title: "Engineer SHORT feedback loops"
 class: prose
-description: "Speedy, hands-off, opinionated, reliable, timely"
+description: "An acrostic for better developer tools: feedback loops should be speedy, hands-off, opinionated, reliable, and timely."
 quote: "speedy, hands-off, opinionated, reliable, and timely."
 ---
 

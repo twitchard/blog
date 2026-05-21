@@ -3,7 +3,16 @@ name: CI
 on: [push]
 
 jobs:
+  validate:
+    name: Validate post SEO metadata
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Check post metadata
+      run: python3 scripts/check_post_metadata.py
+
   build:
+    needs: validate
     environment: build
     runs-on: ubuntu-latest
     steps:

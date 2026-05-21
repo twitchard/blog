@@ -1,7 +1,8 @@
 ---
 title: Richard's Guide to Irish Traditional Music
 class: prose
-description: Richard's Software Blog
+description: "A software engineer's beginner guide to Irish traditional music: favorite tracks, where to listen, and how to get started."
+quote: "My favorite genre of music is Irish Traditional Music."
 ---
 
 <img src="../images/dropCapM2.png" class="dropCap" alt="M"/>y favorite genre of music is Irish Traditional Music. I don't talk about this much, I feel a little impostory because

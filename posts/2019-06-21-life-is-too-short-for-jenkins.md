@@ -1,7 +1,7 @@
 ---
 title: Life is Too Short for Jenkins
 class: prose
-description: Richard's software blog
+description: "Why I joined my company's CI team to fix Jenkins, the two options we weighed, and what I learned about developer-productivity work."
 quote: "The worst thing about Jenkins is that it works."
 ---
 

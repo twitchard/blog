@@ -1,6 +1,28 @@
 <article>
      <link rel="stylesheet" href="/css/pandoc-markdown-css-theme.css" />
      <link rel="stylesheet" href="/css/pandoc-markdown-css-theme-solarized-theme.css" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "$jsonTitle$",
+      $if(jsonDescription)$"description": "$jsonDescription$",$endif$
+      "datePublished": "$isoDate$",
+      "dateModified": "$isoDate$",
+      "url": "https://twitchard.github.io$url$",
+      "mainEntityOfPage": "https://twitchard.github.io$url$",
+      $if(thumbnail)$"image": "$thumbnail$",$endif$
+      "author": {
+        "@type": "Person",
+        "name": "Richard Marmorstein",
+        "url": "https://twitchard.github.io/about.html"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Richard Marmorstein"
+      }
+    }
+    </script>
     <section class="header">
       <h1>$title$</h1>
       <h3>by Richard Marmorstein - $date$</h3>

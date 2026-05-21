@@ -1,7 +1,7 @@
 ---
 title: Software Development and the False Promise of Science
 class: prose
-description: Richard's Software Blog
+description: "Software developers demand peer-reviewed evidence for everything, except their own strongly held beliefs about building software."
 quote: "You cannot adopt the mindset of a pancreas in hopes of building an introspective understanding of its secretions."
 ---
 <img src="../images/dropCapY.jpeg" alt="Y" class="dropCap" />ou are, I will assume, the typical software developer. In arguments about anything from "will single payer healthcare be good for the economy?" to "can Myers-Briggs personality tests be a meaningful basis for business decisions" -- your habitual response is to cite a peer-reviewed, scientific study to bolster your argument.

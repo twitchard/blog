@@ -1,7 +1,7 @@
 ---
 title: "Building software is not a job scheduling optimization problem"
 class: prose
-description: Richard's Software Blog
+description: "A skeptical take on backlog grooming, story points, and sprints, and why freeform, organic coordination usually serves teams better."
 quote: "Lightweight, freeform, unstructured process wherever possible"
 
 ---
