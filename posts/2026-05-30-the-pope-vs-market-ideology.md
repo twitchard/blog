@@ -10,7 +10,7 @@ thumbnail: "https://twitchard.github.io/images/dropCapPope.jpg"
 
 It's a long document, with many purposes and many audiences. What stood out to me were a few passages related to *market ideology*, so to speak. I'm attuned to this as I used to study economics and have leaned libertarian at some stages of my life.
 
-## Pope Leo: The right to private property is (in)violable
+## Popes Leo: The right to private property is (in)violable
 
 The Pope calls for the AI industry to be subject to oversight and regulation.
 
@@ -20,19 +20,19 @@ But what about property rights? Shouldn't the owners of businesses be allowed to
 
 > Certainly there is a right to private property, which has its own specific meaning and purpose, yet it is always subordinate… In the Church's tradition, property has been viewed as a means of protecting and managing goods so that they may better serve the common good. Since "the Christian tradition has never recognized the right to private property as absolute or inviolable," its social function must not be considered a mere theological opinion, but a doctrine of the Church, already present in Sacred Scripture and in the writings of the Church Fathers. (MH 66)
 
-So is the Pope a socialist? A communist?
+What is this? Socialism?
 
 > It is the State's responsibility to ensure cohesion, unity and the proper organization of civil society, so that the common good can be pursued with everyone's contribution. In practical terms, this means that public authorities have the delicate duty to "harmonize the different sectoral interests with the requirements of justice," seeking a balance between individual interests and the common good, without leaving behind the most vulnerable. (MH 63)
 
-This isn't quite "from each according to his ability, to each according to his need", but it reads to me like "socialism would be fine if socialism were the best thing for upholding the common good."
+This isn't quite "from each according to his ability, to each according to his need", but it reads to me like "socialism would be fine if socialism were proven empirically to be the best thing for upholding the common good."
 
-So how about it? Is socialism the best thing for upholding the common good? Certainly not, if you go back a Leo. Leo XIII writes in [*Rerum Novarum*](https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_15051891_rerum-novarum.html):
+So how about it? Is it? Certainly not, if you go back a Leo. Leo XIII writes in [*Rerum Novarum*](https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_15051891_rerum-novarum.html):
 
 > Hence, it is clear that the main tenet of socialism, community of goods, must be utterly rejected, since it only injures those whom it would seem meant to benefit, is directly contrary to the natural rights of mankind, and would introduce confusion and disorder into the commonweal. The first and most fundamental principle, therefore, if one would undertake to alleviate the condition of the masses, must be the inviolability of private property. (RN 15)
 
-So what gives? Here's the 1891 Pope Leo saying the inviolability of private property is fundamental, but then you've got 2026 Pope Leo saying private property has never been recognized as inviolable (while referencing *Rerum Novarum* left and right and even dating MH to its 135th anniversary, to the day)? Explain this?!?
+So 1891 Pope Leo says the inviolability of private property is fundamental, but 2026 Pope Leo says private property has never been recognized as inviolable. What gives?
 
-Best I can tell, there are two different things meant by "right to private property". There is the right *to hold anything in private whatsoever*, which 1891 Leo said was inviolable, contra socialists who wanted to abolish the entire institution; and then there is the right that *what you hold in private is not interfered with by the state*, which 2026 Leo says **is** violable, contra libertarians who think the state has no business regulating private affairs.
+Pope Leo in 1891 means the right to *to hold anything in private at all*, which he holds is inviolable contra socialists who wanted everything held in common. Pope Leo in 2026 speaks of a right that *what you hold in private is not interfered with by the state* and holds this **is** violable, contra libertarians who think the state has no business regulating private affairs.
 
 -----
 
@@ -56,7 +56,7 @@ As a specific example of the moral dimension that redistribution can't address, 
 
 So imagine AI comes along, creates a whole bunch of material wealth but at the same time creates mass unemployment – a scenario anticipated by some prognosticators. Maybe the government gives us our UBI checks and we can spend it all on more consumer goods than we ever dreamt of, and hey we can probably afford great healthcare too. By the measure of GDP and in terms of efficiency, this is a win.[^econ101] But for the Pope, the level of wealth in society isn't as important as questions like, is everybody participating and communing together?
 
-## Conclusion
+## Go forth, the post is ended
 
 The Internet is full of people whose take is "oh wow, the Pope wrote some thoughtful sentiments about AI, how quaint", but I didn't see it that way at all. It came off to me like an intellectual challenge to various Silicon Valley ideologies. He goes after transhumanism and utilitarianism, too. Anyway, consider reading it. The "encyclical" genre is a good change of pace from the barrage of hot AI takes on X and LinkedIn.
 
