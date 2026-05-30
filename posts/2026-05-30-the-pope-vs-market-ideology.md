@@ -1,6 +1,5 @@
 ---
 title: "The Pope vs. Market Ideology"
-draft: true
 class: prose
 description: "What Magnifica Humanitas has to say about property rights and economics 101."
 quote: "I read the Pope's new encyclical, Magnifica Humanitas."
