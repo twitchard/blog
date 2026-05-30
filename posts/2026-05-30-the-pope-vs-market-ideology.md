@@ -3,10 +3,10 @@ title: "The Pope vs. Market Ideology"
 class: prose
 description: "What Magnifica Humanitas has to say about property rights and economics 101."
 quote: "I read the Pope's new encyclical, Magnifica Humanitas."
-thumbnail: "https://twitchard.github.io/images/dropcap-i.jpg"
+thumbnail: "https://twitchard.github.io/images/dropCapPope.jpg"
 ---
 
-<img src="../images/dropcap-i.jpg" class="dropCap" alt="I" /> read the Pope's new encyclical, [*Magnifica Humanitas*](https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html).
+<img src="../images/dropCapPope.jpg" class="dropCap" alt="I" /> read the Pope's new encyclical, [*Magnifica Humanitas*](https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html).
 
 It's a long document, with many purposes and many audiences. What stood out to me were a few passages related to *market ideology*, so to speak. I'm attuned to this as I used to study economics and have leaned libertarian at some stages of my life.
 
