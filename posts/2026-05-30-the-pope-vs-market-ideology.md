@@ -56,7 +56,7 @@ As a specific example of the moral dimension that redistribution can't address, 
 
 So imagine AI comes along, creates a whole bunch of material wealth but at the same time creates mass unemployment – a scenario anticipated by some prognosticators. Maybe the government gives us our UBI checks and we can spend it all on more consumer goods than we ever dreamt of, and hey we can probably afford great healthcare too. By the measure of GDP and in terms of efficiency, this is a win.[^econ101] But for the Pope, the level of wealth in society isn't as important as questions like, is everybody participating and communing together?
 
-## Go Forth And Encycle
+## Conclusion
 
 The Internet is full of people whose take is "oh wow, the Pope wrote some thoughtful sentiments about AI, how quaint", but I didn't see it that way at all. It came off to me like an intellectual challenge to various Silicon Valley ideologies. He goes after transhumanism and utilitarianism, too. Anyway, consider reading it. The "encyclical" genre is a good change of pace from the barrage of hot AI takes on X and LinkedIn.
 
