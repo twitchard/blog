@@ -2,8 +2,8 @@
 title: "The Pope vs. Market Ideology"
 draft: true
 class: prose
-description: "Pope Leo XIV's new AI encyclical reads as a challenge to Silicon Valley's market ideology: property rights, efficiency, and faith in redistribution."
-quote: "The 'encyclical' genre is a good change of pace from the barrage of hot AI takes on X and LinkedIn."
+description: "What Magnifica Humanitas has to say about property rights and economics 101."
+quote: "I read the Pope's new encyclical, Magnifica Humanitas."
 thumbnail: "https://twitchard.github.io/images/dropcap-i.jpg"
 ---
 
