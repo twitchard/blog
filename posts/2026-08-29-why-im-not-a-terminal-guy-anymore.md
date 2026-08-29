@@ -21,7 +21,7 @@ This comes down to two things:
 
 ## Reading
 
-Proportional fonts are way better for reading than monospace fonts. There's a reason print books use monospace fonts. There's a reason that's the browser default.
+Proportional fonts are way better for reading than monospace fonts. There's a reason print books use proportional fonts. There's a reason that's the browser default.
 
 They give you something like 20% more real estate. Imagine a UI with a useless block that takes up 20% of your screen.
 
