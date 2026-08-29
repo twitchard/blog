@@ -4,6 +4,7 @@ class: prose
 description: "A jaded software engineer has never forgiven GUIs for what they did to him as a child. But in the age of coding agents, has he learned to hold his nose?"
 quote: "It is not lightly I say that coding agents are just better with a GUI."
 draft: false
+thumbnail: https://twitchard.github.io/images/opengui.jpeg
 ---
 
 <img src="../images/dropCapW.png" class="dropCap" alt="W" />hen I was 5, the family computer ran DOS. My teenage older brother had written a script so I could type "games", press enter, and then there would be a numbered selection of all the games on the computer. For me, this was the perfect UX.
