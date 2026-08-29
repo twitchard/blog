@@ -1,8 +1,8 @@
 ---
 title: "Why I'm not a Terminal Guy Anymore"
 class: prose
-description: ""
-quote: ""
+description: "A jaded software engineer has never forgiven GUIs for what they did to him as a child. But in the age of coding agents, has he learned to hold his nose?"
+quote: "It is not lightly I say that coding agents are just better with a GUI."
 draft: false
 ---
 
