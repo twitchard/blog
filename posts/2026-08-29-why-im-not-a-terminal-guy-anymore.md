@@ -10,7 +10,7 @@ draft: false
 
 One terrible day, the powers that be installed Windows 3.1. I was devastated.
 
-So do not question my legitimacy as a Terminal Guy™. I am dyed in the wool. I have [written lovingly about](https://twitchard.github.io/posts/2023-01-18-unicycles.html) my Vim, my Tmux, etc. It is not lightly I say that coding agents are just better with a GUI. (I use both ChatGPT Desktop and Cursor).
+So do not question my legitimacy as a Terminal Guy™. I am dyed in the wool. I have [written lovingly about](https://twitchard.github.io/posts/2023-01-18-unicycles.html) my Vim, my Tmux, etc. I have a video of my phone of my son at 2 saying "open up Vim, open up Vim" in front of the fake laptop at IKEA. It is not lightly I say that coding agents are just better with a GUI. (I use both ChatGPT Desktop and Cursor).
 
 This comes down to two things:
 
