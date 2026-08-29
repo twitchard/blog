@@ -22,11 +22,9 @@ Proportional fonts are way better for reading than monospace fonts. There's a re
 
 They give you something like 20% more real estate. Imagine a UI with a useless block that takes up 20% of your screen.
 
-Subjectively, I find proportional more comfortable to read. Objectively, I searched a little bit and it seems that the science thinks we can decode monospace fonts just as fast as proportional fonts. 
+Subjectively, I find proportional more comfortable to read. Objectively, I searched a little bit and it seems that the science thinks we can decode monospace fonts just as fast as proportional fonts. So alas, I cannot beat you over the head with my opinion using Science™.
 
-Monospace has its advantages for code: alignment, giving proper emphasis to punctuation characters -- but I write code by hand far, far less than I write prose to coding agents. I also read much more prose than code, because these agents are blabbermouths. So yes, sign me up for 20% more words that fit without scrolling, please.
-
-
+Monospace has its advantages for code: alignment, giving proper emphasis to punctuation characters -- but I find these days I write code by hand far, far less than I write prose to coding agents, and far, far, far less than I read prose by these agents, who are insufferable blabbermouths. So yes, sign me up for 20% more words that fit without scrolling, please.
 
 ## Scrolling
 
@@ -48,6 +46,7 @@ I really like having a little sidebar where I can see what sessions I have and w
 Before that I was splitting tmux panes, promoting them to their own windows, and naming tmux sessions manually with single-word names in the sidebar at the bottom. This scaled comfortably to me having 4 somewhat active sessions? But inactive sessions I just had to kill and ~forget about. With my GUIs I typically have about five somewhat active sessions but also ten or so inactive sessions that I'm still thinking about occasionally.
 
 The sidebar paradigm is just better, especially in a world where sessions are spinning up other sessions and communicating with them.
+
 * Caveat: I should probably try cmux. I have not.
 * Caveat: The claude TUI was just starting to add features related to session organization back in June when I switched to GUIs. Maybe it's good now?
 
