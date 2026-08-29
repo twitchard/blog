@@ -13,7 +13,9 @@ One terrible day, the powers that be installed Windows 3.1. I was devastated.
 So do not question my legitimacy as a Terminal Guy™.  I am dyed in the wool. It is not lightly I say that coding agents are just better with a GUI. (I use both ChatGPT Desktop and Cursor).
 
 This comes down to two things:
+
 1. GUI is better for reading prose than the terminal.
+
 2. GUI is easier to keep organized than the terminal.
 
 ## Reading
@@ -22,9 +24,11 @@ Proportional fonts are way better for reading than monospace fonts. There's a re
 
 They give you something like 20% more real estate. Imagine a UI with a useless block that takes up 20% of your screen.
 
-Subjectively, I find proportional more comfortable to read. Objectively, I searched a little bit and it seems that the science thinks we can decode monospace fonts just as fast as proportional fonts. So alas, I cannot beat you over the head with my opinion using Science™.
+Subjectively, I find proportional more comfortable to read. Objectively, I searched a little bit and it seems that the science thinks we can decode monospace fonts just as fast as proportional fonts. 
 
-Monospace has its advantages for code: alignment, giving proper emphasis to punctuation characters -- but I find these days I write code by hand far, far less than I write prose to coding agents, and far, far, far less than I read prose by these agents, who are insufferable blabbermouths. So yes, sign me up for 20% more words that fit without scrolling, please.
+Monospace has its advantages for code: alignment, giving proper emphasis to punctuation characters -- but I find these days I write code by hand far, far less than I write prose to coding agents, because these agents are blabbermouths. I also read much more prose than code, so yes, sign me up for 20% more words that fit without scrolling, please.
+
+
 
 ## Scrolling
 
