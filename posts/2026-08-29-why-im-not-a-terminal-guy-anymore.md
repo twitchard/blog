@@ -39,7 +39,7 @@ I never really had a problem scrolling bash sessions in the terminal -- perhaps 
 In the GUI, you have the scrollbar of course. I lose my place less. And the ChatGPT app has these brilliant little tick marks so I can peek through and navigate to the *user messages* in the chat.
 
 Screenshot:
-![[Pasted image 20260828110850.png]]
+![codex-ticks](../images/codex-ticks.png)
 
 ## Organization
 
