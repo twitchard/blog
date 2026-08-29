@@ -60,7 +60,7 @@ Another thing I get a lot of mileage out of is Codex "deeplinks", e.g. if I clic
 
 Would I ever switch back to doing things in the terminal?
 
-I think if there really were the agent chat equivalent to Vim — "you're going to invest a little bit in learning this 'language' of different composable agent management primitives and loading it into your muscle memory, and after that you will feel like a leet haxor" — that would be pretty compelling to me.
+I think if there really were the agent chat equivalent to Vim — "you're going to invest a little bit in learning this 'language' of different composable agent management primitives and loading it into your muscle memory, and after that you will feel like a leet haxor" — that would be pretty compelling to me. But [as blogger Charalampos Kardaris argues](https://ckardaris.com/blog/2026/08/28/keyboard-driven-guis.html), there's no reason such keyboard-driven interfaces would have to be TUIs as opposed to GUIs.
 
 On the other hand, I really hope (and expect) that agent management will just die. My ideal is a single chat where I can stream-of-consciousness (via conversational voice), have things automatically routed to the right context, and there's an agent controlling some rich UI surface (a browser? my entire desktop?) so I can observe results in a high bandwidth way.
 
