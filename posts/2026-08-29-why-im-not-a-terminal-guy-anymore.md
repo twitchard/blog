@@ -6,7 +6,7 @@ quote: ""
 draft: true
 ---
 
-When I was 5, the family computer ran DOS. My teenage older brother had written a script so I could type "games", press enter, and then there would be a numbered selection of all the games on the computer. For me, this was the perfect UX. 
+<img src="../images/dropcap-w.jpg" class="dropCap" alt="W" />hen I was 5, the family computer ran DOS. My teenage older brother had written a script so I could type "games", press enter, and then there would be a numbered selection of all the games on the computer. For me, this was the perfect UX. 
 
 One terrible day, the powers that be installed Windows 3.1. I was devastated.
 
