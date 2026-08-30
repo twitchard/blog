@@ -1,4 +1,4 @@
-a---
+---
 title: "Why I'm not a Terminal Guy Anymore"
 class: prose
 description: "A jaded software engineer has never forgiven GUIs for what they did to him as a child. But in the age of coding agents, has he learned to hold his nose?"
