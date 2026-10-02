@@ -1,9 +1,9 @@
 $for(posts)$
     <li>
-        <a href="$url$">$title$</a> - $date$
+        <a href="$url$">$title$$if(externalUrl)$ &#8599;$endif$</a>$if(externalUrl)$ (on $externalSource$)$endif$ - $date$
     $if(quote)$
     - <em class="excerpt">$quote$</em>
-    </li>
     $endif$
+    </li>
 $endfor$
 <!-- <li><a href="/archive.html">(More)</a> -->

@@ -85,13 +85,19 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" aboutCtx
                 >>= relativizeUrls
 
+    -- Stubs for posts that live elsewhere (see external/*.md). They have no
+    -- route, so no page is generated; they only show up in the homepage list.
+    match "external/*" $ compile getResourceBody
+
     match "index.html" $ do
         route idRoute
         compile $ do
-            allPosts <- recentFirst =<< loadAll "posts/*"
-            posts <- nonDrafts allPosts
+            allPosts <- loadAll "posts/*"
+            nonDraftPosts <- nonDrafts allPosts
+            externals <- loadAll "external/*"
+            posts <- recentFirst (nonDraftPosts ++ externals)
             let indexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
+                    listField "posts" listCtx (return posts) `mappend`
                     metaCtx                                  `mappend`
                     defaultContext
 
@@ -109,6 +115,19 @@ nonDraft :: Item String -> Compiler (Maybe (Item String))
 nonDraft item = do
   draftField <- getMetadataField (itemIdentifier item) "draft"
   return (if draftField == (Just "true") then Nothing else Just item)
+
+-- | Like postCtx, but "url" points at externalUrl for external stubs.
+listCtx :: Context String
+listCtx = urlOrExternal `mappend` postCtx
+  where
+    urlOrExternal = field "url" $ \item -> do
+        let ident = itemIdentifier item
+        ext <- getMetadataField ident "externalUrl"
+        case ext of
+            Just u  -> return u
+            Nothing -> do
+                r <- getRoute ident
+                maybe empty (return . toUrl) r
 
 postCtx :: Context String
 postCtx =
